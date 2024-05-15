@@ -4,6 +4,7 @@ const list = ['wheat', 'carrots', 'potatoes', 'nether_wart', 'beetroot']
 world.beforeEvents.itemUse.subscribe(data => {
     const { source, itemStack } = data
     if (itemStack.typeId.endsWith("_hoe")) {
+      try {
         const equippable = source.getComponent("equippable")
         const item = equippable?.getEquipment(EquipmentSlot.Mainhand)
         const block = source.getBlockFromViewDirection().block
@@ -31,6 +32,7 @@ world.beforeEvents.itemUse.subscribe(data => {
                 })
             }
         }
+      } catch (e) {}
     }
 })
 

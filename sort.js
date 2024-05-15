@@ -11,7 +11,6 @@ system.runInterval(() => {
     obj.forEach(pl => {
         const dynamicIds = pl.getDynamicPropertyIds().filter(id => id.startsWith('chest:'))
         if (dynamicIds) {
-            // pl.onScreenDisplay.setActionBar(`${dynamicIds.map(id => `${id} (${pl.getDynamicProperty(id)})`)}`)
             dynamicIds.forEach(id => {
                 let time = pl.getDynamicProperty(id) || 0
                 if (time > 0) pl.setDynamicProperty(id, time - 1)
@@ -87,9 +86,7 @@ function sort(pl, block) {
 }
 
 
-/** 
- * @param {ItemStack} item 
- */
+/** @param {ItemStack} item  */
 function extraLib(item, countArray) {
     const privilege = [
         `oak`, `ladder`, 'trapdoor', 'fence_gate', 'wooden', 'stick',
@@ -103,7 +100,7 @@ function extraLib(item, countArray) {
     if (find > -1) {
         if (typeId.includes('log')) find -= 1
         if (typeId.includes('_fence')) find += 1
-        world.sendMessage(`§7${typeId} §f${privilege.length} - ${find} = ${privilege.length - find} (${typeId.includes('log') ? `it log +1` : ``}${typeId.includes('_fence') ? `it fence -1` : ``})`)
+        // DEBUG: world.sendMessage(`§7${typeId} §f${privilege.length} - ${find} = ${privilege.length - find} (${typeId.includes('log') ? `it log +1` : ``}${typeId.includes('_fence') ? `it fence -1` : ``})`)
         return privilege.length - find
     }
     return 0
