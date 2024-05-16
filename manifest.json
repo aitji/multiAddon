@@ -1,8 +1,8 @@
 {
   "format_version": 2,
   "header": {
-    "description": "§7inventory & hp\n§8this addon support @stable(1.10.0) 100% supported\n§fAddon Version: 1.1.2",
-    "name": "§7inventory §f§lshare",
+    "description": "§fcreator§a: @aitji\n§7this addon support @stable(1.10.0)",
+    "name": "§7Multi§f§lAddon!",
     "uuid": "c370b0a3-5b5d-46b7-9863-d0b326aaf4f8",
     "version": [
       1,
@@ -65,6 +65,11 @@
     {
       "folder_name": "sleep",
       "name": "§l§bSLEEP\n§r§fone player sleep is fine!",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "sort",
+      "name": "§l§6SORT\n§r§fsort chest with stick",
       "memory_tier": 1
     },
     {
