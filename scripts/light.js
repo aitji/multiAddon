@@ -173,7 +173,7 @@ system.runInterval(() => {
 
 /** @param {Block} block @param {Number} level */
 function put(block, level) {
-    let set = `light:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}:${level}:${block.isLiquid}`
+    let set = `light:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}:${level}:${block.isLiquid || block.permutation.matches("minecraft:light_block")}`
     if (!world.getDynamicProperty(set) && block.permutation.matches("minecraft:light_block")) return
     if (block.isLiquid) if (block.permutation.getState('liquid_depth') !== 0) return
     let state = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', Number(level))
