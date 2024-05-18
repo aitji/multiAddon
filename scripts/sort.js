@@ -45,79 +45,79 @@ function handelItem(pl, item) {
 }
 
 function sort(pl, block) {
-    if (!block) return;
+    if (!block) return
 
-    let inv;
-    try {
-        inv = block.getComponent("inventory").container;
-    } catch (e) {
-        pl.onScreenDisplay.setActionBar(`§cFailed to get block inventory!`);
-        return;
+    let inv
+    try { inv = block.getComponent("inventory").container }
+    catch (e) {
+        pl.onScreenDisplay.setActionBar(`§cFailed to get block inventory!`)
+        return
     }
 
-    let itemsObj = [];
+    let itemsObj = []
     for (let c = 0; c < inv.size; c++) {
-        let item = inv.getItem(c);
+        let item = inv.getItem(c)
         if (item) {
-            itemsObj.push(item);
-            inv.setItem(c, null);
+            itemsObj.push(item)
+            inv.setItem(c, null)
         }
     }
 
     try {
-        pl.onScreenDisplay.setActionBar(`§6Chest Sorted!`);
-        const countArray = count(itemsObj);
+        pl.onScreenDisplay.setActionBar(`§6Chest Sorted!`)
+        const countArray = count(itemsObj)
         itemsObj.sort((a, b) => {
-            const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray);
-            const bValue = getCount(b.nameTag || b.typeId.split(":")[1], countArray) + extraLib(b, countArray);
+            const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray)
+            const bValue = getCount(b.nameTag || b.typeId.split(":")[1], countArray) + extraLib(b, countArray)
             if (aValue !== bValue) {
-                return bValue - aValue;
+                return bValue - aValue
             } else {
-                const aKey = a.nameTag || a.typeId.split(":")[1];
-                const bKey = b.nameTag || b.typeId.split(":")[1];
-                return aKey.localeCompare(bKey);
+                const aKey = a.nameTag || a.typeId.split(":")[1]
+                const bKey = b.nameTag || b.typeId.split(":")[1]
+                return aKey.localeCompare(bKey)
             }
-        });
+        })
 
-        for (let item of itemsObj) inv.addItem(item);
+        for (let item of itemsObj) inv.addItem(item)
     } catch (e) {
-        pl.sendMessage(`§7Error sorting! - ${e}`);
+        pl.sendMessage(`§7Error sorting! - ${e}`)
     }
 }
 
 
-/** @param {ItemStack} item  */
+/** 
+ * @param {ItemStack} item 
+ */
 function extraLib(item, countArray) {
     const privilege = [
         `oak`, `ladder`, 'trapdoor', 'fence_gate', 'wooden', 'stick',
         `spruce`, `birch`, `jungle`,
         `acacia`, `dark_oak`, `mangrove`, `cherry`,
         `bamboo`, `crimson`, `warped`
-    ];
+    ]
 
     let typeId = item.typeId.split(":")[1]
     let find = privilege.findIndex(a => typeId.startsWith(a))
     if (find > -1) {
         if (typeId.includes('log')) find -= 1
         if (typeId.includes('_fence')) find += 1
-        // DEBUG: world.sendMessage(`§7${typeId} §f${privilege.length} - ${find} = ${privilege.length - find} (${typeId.includes('log') ? `it log +1` : ``}${typeId.includes('_fence') ? `it fence -1` : ``})`)
         return privilege.length - find
     }
     return 0
 }
 
 function count(input) {
-    const result = {};
+    const result = {}
 
     input.forEach((item) => {
-        const typeId = item.nameTag || item.typeId.split(":")[1];
-        result[typeId] = (result[typeId] || 0) + item.amount || 0;
-    });
-    return result;
+        const typeId = item.nameTag || item.typeId.split(":")[1]
+        result[typeId] = (result[typeId] || 0) + item.amount || 0
+    })
+    return result
 }
 
 function getCount(item, countArray) {
-    return countArray[item] || 0;
+    return countArray[item] || 0
 }
 
 function isContainer(block_) {
