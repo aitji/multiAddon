@@ -193,13 +193,6 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
     }
 })
 
-world.afterEvents.playerPlaceBlock.subscribe(data => {
-    const { block } = data
-    const set = `light:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}:`
-    const dy = world.getDynamicPropertyIds().find(dy => dy.startsWith(set))
-    world.setDynamicProperty(dy, undefined)
-})
-
 if (DEBUG) {
     world.afterEvents.itemUse.subscribe(data => {
         const { itemStack } = data
