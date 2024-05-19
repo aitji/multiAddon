@@ -2,7 +2,6 @@ import { world, system, EquipmentSlot } from "@minecraft/server"
 
 let lastHealth = 20
 const overworld = world.getDimension("overworld")
-overworld.runCommandAsync("gamerule naturalregeneration true")
 overworld.runCommandAsync("gamerule doimmediaterespawn true")
 
 world.afterEvents.playerSpawn.subscribe((data) => {

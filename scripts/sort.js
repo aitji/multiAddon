@@ -26,7 +26,7 @@ function handelItem(pl, item) {
         let headLocY = Math.abs(Math.floor(headLoc.y)) - Math.abs(headLoc.y)
         if (!(headLocY < 0.18)) return
         /** @type {Block} */
-        let block = pl.getBlockFromViewDirection(blockRayCast).block
+        let { block } = pl.getBlockFromViewDirection(blockRayCast)
         system.run(() => {
             if ((!(isContainer(block.permutation)))) {
                 pl.onScreenDisplay.setActionBar(`§7Can only be used on a chest!`)

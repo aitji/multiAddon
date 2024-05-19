@@ -7,7 +7,7 @@ world.beforeEvents.itemUse.subscribe(data => {
         try {
             const equippable = source.getComponent("equippable")
             const item = equippable?.getEquipment(EquipmentSlot.Mainhand)
-            const block = source.getBlockFromViewDirection().block
+            const { block } = source.getBlockFromViewDirection()
 
             if (block) {
                 let level = 7

@@ -174,12 +174,10 @@ function isFrame(block) {
 world.afterEvents.entityRemove.subscribe(data => {
     const { removedEntityId } = data
     world.getDynamicPropertyIds().forEach(dy => {
-        if (dy.startsWith("light:")) {
-            if (dy.split(":")[7].toString() === removedEntityId.toString()) {
-                if (dy.split(':')[6] === 'true') world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} water`)
-                else world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} air`)
-                world.setDynamicProperty(dy, undefined)
-            }
+        if (dy.startsWith("light:") && dy.split(":")[7].toString() === removedEntityId.toString()) {
+            if (dy.split(':')[6] === 'true') world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} water`)
+            else world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} air`)
+            world.setDynamicProperty(dy, undefined)
         }
     })
 })
