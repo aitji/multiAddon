@@ -4,7 +4,7 @@ import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, Blo
 const DELAY = 0
 const DEBUG = false
 const DECAY_LIGHT_TICK = 3
-const REDUCE_LIGHT = 0.8 /** 0.7 is kinda best! */
+const REDUCE_LIGHT = 0.8
 
 if (DEBUG) world.sendMessage(`reloaded!\n§c* WARNING, you're enable debug mode please disable before publish!`)
 
@@ -107,13 +107,9 @@ system.runInterval(() => {
                 world.getDimension(dim).getBlock({ x: Number(x), y: Number(y), z: Number(z) }).setPermutation(state)
                 world.setDynamicProperty(dy, time - 1)
             } catch (e) {
-                // console.warn(`§7something when wrong\nerror: ${e}\nfrom: ${dy.split(":").join(', ')}\n§fworld trying to fix that issue`)
-                // if (dy.split(':')[6] === 'true') world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} water`)
-                // else world.getDimension(dy.split(':')[1]).runCommandAsync(`setblock ${dy.split(':')[2]} ${dy.split(':')[3]} ${dy.split(':')[4]} air`)
                 world.setDynamicProperty(dy, undefined)
             }
         } else if (dy.startsWith('frame:')) {
-            // frame:${block.dimension}:${block.location.x}:${block.location.y}:${block.location.z}
             try {
                 let arr = dy.split(":")
                 let dim = arr[1]
@@ -153,7 +149,6 @@ system.runInterval(() => {
 
     world.getDimension('overworld').getEntities({ type: "minecraft:item" }).forEach(en => processEntity(en))
     world.getAllPlayers().forEach(pl => processEntity(pl, true))
-    // DEBUG: world.sendMessage(`${world.getDimension('overworld').getBlock({ x: 5, y: 78, z: 22 }).getItemStack(1).typeId}`)
 }, DELAY)
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */
@@ -167,9 +162,7 @@ function put(block, level, pl, force = false) {
     if (!world.getDynamicProperty(set)) world.setDynamicProperty(set, DECAY_LIGHT_TICK)
 }
 /** @param {Block} block @returns {Boolean}  */
-function isFrame(block) {
-    return block.permutation.matches('minecraft:frame') || block.permutation.matches('minecraft:glow_frame')
-}
+function isFrame(block) { return block.permutation.matches('minecraft:frame') || block.permutation.matches('minecraft:glow_frame') }
 
 world.afterEvents.entityRemove.subscribe(data => {
     const { removedEntityId } = data
@@ -182,7 +175,6 @@ world.afterEvents.entityRemove.subscribe(data => {
     })
 })
 
-// add dp
 world.afterEvents.playerPlaceBlock.subscribe(data => {
     const { block } = data
     if (isFrame(block)) {
@@ -192,7 +184,6 @@ world.afterEvents.playerPlaceBlock.subscribe(data => {
     }
 })
 
-// remove dp
 world.beforeEvents.playerBreakBlock.subscribe(data => {
     const { block } = data
     if (isFrame(block)) {
@@ -211,7 +202,7 @@ world.afterEvents.playerPlaceBlock.subscribe(data => {
 
 if (DEBUG) {
     world.afterEvents.itemUse.subscribe(data => {
-        const { source, itemStack } = data
+        const { itemStack } = data
         if (itemStack.typeId === 'minecraft:barrier') {
             world.getDynamicPropertyIds().map(dy => {
                 world.sendMessage(`§ccleaning: §7${dy}`)
