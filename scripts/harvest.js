@@ -1,4 +1,4 @@
-import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent, EntityInventoryComponent, Container } from "@minecraft/server"
+import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent, EntityInventoryComponent, Container, BlockPermutation, Block } from "@minecraft/server"
 const list = ['wheat', 'carrots', 'potatoes', 'nether_wart', 'beetroot']
 
 world.beforeEvents.itemUse.subscribe(data => {
@@ -7,6 +7,7 @@ world.beforeEvents.itemUse.subscribe(data => {
         try {
             const equippable = source.getComponent("equippable")
             const item = equippable?.getEquipment(EquipmentSlot.Mainhand)
+            /** @type {Block} */
             const { block } = source.getBlockFromViewDirection()
 
             if (block) {
@@ -20,7 +21,6 @@ world.beforeEvents.itemUse.subscribe(data => {
                         /** @type {ItemDurabilityComponent} */
                         let dur = item.getComponent("durability")
                         if (dur.maxDurability - dur.damage === 0) {
-                            /** @type {Container} */
                             source.runCommandAsync(`clear @s ${itemStack.typeId} ${dur.damage} 1`)
                             source.runCommandAsync(`playsound random.break @a ~~~`)
                         } else {
