@@ -2,85 +2,110 @@ import { world, system, EquipmentSlot } from "@minecraft/server"
 
 const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
 let inventories = []
+const check = (a, b) => a.length === b.length && a.every(x => b.some(y => JSON.stringify(x) === JSON.stringify(y)))
 
-const playerInv = () => system.run(() => {
-    if (world.getAllPlayers().length > 1) {
-        updatedInventory()
-    }
-    playerInv()
+world.afterEvents.playerSpawn.subscribe(data => {
+    const { player: pl, initialSpawn } = data
+    if (!initialSpawn) return
+    system.run(() => {
+        pl.addTag('INV.TEMPORARY.TAG')
+
+        const plr = world.getAllPlayers().find(f => f.name !== pl.name)
+        if (plr) {
+            const plrInv = plr.getComponent('inventory').container
+            const plrEqu = plr.getComponent('minecraft:equippable')
+            const plInv = pl.getComponent('inventory').container
+            const plEqu = pl.getComponent('minecraft:equippable')
+
+            for (let i = 0; i < 36; i++) {
+                const item = plrInv.getItem(i)
+                if (item) plInv.setItem(i, item)
+            }
+
+            for (const slot of equipmentSlots) {
+                const item = plrEqu.getEquipment(slot)
+                plEqu.setEquipment(slot, item)
+            }
+
+            inventories.push({
+                name: pl.name,
+                inv: newInv(plInv),
+                equ: newInv(plEqu, true)
+            })
+        }
+        pl.removeTag('INV.TEMPORARY.TAG')
+    })
 })
-playerInv()
 
-function updatedInventory() {
-    for (const player of world.getAllPlayers()) {
+system.runInterval(() => system.run(() => {
+    if (world.getAllPlayers().filter(plr => !plr.hasTag('INV.TEMPORARY.TAG')).length > 1) update()
+}))
 
-        const inventory = player.getComponent('inventory').container
-        const equipment = player.getComponent('minecraft:equippable')
-        const invObject = inventories.find(f => { if (f.playerName === player.name) return f })
-        if (invObject) {
-            const thisInventory = newInventory(inventory)
-            const thisEquipment = newInventory(equipment, true)
-            if (!matchedObject(invObject.playerInventory, thisInventory) || !matchedObject(invObject.playerEquipment, thisEquipment)) {
+function update() {
+    for (const pl of world.getAllPlayers()) {
+        const inv = pl.getComponent('inventory').container
+        const equ = pl.getComponent('minecraft:equippable')
+        const invObj = inventories.find(f => f.name === pl.name)
+
+        if (invObj) {
+            const _inv = newInv(inv)
+            const _equ = newInv(equ, true)
+
+            if (!check(invObj.inv, _inv) || !check(invObj.equ, _equ)) {
                 world.getAllPlayers().forEach(f => {
-                    if (f.name != player.name) {
-                        const container = f.getComponent('inventory').container
+                    if (f.name !== pl.name) {
+                        const { container } = f.getComponent('inventory')
                         for (let i = 0; i < 36; i++) {
-                            const itemStack = inventory.getItem(i)
-                            container.setItem(i, itemStack)
+                            const item = inv.getItem(i)
+                            container.setItem(i, item)
                         }
                         const equip = f.getComponent('minecraft:equippable')
                         for (const slot of equipmentSlots) {
-                            const itemStack = equipment.getEquipment(slot)
-                            equip.setEquipment(slot, itemStack)
+                            const item = equ.getEquipment(slot)
+                            equip.setEquipment(slot, item)
                         }
                     }
                 })
-                inventories.forEach(f => { f.playerInventory = thisInventory; f.playerEquipment = thisEquipment })
+                invObj.inv = _inv
+                invObj.equ = _equ
             }
-        }
-        else {
-            const otherPlayer = world.getAllPlayers().find(f => { if (f.name != player.name) return f })
-            const otherInventory = otherPlayer ? otherPlayer.getComponent('inventory') : undefined
-            if (inventory) {
-                const otherEquipment = otherPlayer.getComponent('minecraft:equippable')
+        } else {
+            const plr = world.getAllPlayers().find(f => f.name !== pl.name)
+            const plrInv = plr ? plr.getComponent('inventory').container : undefined
+
+            if (plrInv) {
+                const plrEqu = plr.getComponent('minecraft:equippable')
                 for (let i = 0; i < 36; i++) {
-                    const itemStack = otherInventory.container.getItem(i)
-                    if (itemStack) inventory.setItem(i, itemStack)
+                    const item = plrInv.getItem(i)
+                    if (item) inv.setItem(i, item)
                 }
-                for (const slot of equipmentSlots) {
-                    equipment.setEquipment(slot, otherEquipment.getEquipment(slot))
-                }
-                inventories.push({ playerName: player.name, playerInventory: newInventory(inventory), playerEquipment: newInventory(equipment, true) })
+                for (const slot of equipmentSlots) equ.setEquipment(slot, plrEqu.getEquipment(slot))
+                inventories.push({
+                    name: pl.name,
+                    inv: newInv(inv),
+                    equ: newInv(equ, true)
+                })
             }
         }
     }
 }
 
-function matchedObject(a, b) {
-    if (a.length !== b.length) {
-        return false
-    }
-    return a.every(item => b.some(
-        (otherItem) => JSON.stringify(item) === JSON.stringify(otherItem)
-    ))
-}
-
-function newInventory(container, equipment) {
+function newInv(con, equ_ = false) {
     let items = []
-    if (!equipment) {
+    if (!equ_) {
         for (let i = 0; i < 36; i++) {
-            const itemStack = container.getItem(i)
-            if (itemStack) {
-                const durability = itemStack.getComponent("durability") ? itemStack.getComponent("durability").damage : 0
-                items.push({ typeId: itemStack.typeId, amount: itemStack.amount, durability: durability, slot: i })
+            const item = con.getItem(i)
+            if (item) {
+                const durability = item.getComponent("durability") ? item.getComponent("durability").damage : 0
+                items.push({ typeId: item.typeId, amount: item.amount, durability, slot: i })
             }
         }
     } else {
         for (const slot of equipmentSlots) {
-            const slotItem = container.getEquipment(slot)
-            const slotType = slotItem ? slotItem.typeId : ''
-            const slotDurability = slotItem ? slotItem.getComponent("durability") ? slotItem.getComponent("durability").damage : 0 : 0
-            items.push({ typeId: slotType, durability: slotDurability, slot: slot })
+            const item_ = con.getEquipment(slot)
+            const type_ = item_ ? item_.typeId : ''
+            const durability_ = item_ ? (item_.getComponent("durability") ? item_.getComponent("durability").damage : 0) : 0
+            items.push({ typeId: type_, durability: durability_, slot })
         }
     }
     return items
