@@ -9,9 +9,10 @@ world.afterEvents.playerSpawn.subscribe((data) => system.run(() => data.player.g
 world.afterEvents.entityHealthChanged.subscribe((data) => {
     system.run(async () => {
         if (data.entity.getComponent("health").currentValue === lastHealth) return
-        const players = world.getAllPlayers()
+        const players = world.getAllPlayers().filter(plr => plr.name !== data.entity.name)
+        if (players.length < 1) return
         if (data.newValue <= 0) await overworld.runCommandAsync(`gamerule showdeathmessages false`)
-        for (const pl of players.filter(plr => plr.name !== data.entity.name)) {
+        for (const pl of players) {
             /** @type {EntityHealthComponent} */
             const hp = pl.getComponent("health")
             if (data.newValue < lastHealth) pl.playSound('game.player.hurt', { volume: 0.3 })
