@@ -6,7 +6,8 @@ features = [
     {"folder_name": "harvest", "name": "§l§6HARVEST\n§r§fquick harvest all da crop!"},
     {"folder_name": "light", "name": "§l§9DYNAMIC LIGHT\n§r§fhold torch is so bright"},
     {"folder_name": "sleep", "name": "§l§bSLEEP\n§r§fone player sleep is fine!"},
-    {"folder_name": "sort", "name": "§l§6SORT\n§r§fsort chest with stick"}
+    {"folder_name": "sort", "name": "§l§6SORT\n§r§fsort chest with stick"},
+    {"folder_name": "durability", "name": "§l§aDURABILITY\n§r§fdisplay item durability!"}
 ]
 
 def combine_features(features):

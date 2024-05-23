@@ -7,7 +7,8 @@ features = {
     "harvest": "./harvest.js",
     "light": "./light.js",
     "sleep": "./sleep.js",
-    "sort": "./sort.js"
+    "sort": "./sort.js",
+    "durability": "./durability.js"
 }
 
 base_dir = 'subpacks'
