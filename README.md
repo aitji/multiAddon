@@ -31,7 +31,7 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 
 > [!CAUTION]
 > <div align="center"><h2>📜 License</h2></div>
-> Please read the [LICENSE](LICENSE) for information about usage rights and restrictions. 📄
+> Please read the <a href="LICENSE">LICENSE</a> for information about usage rights and restrictions. 📄
 > <div align="left"><img src=image/feature-imadethis.png></div>
 
 <hr>
