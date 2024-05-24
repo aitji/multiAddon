@@ -1,5 +1,5 @@
 <div align="center">
-  <h2>✨ MultiAddon ✨</h2>
+  <h1>✨ MultiAddon ✨</h1>
   <img src="https://img.shields.io/github/downloads/aitji/multiAddon/total?style=for-the-badge" alt="Downloads"/>
   <img src="https://img.shields.io/github/issues/aitji/multiAddon?lable=ISSUES%20OPEN&style=for-the-badge" alt="Issues Open"/>
   <img src="https://img.shields.io/github/commit-activity/m/aitji/multiAddon?style=for-the-badge" alt="Commits Per Week"/>
@@ -27,7 +27,21 @@ The addon settings can be customized via the in-game menu, as showcased in the s
   <img src=image/Screenshot_20240524-074128.png>
 </div>
 
-> [!NOTE]
+<hr>
+
+> [!CAUTION]
 > <div align="center"><h2>📜 License</h2></div>
 > Please read the [LICENSE](LICENSE) for information about usage rights and restrictions. 📄
-> <div align="center"><img src=image/feature-imadethis.png></div>
+> <div align="left"><img src=image/feature-imadethis.png></div>
+
+<hr>
+
+> [!IMPORTANT]
+> <div align="center"><h2>✅ TODO check-list</h2></div>
+> 
+> Actionbar won't not force display 1 it will store in db first
+> Code Combinder: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
+> Lighting: when chuck didn't load tried to kick it out!
+> Improvement sort.js
+
+[![visiter](https://visitcount.itsvg.in/api?id=aitji%3A%20&color=12&icon=3&pretty=true)](#)
