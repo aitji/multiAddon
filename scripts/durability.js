@@ -2,37 +2,48 @@ import {
     world, system, EquipmentSlot,
     ItemDurabilityComponent, ItemStack, EntityEquippableComponent
 } from "@minecraft/server"
-
 world.getAllPlayers().map(plr => plr.getDynamicPropertyIds().filter(dy => dy === 'hold' || dy === 'dmg').map(dy => plr.setDynamicProperty(dy, undefined)))
+const reName = (item) => item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ")
+
 const INTERVAL_TICK = 20
 const DISPLAY_ON_ACTIONBAR = true
 
-const reName = (item) => item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ")
+const equipmentSlots = [
+    EquipmentSlot.Head,
+    EquipmentSlot.Chest,
+    EquipmentSlot.Legs,
+    EquipmentSlot.Feet,
+    EquipmentSlot.Offhand,
+    EquipmentSlot.Mainhand
+]
 
 system.runInterval(() => {
     world.getAllPlayers().forEach(player => {
+        /** @type {EntityEquippableComponent} */
         const equippable = player.getComponent("equippable")
         if (!equippable) return resetProperties(player)
 
-        const item = equippable.getEquipment(EquipmentSlot.Mainhand)
-        if (!item) return resetProperties(player)
+        equipmentSlots.forEach(slot => {
+            const item = equippable.getEquipment(slot)
+            if (!item) return resetProperties(player)
 
-        const durability = item.getComponent("durability")
-        if (!durability) return resetProperties(player)
+            const durability = item.getComponent("durability")
+            if (!durability) return resetProperties(player)
 
-        const remainingDurability = durability.maxDurability - durability.damage
-        const hold = player.getDynamicProperty('hold') || ''
-        const holdTime = Number(hold.split("§|")[1]) || 0
-        const holdType = hold.split("§|")[0] || ''
+            const remainingDurability = durability.maxDurability - durability.damage
+            const hold = player.getDynamicProperty('hold') || ''
+            const holdTime = Number(hold.split("§|")[1]) || 0
+            const holdType = hold.split("§|")[0] || ''
 
-        let diff = remainingDurability - (player.getDynamicProperty('dmg') || 0)
-        if (diff === durability.maxDurability) diff = 0
+            let diff = remainingDurability - (player.getDynamicProperty('dmg') || 0)
+            if (diff === durability.maxDurability) diff = 0
 
-        updateItemNameTag(item, remainingDurability, durability.maxDurability, diff)
-        updatePlayerProperties(player, item, holdType, holdTime, remainingDurability)
+            updateItemNameTag(item, remainingDurability, durability.maxDurability, diff)
+            updatePlayerProperties(player, item, holdType, holdTime, remainingDurability)
 
-        item.setLore([`§r§7Durability: ${remainingDurability}/${durability.maxDurability}`])
-        equippable.setEquipment(EquipmentSlot.Mainhand, item)
+            item.setLore([`§r§7Durability: ${remainingDurability}/${durability.maxDurability}`])
+            equippable.setEquipment(slot, item)
+        })
     })
 }, INTERVAL_TICK)
 
