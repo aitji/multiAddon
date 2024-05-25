@@ -2,7 +2,7 @@ import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, Blo
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0
-const DEBUG = false
+const DEBUG = true
 const DECAY_LIGHT_TICK = 3
 const REDUCE_LIGHT = 0.8
 
