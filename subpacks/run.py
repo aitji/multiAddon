@@ -32,7 +32,6 @@ def create_combinations(features):
                     import_statement = f'import "{features[feature]}";\n'
                     f.write(import_statement)
                     print(f"  Added import: {import_statement.strip()}")
-                f.write("import \"./crossActionbar.js\"")
 
 create_combinations(features)
 

@@ -23,13 +23,13 @@ function handleItem(pl, item) {
         let { block } = pl.getBlockFromViewDirection(blockRayCast)
         system.run(() => {
             if (!isContainer(block.permutation)) {
-                pl.setDynamicProperty('request.actionbar', `§7Can only be used on a chest`)
+                player.onScreenDisplay.setActionBar(`§7Can only be used on a chest`)
                 return
             }
 
             const dynamicId = pl.getDynamicPropertyIds().find(id => id === `chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`)
             if (dynamicId) {
-                pl.setDynamicProperty('request.actionbar', `       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`)
+                player.onScreenDisplay.setActionBar(`       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`)
             } else {
                 pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 10)
                 sort(pl, block)
@@ -44,7 +44,7 @@ function sort(pl, block) {
     let inv
     try { inv = block.getComponent("inventory").container }
     catch (e) {
-        pl.setDynamicProperty('request.actionbar', `§cFailed to get block inventory!`)
+        player.onScreenDisplay.setActionBar(`§cFailed to get block inventory!`)
         return
     }
 
@@ -58,7 +58,7 @@ function sort(pl, block) {
     }
 
     try {
-        pl.setDynamicProperty('request.actionbar', `§6Chest Sorted`)
+        player.onScreenDisplay.setActionBar(`§6Chest Sorted`)
         const countArray = count(itemsObj)
         itemsObj.sort((a, b) => {
             const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray)

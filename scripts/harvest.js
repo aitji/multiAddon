@@ -33,7 +33,7 @@ world.beforeEvents.itemUseOn.subscribe(data => {
                 if (block.permutation.matches("minecraft:nether_wart")) level = 3
                 if (dy) {
                     if (!source.isSneaking) {
-                        player.setDynamicProperty('request.actionbar', `§o§ฟ§7sneak & break to fully destroy! §r§7| cooldown+`)
+                        player.onScreenDisplay.setActionBar(`§o§ฟ§7sneak & break to fully destroy! §r§7| cooldown+`)
                         data.cancel = true
                     }
                     return
@@ -74,7 +74,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
             let growth = block.permutation.getState("growth") || block.permutation.getState("age")
             if (!growth) {
                 if (!player.isSneaking) {
-                    player.setDynamicProperty('request.actionbar', `§o§ฟ§7sneak & break to fully destroy!`)
+                    player.onScreenDisplay.setActionBar(`§o§ฟ§7sneak & break to fully destroy!`)
                     data.cancel = true
                 }
                 return
@@ -94,7 +94,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
                 })
             } else {
                 if (!player.isSneaking) {
-                    player.setDynamicProperty('request.actionbar', `§o§ฟ§7sneak & break to fully destroy! §r§7| it not growth yet!`)
+                    player.onScreenDisplay.setActionBar(`§o§ฟ§7sneak & break to fully destroy! §r§7| it not growth yet!`)
                     data.cancel = true
                 }
             }
