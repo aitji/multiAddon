@@ -2,7 +2,7 @@ import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, Blo
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0
-const DEBUG = true
+const DEBUG = false
 const DECAY_LIGHT_TICK = 3
 const REDUCE_LIGHT = 0.8
 
@@ -139,7 +139,10 @@ system.runInterval(() => {
         } else if (dy.startsWith('frame:')) {
             try {
                 let arr = dy.split(":")
-                let [_, dim, x, y, z] = arr
+                let dim = arr[1]
+                let x = Number(arr[2])
+                let y = Number(arr[3])
+                let z = Number(arr[4])
                 let block = world.getDimension(dim).getBlock({ x: x, y: y, z: z })
                 if (!block || block.permutation.matches('minecraft:air')) {
                     world.setDynamicProperty(dy, undefined)
@@ -165,7 +168,7 @@ system.runInterval(() => {
                         blo = blo.offset({ x: 0, y: 1, z: 0 })
                     }
                 })
-            } catch (e) { /** possibly chuck isn't load, i won't remove this! */ }
+            } catch (e) { }
         }
     })
 
