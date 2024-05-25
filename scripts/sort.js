@@ -1,34 +1,28 @@
 import { Block, Container, ItemStack, system, world } from '@minecraft/server'
 
 let blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
+
 world.beforeEvents.itemUseOn.subscribe(data => {
     const { source, itemStack } = data
-    handelItem(source, itemStack)
+    handleItem(source, itemStack)
 })
 
 system.runInterval(() => {
-    const obj = world.getAllPlayers()
-    obj.forEach(pl => {
-        const dynamicIds = pl.getDynamicPropertyIds().filter(id => id.startsWith('chest:'))
-        if (dynamicIds) {
-            dynamicIds.forEach(id => {
-                let time = pl.getDynamicProperty(id) || 0
-                if (time > 0) pl.setDynamicProperty(id, time - 1)
-                else pl.setDynamicProperty(id, undefined)
-            })
-        }
+    world.getAllPlayers().forEach(pl => {
+        pl.getDynamicPropertyIds().filter(id => id.startsWith('chest:')).forEach(id => {
+            let time = pl.getDynamicProperty(id) || 0
+            pl.setDynamicProperty(id, time > 0 ? time - 1 : undefined)
+        })
     })
 }, 20)
 
-function handelItem(pl, item) {
+function handleItem(pl, item) {
     if (item?.typeId === "minecraft:stick" && pl.isSneaking) {
         let headLoc = pl.getHeadLocation()
-        let headLocY = Math.abs(Math.floor(headLoc.y)) - Math.abs(headLoc.y)
-        if (!(headLocY < 0.18)) return
-        /** @type {Block} */
+        if (Math.abs(Math.floor(headLoc.y)) - Math.abs(headLoc.y) < 0.18) return
         let { block } = pl.getBlockFromViewDirection(blockRayCast)
         system.run(() => {
-            if ((!(isContainer(block.permutation)))) {
+            if (!isContainer(block.permutation)) {
                 pl.setDynamicProperty('request.actionbar', `§7Can only be used on a chest`)
                 return
             }
@@ -69,13 +63,10 @@ function sort(pl, block) {
         itemsObj.sort((a, b) => {
             const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray)
             const bValue = getCount(b.nameTag || b.typeId.split(":")[1], countArray) + extraLib(b, countArray)
-            if (aValue !== bValue) {
-                return bValue - aValue
-            } else {
-                const aKey = a.nameTag || a.typeId.split(":")[1]
-                const bKey = b.nameTag || b.typeId.split(":")[1]
-                return aKey.localeCompare(bKey)
-            }
+            if (aValue !== bValue) return bValue - aValue
+            const aKey = a.nameTag || a.typeId.split(":")[1]
+            const bKey = b.nameTag || b.typeId.split(":")[1]
+            return aKey.localeCompare(bKey)
         })
 
         for (let item of itemsObj) inv.addItem(item)
@@ -84,10 +75,6 @@ function sort(pl, block) {
     }
 }
 
-
-/** 
- * @param {ItemStack} item 
- */
 function extraLib(item, countArray) {
     const privilege = [
         `oak`, `ladder`, 'trapdoor', 'fence_gate', 'wooden', 'stick',
@@ -108,7 +95,6 @@ function extraLib(item, countArray) {
 
 function count(input) {
     const result = {}
-
     input.forEach((item) => {
         const typeId = item.nameTag || item.typeId.split(":")[1]
         result[typeId] = (result[typeId] || 0) + item.amount || 0
