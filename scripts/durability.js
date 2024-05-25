@@ -57,7 +57,7 @@ const updatePlayerProperties = (player, item, holdType, holdTime, remainingDurab
     if (DISPLAY_ON_ACTIONBAR) {
         if (holdTime >= 4) {
             system.run(() => {
-                player.onScreenDisplay.setActionBar(`${item.nameTag?.split('§|')[0] || `§r§f${reName(item.typeId)}`} ${remainingDurability}/${maxDurability}`)
+                player.setDynamicProperty('request.actionbar', `${item.nameTag?.split('§|')[0] || `§r§f${reName(item.typeId)}`} ${remainingDurability}/${maxDurability}`)
                 player.setDynamicProperty('hold', `${item.typeId}§|`)
             })
         }
