@@ -1,4 +1,4 @@
-import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player } from "@minecraft/server"
+import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes } from "@minecraft/server"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0
@@ -172,8 +172,13 @@ system.runInterval(() => {
         }
     })
 
-    world.getDimension('overworld').getEntities({ type: "minecraft:item" }).forEach(en => processEntity(en))
+    const entity = []
+    world.getDimension(MinecraftDimensionTypes.overworld).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
+    world.getDimension(MinecraftDimensionTypes.nether).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
+    world.getDimension(MinecraftDimensionTypes.theEnd).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
+
     world.getAllPlayers().forEach(pl => processEntity(pl, true))
+    entity.forEach(en => processEntity(en))
 }, DELAY)
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */

@@ -8,7 +8,8 @@ features = {
     "light": "./light.js",
     "sleep": "./sleep.js",
     "sort": "./sort.js",
-    "durability": "./durability.js"
+    "durability": "./durability.js",
+    "float": "./float.js"
 }
 
 base_dir = 'subpacks'
