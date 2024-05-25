@@ -7,7 +7,7 @@ const check = (a, b) => a.length === b.length && a.every(x => b.some(y => JSON.s
 world.afterEvents.playerSpawn.subscribe(data => {
     const { player: pl, initialSpawn } = data
     if (!initialSpawn) return
-    system.run(() => {
+    system.run(async () => {
         pl.addTag('INV.TEMPORARY.TAG')
 
         const plr = world.getAllPlayers().find(f => f.name !== pl.name)
@@ -19,12 +19,12 @@ world.afterEvents.playerSpawn.subscribe(data => {
 
             for (let i = 0; i < 36; i++) {
                 const item = plrInv.getItem(i)
-                if (item) plInv.setItem(i, item)
+                if (item) await plInv.setItem(i, item)
             }
 
             for (const slot of equipmentSlots) {
                 const item = plrEqu.getEquipment(slot)
-                plEqu.setEquipment(slot, item)
+                await plEqu.setEquipment(slot, item)
             }
 
             inventories.push({
@@ -33,6 +33,7 @@ world.afterEvents.playerSpawn.subscribe(data => {
                 equ: newInv(plEqu, true)
             })
         }
+
         pl.removeTag('INV.TEMPORARY.TAG')
     })
 })
