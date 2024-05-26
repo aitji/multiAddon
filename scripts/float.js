@@ -6,15 +6,30 @@ system.runInterval(() => system.run(() => {
     world.getDimension(MinecraftDimensionTypes.overworld).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
     world.getDimension(MinecraftDimensionTypes.nether).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
     world.getDimension(MinecraftDimensionTypes.theEnd).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
-    entity.forEach(plr => {
+    entity.forEach(en => {
         /** @type {Entity} */
-        const entity = plr
-        const isPlayerFound = (entity.runCommand(`testfor @a[r=18]`).successCount === 1)
-        if (isPlayerFound) {
-            /** @type {ItemStack} */
-            const item = entity.getComponent("item").itemStack
-            if(!item) return
-            item.nameTag = `§r§o§f${item.nameTag || reName(item.typeId)} §r§cx${item.amount}`
-        }
+        const entity = en
+
+        const item = entity.getComponent("item").itemStack
+        const name = item.nameTag || reName(item.typeId) || item.typeId
+        const inRender_blur = entity.runCommand(`testfor @a[r=18]`).successCount
+        const inRender_hidden = entity.runCommand(`testfor @a[r=28]`).successCount
+        if (inRender_blur === 1) entity.nameTag = `§r§f${name} §r§cx${item.amount}§r`
+        else if (inRender_hidden === 1) entity.nameTag = `§r§f§k${name}§r §r§cx§k${item.amount}§r`
+        else entity.nameTag = `§r`
     })
-}))
+}), 10)
+
+world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+    try {
+        if (entity.typeId === "minecraft:item") {
+            const item = entity.getComponent("item").itemStack
+            const name = item.nameTag || reName(item.typeId) || item.typeId
+            const inRender_blur = entity.runCommand(`testfor @a[r=18]`).successCount
+            const inRender_hidden = entity.runCommand(`testfor @a[r=28]`).successCount
+            if (inRender_blur === 1) entity.nameTag = `§r§f${name} §r§cx${item.amount}§r`
+            else if (inRender_hidden === 1) entity.nameTag = `§r§f§k${name}§r §r§cx§k${item.amount}§r`
+            else entity.nameTag = `§r`
+        }
+    } catch (e) { }
+})

@@ -1,4 +1,4 @@
-import { Block, Container, ItemStack, system, world } from '@minecraft/server'
+import { Block, Container, ItemStack, Player, system, world } from '@minecraft/server'
 
 let blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
 
@@ -15,21 +15,20 @@ system.runInterval(() => {
         })
     })
 }, 20)
-
+/** @param {Player} pl @param {ItemStack} item */
 function handleItem(pl, item) {
     if (item?.typeId === "minecraft:stick" && pl.isSneaking) {
         let headLoc = pl.getHeadLocation()
-        if (Math.abs(Math.floor(headLoc.y)) - Math.abs(headLoc.y) < 0.18) return
         let { block } = pl.getBlockFromViewDirection(blockRayCast)
         system.run(() => {
             if (!isContainer(block.permutation)) {
-                player.onScreenDisplay.setActionBar(`§7Can only be used on a chest`)
+                pl.onScreenDisplay.setActionBar(`§7Can only be used on a chest`)
                 return
             }
 
             const dynamicId = pl.getDynamicPropertyIds().find(id => id === `chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`)
             if (dynamicId) {
-                player.onScreenDisplay.setActionBar(`       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`)
+                pl.onScreenDisplay.setActionBar(`       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`)
             } else {
                 pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 10)
                 sort(pl, block)
@@ -44,7 +43,7 @@ function sort(pl, block) {
     let inv
     try { inv = block.getComponent("inventory").container }
     catch (e) {
-        player.onScreenDisplay.setActionBar(`§cFailed to get block inventory!`)
+        pl.onScreenDisplay.setActionBar(`§cFailed to get block inventory!`)
         return
     }
 
@@ -58,7 +57,7 @@ function sort(pl, block) {
     }
 
     try {
-        player.onScreenDisplay.setActionBar(`§6Chest Sorted`)
+        pl.onScreenDisplay.setActionBar(`§6Chest Sorted`)
         const countArray = count(itemsObj)
         itemsObj.sort((a, b) => {
             const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray)
