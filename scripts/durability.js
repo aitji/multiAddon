@@ -35,17 +35,17 @@ system.runInterval(() => {
                 return
             }
 
-            const hold = player.getDynamicProperty('hold') || ''
+            let hold = player.getDynamicProperty('hold') || ''
             if (!hold) hold = 'minecraft:air§|0'
             const holdType = hold.split("§|")[0] || ''
             const holdTime = Number(hold.split("§|")[1]) || 0
 
             const remainingDurability = durability.maxDurability - durability.damage
 
-            world.sendMessage(`${hold}`)
             if (holdTime >= 4) system.run(() => {
-                player.onScreenDisplay.setActionBar(`${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`)
-                player.setDynamicProperty('hold', `${item.typeId}§|3`)
+                player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
+                // player.onScreenDisplay.setActionBar(`${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`)
+                player.setDynamicProperty('hold', `${item.typeId}§|4`)
             })
 
             item.setLore([`§r§7Durability: ${remainingDurability}/${durability.maxDurability}`])

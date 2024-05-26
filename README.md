@@ -39,9 +39,11 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 > [!IMPORTANT]
 > <div align="center"><h2>✅ TODO check-list</h2></div>
 > 
-> ⏳: Code Combinder: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
+> ⏳: Code Combiner: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
+> 
+> ✅: Actionbar: multi actionbar support
 >
-> ✅: Lighting: when chuck didn't load tried to kick it out!
+> ✅: Lighting: when chuck didn't load ``tried to kick it out?``
 >
 > │ save unload chuck in ``unload chuck db`` & remove from ``light db``
 >
