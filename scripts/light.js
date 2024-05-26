@@ -53,20 +53,15 @@ const processEntity = (en, isPlayer = false) => {
     try {
         let item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand) : en.getComponent("item").itemStack
         if (!item) return
-
         const typeId = item.typeId.split('minecraft:')[1].toLowerCase()
         const type = light[typeId]
         if (!type || typeof type.light !== 'number') return
-
         let lightLevel = Math.min(15, Math.ceil(type.light * REDUCE_LIGHT))
         let block = en.dimension.getBlock(en.location)
         let directions = ['east', 'west', 'north', 'south', '']
-
         directions.forEach(dir => {
             let blo = dir ? block[dir](-1) : block
-            let checkAndPut = blo => {
-                if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put(blo, lightLevel, en)
-            }
+            let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put(blo, lightLevel, en) }
             for (let i = 0; i < 3; i++) {
                 checkAndPut(blo)
                 blo = blo.offset({ x: 0, y: 1, z: 0 })
