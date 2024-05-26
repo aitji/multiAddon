@@ -39,12 +39,12 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 > [!IMPORTANT]
 > <div align="center"><h2>✅ TODO check-list</h2></div>
 > 
-> Actionbar won't not force display 1 it will store in db first
+> ⏳: Code Combinder: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
 >
-> Code Combinder: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
+> ✅: Lighting: when chuck didn't load tried to kick it out!
 >
-> Lighting: when chuck didn't load tried to kick it out!
+> │ save unload chuck in ``unload chuck db`` & remove from ``light db``
 >
-> Improvement sort.js
-
-[![visiter](https://visitcount.itsvg.in/api?id=aitji%3A%20&color=12&icon=3&pretty=true)](#)
+> │ when that chuck load set air, and put ``light db`` & remove from ``unload chuck db``
+>
+> ✅: Improvement sort.js
