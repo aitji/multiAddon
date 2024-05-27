@@ -3,7 +3,7 @@ const campNoFire = BlockPermutation.resolve('minecraft:campfire').withState('ext
 const EXPIRE_SECOND = 300 // 300 //
 
 world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
-    // before support will be cancel -1 setpermutation
+    // if before event support will be cancel -1 set permutation, it kinda cool!
     const { block } = data
     if (block.permutation.matches("minecraft:campfire")) {
         const cardinal_direction = block.permutation.getState('minecraft:cardinal_direction')
