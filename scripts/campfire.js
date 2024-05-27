@@ -1,5 +1,5 @@
 import { world, system, BlockPermutation } from "@minecraft/server"
-const EXPIRE_SECOND = 10 // 300 //
+const EXPIRE_SECOND = 300 // 300 //
 const get = (block, isPermutation = false) => { return isPermutation ? block.getItemStack(1).typeId : block.permutation.getItemStack(1).typeId }
 
 world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
