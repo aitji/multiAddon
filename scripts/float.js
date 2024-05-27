@@ -1,6 +1,5 @@
 import { world, system, MinecraftDimensionTypes, Entity, ItemStack, Player } from "@minecraft/server"
 const reName = (item) => item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ")
-const max = 32 /** max distant from entity */
 
 function subV(v1, v2) { return { x: v1.x - v2.x, y: v1.y - v2.y, z: v1.z - v2.z, } }
 function norV(v) {
@@ -23,8 +22,7 @@ function getEnChuck(pl) {
         if (dot > 0.4) viewEn.push(entity)
     }
 
-    /** return viewEn */
-    return viewEn.push(plr.dimension.getEntities({ maxDistance: max }))
+    return viewEn
 }
 
 system.runInterval(() => system.run(() => {
