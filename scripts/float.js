@@ -11,7 +11,7 @@ function norV(v) {
 function getEnChuck(pl) {
     const viewEn = []
     const vd = norV(pl.getViewDirection())
-    const en = pl.dimension.getEntities()
+    const en = pl.dimension.getEntities({type: "minecraft:item"})
     const loc = pl.location
     const vdX = vd.x, vdY = vd.y, vdZ = vd.z // Cache values //
 
