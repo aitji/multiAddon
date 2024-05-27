@@ -1,10 +1,11 @@
 import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes } from "@minecraft/server"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
-const DELAY = 0
-const DEBUG = false
-const DECAY_LIGHT_TICK = 3
-const REDUCE_LIGHT = 0.8
+const DELAY = 0 /** delay for everything (0 is good) */
+const DEBUG = false /** it should be false */
+const DECAY_LIGHT_TICK = 3 /** before light when off time (delay*decay) | (3) */
+const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
+const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
 
 if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
 
@@ -48,9 +49,11 @@ const light = {
     "sculk_sensor": { light: 1 },
     "small_amethyst_bud": { light: 1 }
 }
-
+/** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {
     try {
+        if (isPlayer) en.dimension.getEntities({ maxDistance: ENTITY_RENDER_DISTANT_BLOCK || 32 }).forEach(enr => processEntity(enr))
+
         let item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand) : en.getComponent("item").itemStack
         if (!item) return
         const typeId = item.typeId.split('minecraft:')[1].toLowerCase()
@@ -167,13 +170,7 @@ system.runInterval(() => {
         }
     })
 
-    const entity = []
-    world.getDimension(MinecraftDimensionTypes.overworld).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
-    world.getDimension(MinecraftDimensionTypes.nether).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
-    world.getDimension(MinecraftDimensionTypes.theEnd).getEntities({ type: "minecraft:item" }).forEach(en => entity.push(en))
-
     world.getAllPlayers().forEach(pl => processEntity(pl, true))
-    entity.forEach(en => processEntity(en))
 }, DELAY)
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */
@@ -223,10 +220,8 @@ if (DEBUG) {
     world.afterEvents.itemUse.subscribe(data => {
         const { itemStack } = data
         if (itemStack.typeId === 'minecraft:barrier') {
-            world.getDynamicPropertyIds().map(dy => {
-                world.sendMessage(`§ccleaning: §7${dy}`)
-                world.setDynamicProperty(dy)
-            })
+            world.getDynamicPropertyIds().map(dy => world.sendMessage(`§7${dy}`))
+            world.clearDynamicProperties()
         }
     })
 }
