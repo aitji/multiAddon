@@ -12,3 +12,5 @@ export function wait(ticks) { return new Promise((resolve) => { system.runTimeou
 export function check(a, b) { a.length === b.length && a.every(x => b.some(y => JSON.stringify(x) === JSON.stringify(y))) }
 /** @param {Block} block @returns {Boolean}  */
 export function isFrame(block) { return block.permutation.matches('minecraft:frame') || block.permutation.matches('minecraft:glow_frame') }
+/** @returns {Number} */
+export function calDis(entity, entity_, floor = true) { const dis = Math.sqrt(Math.pow(entity.location.x - entity_.location.x, 2) + Math.pow(entity.location.y - entity_.location.y, 2) + Math.pow(entity.location.z - entity_.location.z, 2)); return floor ? dis.toFixed(0) : dis }

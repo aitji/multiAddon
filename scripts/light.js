@@ -52,7 +52,7 @@ const light = {
 /** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {
     try {
-        if (isPlayer) en.dimension.getEntities({ maxDistance: ENTITY_RENDER_DISTANT_BLOCK || 32 }).forEach(enr => processEntity(enr))
+        if (isPlayer) en.dimension.getEntities({ maxDistance: ENTITY_RENDER_DISTANT_BLOCK || 64, location: en.location, type: 'minecraft:item' }).forEach(enr => processEntity(enr))
 
         let item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand) : en.getComponent("item").itemStack
         if (!item) return

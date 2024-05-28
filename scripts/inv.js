@@ -9,7 +9,7 @@ world.afterEvents.playerSpawn.subscribe(data => {
     system.run(async () => {
         pl.addTag('INV.TEMPORARY.TAG')
 
-        const plr = world.getAllPlayers().find(f => f.name !== pl.name)
+        const plr = allPlayer.find(f => f.name !== pl.name)
         if (plr) {
             const plrInv = plr.getComponent('inventory').container
             const plrEqu = plr.getComponent('minecraft:equippable')
@@ -42,7 +42,8 @@ system.runInterval(() => system.run(() => {
 }))
 
 function update() {
-    for (const pl of world.getAllPlayers()) {
+    const allPlayer = world.getAllPlayers().filter(plr => !plr.hasTag('INV.TEMPORARY.TAG'))
+    for (const pl of allPlayer) {
         const inv = pl.getComponent('inventory').container
         const equ = pl.getComponent('minecraft:equippable')
         const invObj = inventories.find(f => f.name === pl.name)
@@ -52,7 +53,7 @@ function update() {
             const _equ = newInv(equ, true)
 
             if (!check(invObj.inv, _inv) || !check(invObj.equ, _equ)) {
-                world.getAllPlayers().forEach(f => {
+                allPlayer.forEach(f => {
                     if (f.name !== pl.name) {
                         const { container } = f.getComponent('inventory')
                         for (let i = 0; i < 36; i++) {
@@ -70,7 +71,7 @@ function update() {
                 invObj.equ = _equ
             }
         } else {
-            const plr = world.getAllPlayers().find(f => f.name !== pl.name)
+            const plr = allPlayer.find(f => f.name !== pl.name)
             const plrInv = plr ? plr.getComponent('inventory').container : undefined
 
             if (plrInv) {

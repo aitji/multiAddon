@@ -9,6 +9,7 @@ const equipmentSlots = [
     EquipmentSlot.Offhand,
     EquipmentSlot.Mainhand
 ]
+const len = equipmentSlots.length - 1
 
 system.runInterval(() => {
     const players = world.getAllPlayers()
@@ -19,7 +20,7 @@ system.runInterval(() => {
             return
         }
 
-        equipmentSlots.forEach(slot => {
+        equipmentSlots.forEach((slot, i) => {
             /** @type {ItemStack} */
             const item = equippable.getEquipment(slot)
             if (!item) {
@@ -40,13 +41,10 @@ system.runInterval(() => {
             const remainingDurability = durability.maxDurability - durability.damage
 
             if (holdTime >= 4) system.run(() => {
-                player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
-                // player.onScreenDisplay.setActionBar(`${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`)
+                if (i === len) player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
                 player.setDynamicProperty('hold', `${item.typeId}§|4`)
             })
 
-            item.setLore([`§r§7Durability: ${remainingDurability}/${durability.maxDurability}`])
-            equippable.setEquipment(slot, item)
             player.setDynamicProperty('hold', `${item.typeId}§|${holdTime + 1}`)
         })
     })
