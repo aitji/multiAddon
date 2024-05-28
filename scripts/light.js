@@ -75,65 +75,36 @@ const processEntity = (en, isPlayer = false) => {
 
 system.runInterval(() => {
     world.getDynamicPropertyIds().forEach(dy => {
-        if (dy.startsWith("chuck_unload:")) {
-            let time = world.getDynamicProperty(dy)
-            let arr = dy.split(":")
-            let [_, _2, dim, x, y, z, level, liq] = arr
-            liq = (liq === 'true')
-
-            const block = world.getDimension(dim).getBlock({ x: Number(x), y: Number(y), z: Number(z) })
-            try {
-                if (block.isAir || (liq && block.isLiquid) || block.permutation.matches('minecraft:light_block')) {
-                    world.setDynamicProperty(dy, undefined)
-                    let resole = BlockPermutation.resolve('minecraft:air')
-                    if (liq) BlockPermutation.resolve('minecraft:water')
-
-                    block.setPermutation(resole)
-                    put_light(block, level, Infinity)
-                }
-            } catch (e) { }
-        }
         if (dy.startsWith("light:")) {
+            let [_, dim, x, y, z, level, liq] = dy.split(":")
+            liq = liq === 'true'
             let time = world.getDynamicProperty(dy)
-            let arr = dy.split(":")
-            let [_, dim, x, y, z, level, liq] = arr
-            liq = (liq === 'true')
-
-            const block = world.getDimension(dim).getBlock({ x: Number(x), y: Number(y), z: Number(z) })
-            const normal_light = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', Number(level))
+            const block = world.getDimension(dim).getBlock({ x: +x, y: +y, z: +z })
+            const normalLight = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', +level)
 
             try {
                 if (time < 0) {
                     const lig = block.permutation.getState("block_light_level")
                     if (lig <= 0) {
                         world.setDynamicProperty(dy, undefined)
-                        let block = world.getDimension(dim).getBlock({ x: Number(x), y: Number(y), z: Number(z) })
-                        let air = BlockPermutation.resolve('minecraft:air')
-                        if (liq) air = BlockPermutation.resolve('minecraft:water')
+                        const air = liq ? BlockPermutation.resolve('minecraft:water') : BlockPermutation.resolve('minecraft:air')
                         if (block.isAir || (liq && block.isLiquid) || block.permutation.matches('minecraft:light_block')) block.setPermutation(air)
                         return
                     }
-                    let state = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', Number(lig - 1))
+                    const state = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', lig - 1)
                     if (block.isAir || (liq && block.isLiquid) || block.permutation.matches('minecraft:light_block')) block.setPermutation(state)
                     world.setDynamicProperty(dy, time - 1)
                     return
                 }
-
-                if (block.isAir || (liq && block.isLiquid) || block.permutation.matches('minecraft:light_block')) block.setPermutation(normal_light)
+                if (block.isAir || (liq && block.isLiquid) || block.permutation.matches('minecraft:light_block')) block.setPermutation(normalLight)
                 world.setDynamicProperty(dy, time - 1)
-            } catch (e) {
-                if (DEBUG) world.sendMessage(`§7out chuck: ${e}: ${dy}`)
-                world.setDynamicProperty(`chuck_unload:${dy}`, 0)
+            } catch {
                 world.setDynamicProperty(dy, undefined)
             }
         } else if (dy.startsWith('frame:')) {
             try {
-                let arr = dy.split(":")
-                let dim = arr[1]
-                let x = Number(arr[2])
-                let y = Number(arr[3])
-                let z = Number(arr[4])
-                let block = world.getDimension(dim).getBlock({ x: x, y: y, z: z })
+                let [_, dim, x, y, z] = dy.split(":")
+                let block = world.getDimension(dim).getBlock({ x: +x, y: +y, z: +z })
                 if (!block || block.permutation.matches('minecraft:air')) {
                     world.setDynamicProperty(dy, undefined)
                     if (DEBUG) world.sendMessage(`§cclear: §7${dy} §8invaild block L`)
@@ -141,27 +112,21 @@ system.runInterval(() => {
                 }
                 let item = block.getItemStack(1)
                 if (!item) return
-                const typeId = item.typeId.split('minecraft:')[1].toLocaleLowerCase()
-                const type = light[typeId]
+                let typeId = item.typeId.split('minecraft:')[1].toLowerCase()
+                let type = light[typeId]
                 if (!type || typeof type.light !== 'number') return
                 let lightLevel = Math.max(0, Math.min(15, Math.ceil(type.light * REDUCE_LIGHT)))
                 let directions = ['east', 'west', 'north', 'south', '']
-
                 directions.forEach(dir => {
                     let blo = dir ? block[dir](-1) : block
-                    let checkAndPut = blo => {
-                        if (blo.isLiquid || blo.isAir) put_light(blo, lightLevel, Infinity, true)
-                        if (blo.permutation.matches("minecraft:light_block")) put_light(blo, lightLevel, Infinity, true)
-                    }
                     for (let i = 0; i < 3; i++) {
-                        checkAndPut(blo)
+                        if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, lightLevel, Infinity, true)
                         blo = blo.offset({ x: 0, y: 1, z: 0 })
                     }
                 })
-            } catch (e) { }
+            } catch { }
         }
     })
-
     world.getAllPlayers().forEach(pl => processEntity(pl, true))
 }, DELAY)
 
