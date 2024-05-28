@@ -1,4 +1,5 @@
 import { world, system, EquipmentSlot, EntityHealthComponent } from "@minecraft/server"
+import { wait } from "./_function"
 
 let lastHealth = 20
 const overworld = world.getDimension("overworld")
@@ -31,7 +32,3 @@ world.afterEvents.entityDie.subscribe((data) => {
         data.deadEntity.getComponent("health").setCurrentValue(20)
     })
 }, { entityTypes: ["minecraft:player"] })
-
-function wait(ticks) {
-    return new Promise((resolve) => { system.runTimeout(resolve, ticks) })
-}

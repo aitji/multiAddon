@@ -2,7 +2,6 @@ import { world, system, EquipmentSlot } from "@minecraft/server"
 
 const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
 let inventories = []
-const check = (a, b) => a.length === b.length && a.every(x => b.some(y => JSON.stringify(x) === JSON.stringify(y)))
 
 world.afterEvents.playerSpawn.subscribe(data => {
     const { player: pl, initialSpawn } = data

@@ -1,5 +1,5 @@
 import { world, system, MinecraftDimensionTypes, Entity, ItemStack, Player } from "@minecraft/server"
-const reName = (item) => item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ")
+import { reName } from "./_function"
 
 function subV(v1, v2) { return { x: v1.x - v2.x, y: v1.y - v2.y, z: v1.z - v2.z, } }
 function norV(v) {

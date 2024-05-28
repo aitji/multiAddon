@@ -1,8 +1,7 @@
 import { Block, Container, ItemStack, Player, system, world } from '@minecraft/server'
+import { blockRayCast } from './_function'
 
-let blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
-
-world.beforeEvents.itemUseOn.subscribe(data => {
+world.beforeEvents.itemUse.subscribe(data => {
     const { source, itemStack } = data
     handleItem(source, itemStack)
 })
@@ -15,6 +14,7 @@ system.runInterval(() => {
         })
     })
 }, 20)
+
 /** @param {Player} pl @param {ItemStack} item */
 function handleItem(pl, item) {
     if (item?.typeId === "minecraft:stick" && pl.isSneaking) {
@@ -27,9 +27,8 @@ function handleItem(pl, item) {
             }
 
             const dynamicId = pl.getDynamicPropertyIds().find(id => id === `chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`)
-            if (dynamicId) {
-                pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 3)
-            } else {
+            if (dynamicId) pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 3)
+            else {
                 pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 10)
                 sort(pl, block)
             }

@@ -1,8 +1,8 @@
 import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes } from "@minecraft/server"
+import { DEBUG, isFrame } from "./_function"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0 /** delay for everything (0 is good) */
-const DEBUG = false /** it should be false */
 const DECAY_LIGHT_TICK = 3 /** before light when off time (delay*decay) | (3) */
 const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
 const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
@@ -64,7 +64,7 @@ const processEntity = (en, isPlayer = false) => {
         let directions = ['east', 'west', 'north', 'south', '']
         directions.forEach(dir => {
             let blo = dir ? block[dir](-1) : block
-            let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put(blo, lightLevel, en) }
+            let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, lightLevel, en) }
             for (let i = 0; i < 3; i++) {
                 checkAndPut(blo)
                 blo = blo.offset({ x: 0, y: 1, z: 0 })
@@ -89,7 +89,7 @@ system.runInterval(() => {
                     if (liq) BlockPermutation.resolve('minecraft:water')
 
                     block.setPermutation(resole)
-                    put(block, level, Infinity)
+                    put_light(block, level, Infinity)
                 }
             } catch (e) { }
         }
@@ -103,14 +103,6 @@ system.runInterval(() => {
             const normal_light = BlockPermutation.resolve('minecraft:light_block').withState('block_light_level', Number(level))
 
             try {
-                /** let dim = arr[1]
-                 * let x = Number(arr[2])
-                 * let y = Number(arr[3])
-                 * let z = Number(arr[4])
-                 * let level = Number(arr[5])
-                 * let liq = arr[6] === 'true'
-                */
-
                 if (time < 0) {
                     const lig = block.permutation.getState("block_light_level")
                     if (lig <= 0) {
@@ -158,8 +150,8 @@ system.runInterval(() => {
                 directions.forEach(dir => {
                     let blo = dir ? block[dir](-1) : block
                     let checkAndPut = blo => {
-                        if (blo.isLiquid || blo.isAir) put(blo, lightLevel, Infinity, true)
-                        if (blo.permutation.matches("minecraft:light_block")) put(blo, lightLevel, Infinity, true)
+                        if (blo.isLiquid || blo.isAir) put_light(blo, lightLevel, Infinity, true)
+                        if (blo.permutation.matches("minecraft:light_block")) put_light(blo, lightLevel, Infinity, true)
                     }
                     for (let i = 0; i < 3; i++) {
                         checkAndPut(blo)
@@ -174,7 +166,7 @@ system.runInterval(() => {
 }, DELAY)
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */
-function put(block, level, pl, force = false) {
+function put_light(block, level, pl, force = false) {
     try {
         let set = `light:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}:${level}:${block.permutation.matches("minecraft:water")}:${force ? pl : (pl.id || pl.name || pl.nameTag || pl.typeId)}`
         if (!world.getDynamicProperty(set) && block.permutation.matches("minecraft:light_block")) return
@@ -184,8 +176,6 @@ function put(block, level, pl, force = false) {
         if (!world.getDynamicProperty(set)) world.setDynamicProperty(set, DECAY_LIGHT_TICK)
     } catch (e) { }
 }
-/** @param {Block} block @returns {Boolean}  */
-function isFrame(block) { return block.permutation.matches('minecraft:frame') || block.permutation.matches('minecraft:glow_frame') }
 
 world.afterEvents.entityRemove.subscribe(data => {
     const { removedEntityId } = data

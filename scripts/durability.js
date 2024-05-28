@@ -1,8 +1,5 @@
 import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent } from "@minecraft/server"
-
-const reName = (item) => {
-    return item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ")
-}
+import { reName } from "./_function"
 
 const equipmentSlots = [
     EquipmentSlot.Head,
