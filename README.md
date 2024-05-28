@@ -55,4 +55,4 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 >
 > ⌛: Add Dynamic campfire (not on option)
 >
-> │(⏳) remove dynamic property after boom!
+> │(✅) remove dynamic property after boom! << but check block air instant lol

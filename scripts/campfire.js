@@ -28,6 +28,7 @@ system.runInterval(() => {
             const [_, x, y, z, dimension, cardinal_direction] = dy.split("|").map((v, i) => i > 0 && i < 4 ? Number(v) : v)
             try {
                 const block = world.getDimension(dimension).getBlock({ x: x, y: y, z: z })
+                if (block.permutation.matches('minecraft:air')) world.setDynamicProperty(dy, undefined)
                 if (block.permutation.getState('extinguished') || !block) world.setDynamicProperty(dy, t)
                 else if (t > EXPIRE_SECOND) {
                     block.setPermutation(BlockPermutation.resolve(getBlock(block)).withState('extinguished', true).withState('minecraft:cardinal_direction', cardinal_direction))
