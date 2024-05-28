@@ -6,7 +6,7 @@ features = [
     {"folder_name": "hp", "name": "§l§cHEALTH\n§r§fsync player health! (§9multiplayer§f)"},
     {"folder_name": "harvest", "name": "§l§6HARVEST\n§r§fquick harvest all da crop!"},
     {"folder_name": "light", "name": "§l§9DYNAMIC LIGHT\n§r§fhold torch is so bright"},
-    {"folder_name": "sleep", "name": "§l§bSLEEP\n§r§fone player sleep is fine! (§9multiplayer§f)"},
+    # {"folder_name": "sleep", "name": "§l§bSLEEP\n§r§fone player sleep is fine! (§9multiplayer§f)"},
     {"folder_name": "sort", "name": "§l§6SORT\n§r§fsort chest with stick"},
     {"folder_name": "durability", "name": "§l§aDURABILITY\n§r§fdisplay item durability!"},
     {"folder_name": "float", "name": "§l§dFLOAT\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)"}

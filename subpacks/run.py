@@ -6,7 +6,7 @@ features = {
     "hp": "./hp.js",
     "harvest": "./harvest.js",
     "light": "./light.js",
-    "sleep": "./sleep.js",
+    # "sleep": "./sleep.js",
     "sort": "./sort.js",
     "durability": "./durability.js",
     "float": "./float.js"
