@@ -58,11 +58,6 @@
       "memory_tier": 1
     },
     {
-      "folder_name": "sleep",
-      "name": "§l§bSLEEP\n§r§fone player sleep is fine! (§9multiplayer§f)",
-      "memory_tier": 1
-    },
-    {
       "folder_name": "sort",
       "name": "§l§6SORT\n§r§fsort chest with stick",
       "memory_tier": 1
@@ -74,7 +69,7 @@
     },
     {
       "folder_name": "float",
-      "name": "§l§dFLOAT\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§dFLOAT\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -93,11 +88,6 @@
       "memory_tier": 1
     },
     {
-      "folder_name": "inv_sleep",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)",
-      "memory_tier": 1
-    },
-    {
       "folder_name": "inv_sort",
       "name": "§l§eINVENTORY §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsort chest with stick",
       "memory_tier": 1
@@ -109,7 +99,7 @@
     },
     {
       "folder_name": "inv_float",
-      "name": "§l§eINVENTORY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -120,11 +110,6 @@
     {
       "folder_name": "hp_light",
       "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep",
-      "name": "§l§cHEALTH §f& §l§bSLEEP\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -139,17 +124,12 @@
     },
     {
       "folder_name": "hp_float",
-      "name": "§l§cHEALTH §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "harvest_light",
       "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep",
-      "name": "§l§6HARVEST §f& §l§bSLEEP\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -164,12 +144,7 @@
     },
     {
       "folder_name": "harvest_float",
-      "name": "§l§6HARVEST §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§6HARVEST §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -184,22 +159,7 @@
     },
     {
       "folder_name": "light_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_sort",
-      "name": "§l§bSLEEP §f& §l§6SORT\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_durability",
-      "name": "§l§bSLEEP §f& §l§aDURABILITY\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_float",
-      "name": "§l§bSLEEP §f& §l§dFLOAT\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -209,12 +169,12 @@
     },
     {
       "folder_name": "sort_float",
-      "name": "§l§6SORT §f& §l§dFLOAT\n§r§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6SORT §f& §l§dFLOAT\n§r§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "durability_float",
-      "name": "§l§aDURABILITY §f& §l§dFLOAT\n§r§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§aDURABILITY §f& §l§dFLOAT\n§r§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -225,11 +185,6 @@
     {
       "folder_name": "inv_hp_light",
       "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -244,17 +199,12 @@
     },
     {
       "folder_name": "inv_hp_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_harvest_light",
       "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -269,12 +219,7 @@
     },
     {
       "folder_name": "inv_harvest_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -289,22 +234,7 @@
     },
     {
       "folder_name": "inv_light_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -314,22 +244,17 @@
     },
     {
       "folder_name": "inv_sort_float",
-      "name": "§l§eINVENTORY §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_durability_float",
-      "name": "§l§eINVENTORY §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_harvest_light",
       "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -344,12 +269,7 @@
     },
     {
       "folder_name": "hp_harvest_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -364,22 +284,7 @@
     },
     {
       "folder_name": "hp_light_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_sort",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_durability",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_float",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -389,17 +294,12 @@
     },
     {
       "folder_name": "hp_sort_float",
-      "name": "§l§cHEALTH §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_durability_float",
-      "name": "§l§cHEALTH §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§cHEALTH §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -414,22 +314,7 @@
     },
     {
       "folder_name": "harvest_light_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_sort",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_durability",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_float",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -439,27 +324,12 @@
     },
     {
       "folder_name": "harvest_sort_float",
-      "name": "§l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "harvest_durability_float",
-      "name": "§l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_sort",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_durability",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -469,42 +339,22 @@
     },
     {
       "folder_name": "light_sort_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "light_durability_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_sort_durability",
-      "name": "§l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_sort_float",
-      "name": "§l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_durability_float",
-      "name": "§l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "sort_durability_float",
-      "name": "§l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_harvest_light",
       "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)",
       "memory_tier": 1
     },
     {
@@ -519,12 +369,7 @@
     },
     {
       "folder_name": "inv_hp_harvest_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -539,22 +384,7 @@
     },
     {
       "folder_name": "inv_hp_light_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -564,17 +394,12 @@
     },
     {
       "folder_name": "inv_hp_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -589,22 +414,7 @@
     },
     {
       "folder_name": "inv_harvest_light_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -614,27 +424,12 @@
     },
     {
       "folder_name": "inv_harvest_sort_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_harvest_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -644,37 +439,17 @@
     },
     {
       "folder_name": "inv_light_sort_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_light_durability_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§eINVENTORY §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -689,22 +464,7 @@
     },
     {
       "folder_name": "hp_harvest_light_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_sort",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_durability",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -714,27 +474,12 @@
     },
     {
       "folder_name": "hp_harvest_sort_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_harvest_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_sort",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_durability",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -744,47 +489,17 @@
     },
     {
       "folder_name": "hp_light_sort_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_light_durability_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_sort_durability",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_sort_float",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_durability_float",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_sort",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_durability",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -794,62 +509,22 @@
     },
     {
       "folder_name": "harvest_light_sort_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "harvest_light_durability_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_sort_durability",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_sort_float",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_durability_float",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "harvest_sort_durability_float",
-      "name": "§l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_sort_durability",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_sort_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_durability_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "light_sort_durability_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "sleep_sort_durability_float",
-      "name": "§l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)",
+      "name": "§l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -864,22 +539,7 @@
     },
     {
       "folder_name": "inv_hp_harvest_light_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -889,27 +549,12 @@
     },
     {
       "folder_name": "inv_hp_harvest_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_harvest_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -919,47 +564,17 @@
     },
     {
       "folder_name": "inv_hp_light_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_light_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -969,72 +584,22 @@
     },
     {
       "folder_name": "inv_harvest_light_sort_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_harvest_light_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_harvest_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_light_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_sort",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_durability",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -1044,102 +609,27 @@
     },
     {
       "folder_name": "hp_harvest_light_sort_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_harvest_light_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_sort_durability",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_sort_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_harvest_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_sort_durability",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_sort_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_durability_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_light_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_sleep_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_sort_durability",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_sort_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_durability_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "harvest_light_sort_durability_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_sleep_sort_durability_float",
-      "name": "§l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "light_sleep_sort_durability_float",
-      "name": "§l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_sort",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
@@ -1149,167 +639,37 @@
     },
     {
       "folder_name": "inv_hp_harvest_light_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_harvest_light_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_harvest_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_light_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_harvest_light_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_light_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_sort_durability",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_sort_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "hp_harvest_light_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_sleep_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_light_sleep_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "harvest_light_sleep_sort_durability_float",
-      "name": "§l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_sort_durability",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_sort_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     },
     {
       "folder_name": "inv_hp_harvest_light_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_light_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_harvest_light_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "hp_harvest_light_sleep_sort_durability_float",
-      "name": "§l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
-      "memory_tier": 1
-    },
-    {
-      "folder_name": "inv_hp_harvest_light_sleep_sort_durability_float",
-      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§bSLEEP §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fone player sleep is fine! (§9multiplayer§f)\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)",
+      "name": "§l§eINVENTORY §f& §l§cHEALTH §f& §l§6HARVEST §f& §l§9DYNAMIC LIGHT §f& §l§6SORT §f& §l§aDURABILITY §f& §l§dFLOAT\n§r§r§fsync player inventory! (§9multiplayer§f)\n§r§fsync player health! (§9multiplayer§f)\n§r§fquick harvest all da crop!\n§r§fhold torch is so bright\n§r§fsort chest with stick\n§r§fdisplay item durability!\n§r§fdisplay item nameTag on floor!",
       "memory_tier": 1
     }
   ],

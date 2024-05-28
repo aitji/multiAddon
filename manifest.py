@@ -9,7 +9,7 @@ features = [
     # {"folder_name": "sleep", "name": "§l§bSLEEP\n§r§fone player sleep is fine! (§9multiplayer§f)"},
     {"folder_name": "sort", "name": "§l§6SORT\n§r§fsort chest with stick"},
     {"folder_name": "durability", "name": "§l§aDURABILITY\n§r§fdisplay item durability!"},
-    {"folder_name": "float", "name": "§l§dFLOAT\n§r§fdisplay item nameTag on floor! (§cpreferment warning§f)"}
+    {"folder_name": "float", "name": "§l§dFLOAT\n§r§fdisplay item nameTag on floor!"}
 ]
 
 def combine_features(features):
