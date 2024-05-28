@@ -41,12 +41,18 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 > 
 > ⏳: Code Combiner: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
 > 
+> LAZY TO DO
+> 
 > ✅: Actionbar: multi actionbar support
 >
 > ✅: Lighting: when chuck didn't load ``tried to kick it out?``
 >
-> │ save unload chuck in ``unload chuck db`` & remove from ``light db``
+> │(✅) save unload chuck in ``unload chuck db`` & remove from ``light db``
 >
-> │ when that chuck load set air, and put ``light db`` & remove from ``unload chuck db``
+> │(✅) when that chuck load set air, and put ``light db`` & remove from ``unload chuck db``
 >
 > ✅: Improvement sort.js
+>
+> ⌛: Add Dynamic campfire (not on option)
+>
+> │(⏳) remove dynamic property after boom!
