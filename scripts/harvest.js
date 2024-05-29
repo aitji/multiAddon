@@ -5,13 +5,15 @@ const COOLDOWN = 3
 const AFTER_BREAK = new ItemStack('minecraft:air', 1)
 
 system.runInterval(() => system.run(() => {
-    world.getDynamicPropertyIds().filter(dy =>
-        dy.endsWith(`.break.crop`)
-    ).forEach(dy => {
+    const dynamicProperty = world.getDynamicPropertyIds()
+    const len = dynamicProperty.length
+    for (let i = 0; i < len; i++) {
+        const dy = dynamicProperty[i]
+        if(!dy.endsWith(".break.crop")) return
         let t = world.getDynamicProperty(dy)
         if (!t || t <= 0) world.setDynamicProperty(dy, undefined)
         else world.setDynamicProperty(dy, t - 1)
-    })
+    }
 }), 1)
 
 world.beforeEvents.itemUseOn.subscribe(data => {

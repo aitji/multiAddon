@@ -25,6 +25,7 @@ system.runInterval(() => {
     const len = campfire.length
     system.run(() => {
         for (let i = 0; i < len; i++) {
+            const dy = campfire[i]
             if (!dy.startsWith("campfire|")) continue
             const t = world.getDynamicProperty(dy)
             const [_, x, y, z, dimension, cardinal_direction] = dy.split("|").map((v, i) => i > 0 && i < 4 ? Number(v) : v)
