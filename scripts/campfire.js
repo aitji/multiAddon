@@ -22,8 +22,10 @@ world.afterEvents.playerBreakBlock.subscribe(data => {
 
 system.runInterval(() => {
     const campfire = world.getDynamicPropertyIds().filter(dy => dy.startsWith("campfire|"))
+    const len = campfire.length
     system.run(() => {
-        campfire.forEach(dy => {
+        for (let i = 0; i < len; i++) {
+            if (!dy.startsWith("campfire|")) continue
             const t = world.getDynamicProperty(dy)
             const [_, x, y, z, dimension, cardinal_direction] = dy.split("|").map((v, i) => i > 0 && i < 4 ? Number(v) : v)
             try {
@@ -35,6 +37,6 @@ system.runInterval(() => {
                     world.setDynamicProperty(dy, 0)
                 } else world.setDynamicProperty(dy, t + 1)
             } catch (e) { }
-        })
+        }
     })
 }, 20)
