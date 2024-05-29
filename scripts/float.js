@@ -2,20 +2,21 @@ import { world, system, ItemStack, Player } from "@minecraft/server"
 import { calDis, reName } from "./_function"
 
 system.runInterval(() => system.run(() => {
-    world.getAllPlayers()
-        .filter(plr => Math.ceil(plr.getComponent("health").currentValue || 0) > 0)
-        .forEach(plr => {
-            const entity = plr.dimension.getEntities({ maxDistance: 32, location: plr.location, type: 'minecraft:item' })
-            entity.forEach(en => {
-                /** @type {ItemStack} */
-                const item = en.getComponent("item").itemStack
-                const dis = item.nameTag || reName(item.typeId) || item.typeId
-                const distance = calDis(en, plr) || 0
-                if (distance <= 18) en.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
-                else if (distance <= 28) en.nameTag = `§r§f§k${dis}§r §r§cx§k${item.amount}§r`
-                else en.nameTag = `§r`
-            })
+    const obj = world.getAllPlayers()
+    const len = obj.length
+    for (let i = 0; i < len; i++) {
+        if (Math.ceil(plr.getComponent("health").currentValue || 0) > 0) continue
+        const entity = plr.dimension.getEntities({ maxDistance: 32, location: plr.location, type: 'minecraft:item' })
+        entity.forEach(en => {
+            /** @type {ItemStack} */
+            const item = en.getComponent("item").itemStack
+            const dis = item.nameTag || reName(item.typeId) || item.typeId
+            const distance = calDis(en, plr) || 0
+            if (distance <= 18) en.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
+            else if (distance <= 28) en.nameTag = `§r§f§k${dis}§r §r§cx§k${item.amount}§r`
+            else en.nameTag = `§r`
         })
+    }
 }), 3)
 
 world.afterEvents.entityDie.subscribe(data => {
