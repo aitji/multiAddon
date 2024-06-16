@@ -16,36 +16,19 @@ system.runInterval(() => {
     players.forEach(player => {
         /** @type {EntityEquippableComponent} */
         const equippable = player.getComponent("equippable")
-        if (!equippable) {
-            return
-        }
-
-        equipmentSlots.forEach((slot, i) => {
+        if (!equippable) return
+        for (let i = 0; i < equipmentSlots.length; i++) {
+            const slot = equipmentSlots[i]
             /** @type {ItemStack} */
             const item = equippable.getEquipment(slot)
-            if (!item) {
-                return
-            }
+            if (!item) return
 
             /** @type {ItemDurabilityComponent} */
             const durability = item.getComponent("durability")
-            if (!durability) {
-                return
-            }
-
-            let hold = player.getDynamicProperty('hold') || ''
-            if (!hold) hold = 'minecraft:air§|0'
-            const holdType = hold.split("§|")[0] || ''
-            const holdTime = Number(hold.split("§|")[1]) || 0
+            if (!durability) return
 
             const remainingDurability = durability.maxDurability - durability.damage
-
-            if (holdTime >= 4) system.run(() => {
-                if (i === len) player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
-                player.setDynamicProperty('hold', `${item.typeId}§|4`)
-            })
-
-            player.setDynamicProperty('hold', `${item.typeId}§|${holdTime + 1}`)
-        })
+            if (i === len) player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
+        }
     })
 }, 20)

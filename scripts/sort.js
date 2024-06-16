@@ -27,9 +27,12 @@ function handleItem(pl, item) {
             }
 
             const dynamicId = pl.getDynamicPropertyIds().find(id => id === `chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`)
-            if (dynamicId) pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 3)
+            if (dynamicId) {
+                if (dynamicId === 5) return
+                pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 3)
+            }
             else {
-                pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 10)
+                pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 5)
                 sort(pl, block)
             }
         })
@@ -59,8 +62,8 @@ function sort(pl, block) {
         pl.setDynamicProperty(`actionbar§:§6Chest Sorted`, 3)
         const countArray = count(itemsObj)
         itemsObj.sort((a, b) => {
-            const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray) + extraLib(a, countArray)
-            const bValue = getCount(b.nameTag || b.typeId.split(":")[1], countArray) + extraLib(b, countArray)
+            const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray)
+            const bValue = getCount(b.nameTag || b.typeId.split(":")[1], countArray)
             if (aValue !== bValue) return bValue - aValue
             const aKey = a.nameTag || a.typeId.split(":")[1]
             const bKey = b.nameTag || b.typeId.split(":")[1]
@@ -68,28 +71,28 @@ function sort(pl, block) {
         })
 
         for (let item of itemsObj) inv.addItem(item)
-    } catch (e) {
-        pl.sendMessage(`§7Error sorting! - ${e}`)
-    }
+    } catch (e) { pl.sendMessage(`§7Error sorting! - ${e}`) }
 }
 
-function extraLib(item, countArray) {
-    const privilege = [
-        `oak`, `ladder`, 'trapdoor', 'fence_gate', 'wooden', 'stick',
-        `spruce`, `birch`, `jungle`,
-        `acacia`, `dark_oak`, `mangrove`, `cherry`,
-        `bamboo`, `crimson`, `warped`
-    ]
-
-    let typeId = item.typeId.split(":")[1]
-    let find = privilege.findIndex(a => typeId.startsWith(a))
-    if (find > -1) {
-        if (typeId.includes('log')) find -= 1
-        if (typeId.includes('_fence')) find += 1
-        return privilege.length - find
-    }
-    return 0
-}
+/**
+ * function extraLib(item, countArray) {
+ *    const privilege = [
+ *        `oak`, `ladder`, 'trapdoor', 'fence_gate', 'wooden', 'stick',
+ *        `spruce`, `birch`, `jungle`,
+ *        `acacia`, `dark_oak`, `mangrove`, `cherry`,
+ *        `bamboo`, `crimson`, `warped`
+ *    ]
+ *
+ *    let typeId = item.typeId.split(":")[1]
+ *    let find = privilege.findIndex(a => typeId.startsWith(a))
+ *    if (find > -1) {
+ *        if (typeId.includes('log')) find -= 1
+ *        if (typeId.includes('_fence')) find += 1
+ *        return privilege.length - find
+ *    }
+ *    return 0
+ * }
+*/
 
 function count(input) {
     const result = {}

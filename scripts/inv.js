@@ -37,7 +37,9 @@ world.afterEvents.playerSpawn.subscribe(data => {
     })
 })
 
-system.runInterval(() => system.run(() => { if (world.getAllPlayers().length > 1) update() }))
+system.runInterval(() => system.run(() => {
+    if (world.getAllPlayers().length > 1) update()
+}))
 
 function update() {
     const allPlayer = world.getAllPlayers().filter(plr => !plr.hasTag('INV.TEMPORARY.TAG'))

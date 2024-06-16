@@ -8,7 +8,7 @@ system.runInterval(() => system.run(() => {
         const plr = obj[i]
         if (Math.ceil(plr.getComponent("health").currentValue || 0) > 0) continue
         const entity = plr.dimension.getEntities({ maxDistance: 32, location: plr.location, type: 'minecraft:item' })
-        entity.forEach(en => {
+        for (const en of entity) {
             /** @type {ItemStack} */
             const item = en.getComponent("item").itemStack
             const dis = item.nameTag || reName(item.typeId) || item.typeId
@@ -16,7 +16,7 @@ system.runInterval(() => system.run(() => {
             if (distance <= 18) en.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
             else if (distance <= 28) en.nameTag = `§r§f§k${dis}§r §r§cx§k${item.amount}§r`
             else en.nameTag = `§r`
-        })
+        }
     }
 }), 3)
 
