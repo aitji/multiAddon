@@ -1,4 +1,4 @@
-import { system, Block } from "@minecraft/server"
+import { system, Block, ItemStack } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
 export const DEBUG = false
 
@@ -44,4 +44,46 @@ export function rayCastPos(loc, loc2) {
     const x = dx / distance, y = dy / distance, z = dz / distance
 
     return { x: x, y: y, z: z }
+}
+
+export const AFTER_BREAK = new ItemStack('minecraft:air', 1)
+export const light = {
+    "beacon": { light: 15 },
+    "campfire": { light: 15 },
+    "conduit": { light: 15 },
+    "ochre_froglight": { light: 15 },
+    "pearlescent_froglight": { light: 15 },
+    "verdant_froglight": { light: 15 },
+    "glowstone": { light: 15 },
+    "lit_pumpkin": { light: 15 },
+    "lantern": { light: 15 },
+    "lava_bucket": { light: 15 },
+    "sea_lantern": { light: 15 },
+    "shroomlight": { light: 15 },
+    "end_rod": { light: 14 },
+    "glow_berries": { light: 14 },
+    "torch": { light: 14 },
+    "crying_obsidian": { light: 10 },
+    "soul_campfire": { light: 10 },
+    "soul_lantern": { light: 10 },
+    "soul_torch": { light: 10 },
+    "enchanting_table": { light: 7 },
+    "ender_chest": { light: 7 },
+    "glow_lichen": { light: 7 },
+    "redstone_torch": { light: 7 },
+    "sculk_catalyst": { light: 6 },
+    "sea_pickle": { light: 6, inLiquid: true },
+    "vault": { light: 6 },
+    "amethyst_cluster": { light: 5 },
+    "large_amethyst_bud": { light: 4 },
+    "trial_spawner": { light: 4 },
+    "magma": { light: 3 },
+    "medium_amethyst_bud": { light: 2 },
+    "brewing_stand": { light: 1 },
+    "brown_mushroom": { light: 1 },
+    "calibrated_sculk_sensor": { light: 1 },
+    "dragon_egg": { light: 1 },
+    "end_portal_frame": { light: 1 },
+    "sculk_sensor": { light: 1 },
+    "small_amethyst_bud": { light: 1 }
 }

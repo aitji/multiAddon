@@ -1,0 +1,11 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "multi:addon_craft" },
+        "tags": [ "crafting_table" ],
+        "pattern": [ "#X" ],
+        "key": { "#": { "item": "minecraft:paper" }, "X": { "item": "minecraft:redstone" } },
+        "unlock": [ { "item": "minecraft:paper" } ],
+        "result": { "item": "multi:addon", "count": 1 }
+    }
+}
