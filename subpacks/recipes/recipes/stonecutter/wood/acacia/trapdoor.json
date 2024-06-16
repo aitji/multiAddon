@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "minecraft:stonecutter_acacia_trapdoor"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0.6,
+        "ingredients": [
+            {
+                "item": "minecraft:acacia_planks",
+                "data": 0
+            }
+        ],
+        "result": {
+            "item": "minecraft:acacia_trapdoor",
+            "data": 0,
+            "count": 1
+        }
+    }
+}

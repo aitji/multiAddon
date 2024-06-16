@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lava_bucket"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:magma",
+        "data": 0
+      }
+    ],
+    "pattern": [
+      "B",
+      "C"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:magma",
+        "data": 0
+      },
+      "C": {
+        "item": "minecraft:bucket",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:lava_bucket",
+      "count": 1,
+      "data": 0
+    }
+  }
+}

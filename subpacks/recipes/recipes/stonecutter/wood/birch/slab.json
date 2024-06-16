@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "minecraft:stonecutter_birch_slab"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0.5,
+        "ingredients": [
+            {
+                "item": "minecraft:birch_planks",
+                "data": 0
+            }
+        ],
+        "result": {
+            "item": "minecraft:birch_slab",
+            "data": 0,
+            "count": 2
+        }
+    }
+}

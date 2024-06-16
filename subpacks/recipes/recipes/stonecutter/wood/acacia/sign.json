@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "minecraft:stonecutter_acacia_sign"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0.4,
+        "ingredients": [
+            {
+                "item": "minecraft:acacia_planks",
+                "data": 0
+            }
+        ],
+        "result": {
+            "item": "minecraft:acacia_sign",
+            "data": 0,
+            "count": 1
+        }
+    }
+}

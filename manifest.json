@@ -36,6 +36,18 @@
       "entry": "scripts/src.js"
     }
   ],
+  "subpacks": [
+    {
+      "folder_name": "recipes",
+      "name": "custom recipes+ & script",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "script",
+      "name": "script only",
+      "memory_tier": 1
+    }
+  ],
   "dependencies": [
     {
       "module_name": "@minecraft/server",

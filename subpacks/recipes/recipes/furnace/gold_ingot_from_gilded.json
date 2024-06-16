@@ -1,0 +1,17 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "tags": ["furnace", "blast_furnace"],
+    "output": {
+      "item": "minecraft:gold_ingot",
+      "data": 0
+    },
+    "input": {
+      "item": "minecraft:gilded_blackstone",
+      "data": 0
+    },
+    "description": {
+      "identifier": "gold_ingot_1"
+    }
+  }
+}

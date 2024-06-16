@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lapis"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:blue_dye",
+        "data": 0
+      }
+    ],
+    "pattern": [
+      "AA",
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:blue_dye",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:lapis_lazuli",
+      "count": 1,
+      "data": 0
+    }
+  }
+}

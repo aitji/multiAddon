@@ -1,0 +1,37 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "tuff"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_nugget",
+        "data": 0
+      }
+    ],
+    "pattern": [
+      "AAA",
+      "ABA",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:cobblestone",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:iron_nugget",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:tuff",
+      "count": 8,
+      "data": 0
+    }
+  }
+}

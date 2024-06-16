@@ -1,0 +1,41 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "totem"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald_block",
+        "data": 0
+      }
+    ],
+    "pattern": [
+      " A ",
+      "CBC",
+      " A "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gold_block",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:emerald_block",
+        "data": 0
+      },
+      "C": {
+        "item": "minecraft:amethyst_cluster",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:totem_of_undying",
+      "count": 1,
+      "data": 0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "minecraft:stonecutter_mangrove_wood"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 1,
+        "ingredients": [
+            {
+                "item": "minecraft:mangrove_log",
+                "data": 0
+            }
+        ],
+        "result": {
+            "item": "minecraft:mangrove_wood",
+            "data": 0,
+            "count": 1
+        }
+    }
+}

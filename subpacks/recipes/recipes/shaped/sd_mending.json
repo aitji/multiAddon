@@ -1,0 +1,39 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "mending"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "DCD",
+      "ABA",
+      "DCD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:emerald_block",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:book",
+        "data": 0
+      },
+      "C": {
+        "item": "minecraft:iron_block",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:amethyst_cluster",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:enchanted_book",
+      "count": 1,
+      "data": 0
+    }
+  }
+}

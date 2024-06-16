@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sand_from_sandstone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:sandstone",
+        "data": 0
+      }
+    ],
+    "pattern": [
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:sandstone",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:sand",
+      "count": 4,
+      "data": 0
+    }
+  }
+}

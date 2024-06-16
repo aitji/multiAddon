@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "minecraft:stonecutter_warped_door"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0.7,
+        "ingredients": [
+            {
+                "item": "minecraft:warped_planks",
+                "data": 0
+            }
+        ],
+        "result": {
+            "item": "minecraft:warped_door",
+            "data": 0,
+            "count": 1
+        }
+    }
+}

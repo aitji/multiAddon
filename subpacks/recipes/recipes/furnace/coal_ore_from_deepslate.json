@@ -1,0 +1,17 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "tags": ["furnace", "blast_furnace"],
+    "output": {
+      "item": "minecraft:deepslate_coal_ore",
+      "data": 0
+    },
+    "input": {
+      "item": "minecraft:deepslate",
+      "data": 0
+    },
+    "description": {
+      "identifier": "coal_ore"
+    }
+  }
+}
