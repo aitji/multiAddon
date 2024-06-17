@@ -92,6 +92,11 @@ function update() {
     }
 }
 
+function check(a, b) {
+    if (a.length !== b.length) return false
+    return a.every(item => b.some((otherItem) => JSON.stringify(item) === JSON.stringify(otherItem)))
+}
+
 function newInv(con, equ_ = false) {
     let items = []
     if (!equ_) {
