@@ -32,7 +32,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
                         player.runCommandAsync(`playsound random.break @a ~~~`)
                         return
                     } else dur.damage += 1
-                    player.runCommandAsync(`setblock ${block.x} ${block.y} ${block.z} minecraft:${id}`)
+                    player.dimension.getBlock(block.location).setPermutation(BlockPermutation.resolve(`minecraft:${id}`))
                     equippable?.setEquipment(EquipmentSlot.Mainhand, item)
                 })
             } else {

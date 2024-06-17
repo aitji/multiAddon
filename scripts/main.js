@@ -1,6 +1,6 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
 import { ModalFormData } from "@minecraft/server-ui"
-import { wait } from "./_function.js"
+import { DEBUG, wait } from "./_function.js"
 const setting = new ItemStack('multi:addon', 1)
 setting.keepOnDeath = true
 
@@ -13,7 +13,7 @@ async function importer() {
     for (let i = 0; i < cacheSp.length; i++) {
         const name = set[i]
         if (cacheSp[i] === '1') {
-            world.sendMessage(`§7${name} has been imported!`)
+            if (DEBUG) world.sendMessage(`§7${name} has been imported!`)
             await import(`./${name}.js`)
         }
     }

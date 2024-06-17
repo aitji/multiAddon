@@ -1,6 +1,29 @@
-import { system, Block, ItemStack } from "@minecraft/server"
+import { system, Block, ItemStack, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, ItemComponentTypes, ItemEnchantableComponent, world } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
 export const DEBUG = false
+
+/** @param {ItemStack} item1  @param {ItemStack} item2 @returns {Boolean} */
+export function isMatches(item1, item2, hardCheck = true) {
+    if (item1.typeId !== item2.typeId) return false
+    if (item1.nameTag !== item2.nameTag) return false
+    const du1 = item1.getComponent(ItemComponentTypes.Durability)
+    const du2 = item2.getComponent(ItemComponentTypes.Durability)
+    const lore1 = item1.getLore()
+    const lore2 = item2.getLore()
+
+    if (du1 && du2) if (du1.damage !== du2.damage) return false
+    else if (du1 || du2) return false
+    if (item1.keepOnDeath !== item2.keepOnDeath) return false
+    if (lore1.length !== lore2.length) return false
+    if (hardCheck) {
+        const enchant1 = item1?.getComponent(ItemComponentTypes.Enchantments)?.enchantments || []
+        const enchant2 = item2?.getComponent(ItemComponentTypes.Enchantments)?.enchantments || []
+        if (enchant1.length !== enchant2.length) return false
+        for (let i = 0; i < enchant1.length; i++) if (enchant1[i].type.id !== enchant2[i].type.id || enchant1[i].level !== enchant2[i].level) return false;
+        for (let i = 0; i < lore1.length; i++) if (lore1[i] !== lore2[i]) return false
+    }
+    return true
+}
 
 /** @returns {String} */
 export function getBlock(block, isPermutation = false) { return isPermutation ? block.getItemStack(1).typeId : block.permutation.getItemStack(1).typeId }

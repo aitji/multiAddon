@@ -6,6 +6,7 @@ let inventories = []
 world.afterEvents.playerSpawn.subscribe(data => {
     const { player: pl, initialSpawn } = data
     if (!initialSpawn) return
+    const allPlayer = world.getAllPlayers()
     system.run(async () => {
         pl.addTag('INV.TEMPORARY.TAG')
 

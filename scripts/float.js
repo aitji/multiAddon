@@ -1,16 +1,21 @@
 import { world, system, ItemStack, Player } from "@minecraft/server"
-import { calDis, reName } from "./_function"
+import { calDis, isMatches, reName } from "./_function"
 
 system.runInterval(() => system.run(() => {
     const obj = world.getAllPlayers()
     const len = obj.length
     for (let i = 0; i < len; i++) {
         const plr = obj[i]
-        if (Math.ceil(plr.getComponent("health").currentValue || 0) > 0) continue
-        const entity = plr.dimension.getEntities({ maxDistance: 32, location: plr.location, type: 'minecraft:item' })
+        if (Math.ceil(plr.getComponent("health").currentValue || 0) < 0) continue
+        const entity = plr.dimension.getEntities({ maxDistance: 64, location: plr.location, type: 'minecraft:item' })
         for (const en of entity) {
             /** @type {ItemStack} */
             const item = en.getComponent("item").itemStack
+            const t = en.dimension.getEntities({ type: 'minecraft:item', maxDistance: 5, location: en.location, minDistance: 1, closest: 1 })[0]
+            if (t) {
+                const tI = t.getComponent("item").itemStack
+                if (isMatches(item, tI, false)) { en.teleport(t.location); continue }
+            }
             const dis = item.nameTag || reName(item.typeId) || item.typeId
             const distance = calDis(en, plr) || 0
             if (distance <= 18) en.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
@@ -33,8 +38,8 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
         const dis = item.nameTag || reName(item.typeId) || item.typeId
         const blur = entity.runCommand(`testfor @a[r=18]`).successCount === 1
         const hid = entity.runCommand(`testfor @a[r=28]`).successCount === 1
-        if (blur) entity.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
-        else if (hid) entity.nameTag = `§r§f§k${dis}§r §r§cx§k${item.amount}§r`
+        if (blur) entity.nameTag = `§r§f${dis} §r§cx?§r`
+        else if (hid) entity.nameTag = `§r§f§k${dis} §r§k§cx?§r`
         else entity.nameTag = `§r`
     } catch { }
 })

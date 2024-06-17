@@ -1,4 +1,4 @@
-import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes } from "@minecraft/server"
+import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes, GameMode } from "@minecraft/server"
 import { DEBUG, isFrame, light } from "./_function"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
@@ -40,6 +40,7 @@ const processEntity = (en, isPlayer = false) => {
 }
 
 system.runInterval(() => {
+    world.getAllPlayers().forEach(pl => processEntity(pl, true))
     world.getDynamicPropertyIds().forEach(dy => {
         if (dy.startsWith("chuck_unload:")) {
             let time = world.getDynamicProperty(dy)
@@ -58,8 +59,7 @@ system.runInterval(() => {
                     put_light(block, level, Infinity)
                 }
             } catch (e) { }
-        }
-        if (dy.startsWith("light:")) {
+        } else if (dy.startsWith("light:")) {
             let time = world.getDynamicProperty(dy)
             let arr = dy.split(":")
             let [_, dim, x, y, z, level, liq] = arr
@@ -128,8 +128,6 @@ system.runInterval(() => {
             } catch (e) { }
         }
     })
-
-    world.getAllPlayers().forEach(pl => processEntity(pl, true))
 }, DELAY)
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */
@@ -162,6 +160,12 @@ world.afterEvents.playerPlaceBlock.subscribe(data => {
         if (DEBUG) world.sendMessage(`§aadd:§7 ${bl}`)
         world.setDynamicProperty(bl, 1)
     }
+})
+
+world.beforeEvents.playerBreakBlock.subscribe(data => {
+    const { block, player } = data
+    if (player.matches({ gameMode: GameMode.creative })) return
+    if (block.permutation.matches('minecraft:light_block')) data.cancel = true
 })
 
 world.beforeEvents.playerBreakBlock.subscribe(data => {
