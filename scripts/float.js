@@ -14,7 +14,10 @@ system.runInterval(() => system.run(() => {
             const t = en.dimension.getEntities({ type: 'minecraft:item', maxDistance: 5, location: en.location, minDistance: 1, closest: 1 })[0]
             if (t) {
                 const tI = t.getComponent("item").itemStack
-                if (isMatches(item, tI, false)) { en.teleport(t.location); continue }
+                if (isMatches(item, tI, false)) {
+                    if (item.amount > tI.amount) { t.teleport(en.location); continue }
+                    else { en.teleport(t.location); continue }
+                }
             }
             const dis = item.nameTag || reName(item.typeId) || item.typeId
             const distance = calDis(en, plr) || 0
