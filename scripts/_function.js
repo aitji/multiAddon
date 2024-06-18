@@ -1,6 +1,8 @@
 import { system, Block, ItemStack, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, ItemComponentTypes, ItemEnchantableComponent, world } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
 export const DEBUG = false
+export const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
+export let inventories = []
 
 /** @param {ItemStack} item1  @param {ItemStack} item2 @returns {Boolean} */
 export function isMatches(item1, item2, hardCheck = true) {
@@ -23,6 +25,27 @@ export function isMatches(item1, item2, hardCheck = true) {
         for (let i = 0; i < lore1.length; i++) if (lore1[i] !== lore2[i]) return false
     }
     return true
+}
+
+export function newInv(con, equ_ = false) {
+    let items = []
+    if (!equ_) {
+        for (let i = 0; i < 36; i++) {
+            const item = con.getItem(i)
+            if (item) {
+                const durability = item.getComponent("durability") ? item.getComponent("durability").damage : 0
+                items.push({ typeId: item.typeId, amount: item.amount, durability, slot: i })
+            }
+        }
+    } else {
+        for (const slot of equipmentSlots) {
+            const item_ = con.getEquipment(slot)
+            const type_ = item_ ? item_.typeId : ''
+            const durability_ = item_ ? (item_.getComponent("durability") ? item_.getComponent("durability").damage : 0) : 0
+            items.push({ typeId: type_, durability: durability_, slot })
+        }
+    }
+    return items
 }
 
 /** @returns {String} */

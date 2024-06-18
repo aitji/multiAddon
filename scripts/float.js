@@ -3,10 +3,8 @@ import { calDis, isMatches, reName } from "./_function"
 
 system.runInterval(() => system.run(() => {
     const obj = world.getAllPlayers()
-    const len = obj.length
-    for (let i = 0; i < len; i++) {
-        const plr = obj[i]
-        if (Math.ceil(plr.getComponent("health").currentValue || 0) < 0) continue
+    for (const plr of obj) {
+        if (Math.ceil(plr.getComponent("health").currentValue || 0) <= 0) continue
         const entity = plr.dimension.getEntities({ maxDistance: 64, location: plr.location, type: 'minecraft:item' })
         for (const en of entity) {
             /** @type {ItemStack} */
@@ -30,7 +28,7 @@ system.runInterval(() => system.run(() => {
 
 world.afterEvents.entityDie.subscribe(data => {
     const { deadEntity: player } = data
-    const entity = player.dimension.getEntities({ maxDistance: 32, location: player.location, type: 'minecraft:item' })
+    const entity = player.dimension.getEntities({ maxDistance: 64, location: player.location, type: 'minecraft:item' })
     entity.forEach(en => en.nameTag = `§r`)
 }, { entityTypes: ["minecraft:player"] })
 

@@ -1,6 +1,6 @@
 import { world, system, BlockPermutation } from "@minecraft/server"
 import { getBlock } from "./_function"
-const EXPIRE_SECOND = 300 // 300 //
+const EXPIRE_SECOND = 600 // 600 //
 world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
     // if before event support will be cancel -1 set permutation, it kinda cool!
     const { block } = data

@@ -33,7 +33,6 @@ world.afterEvents.playerSpawn.subscribe(data => {
             /** @type {Container} */
             const inv = player.getComponent('inventory').container
             inv.addItem(setting)
-            player.addTag('trusted')
         })
     }
 })
