@@ -1,5 +1,6 @@
 import { world, system, EquipmentSlot, EntityHealthComponent } from "@minecraft/server"
 import { wait } from "./_function"
+import { get } from "./main"
 
 let lastHealth = 20
 const overworld = world.getDimension("overworld")
