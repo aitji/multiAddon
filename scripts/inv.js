@@ -1,5 +1,7 @@
 import { world, system, EquipmentSlot } from "@minecraft/server"
-import { equipmentSlots, inventories } from "./_function"
+
+const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
+let inventories = []
 
 world.afterEvents.playerSpawn.subscribe(data => {
     const { player: pl, initialSpawn } = data
@@ -93,4 +95,25 @@ function update() {
 function check(a, b) {
     if (a.length !== b.length) return false
     return a.every(item => b.some((otherItem) => JSON.stringify(item) === JSON.stringify(otherItem)))
+}
+
+function newInv(con, equ_ = false) {
+    let items = []
+    if (!equ_) {
+        for (let i = 0; i < 36; i++) {
+            const item = con.getItem(i)
+            if (item) {
+                const durability = item.getComponent("durability") ? item.getComponent("durability").damage : 0
+                items.push({ typeId: item.typeId, amount: item.amount, durability, slot: i })
+            }
+        }
+    } else {
+        for (const slot of equipmentSlots) {
+            const item_ = con.getEquipment(slot)
+            const type_ = item_ ? item_.typeId : ''
+            const durability_ = item_ ? (item_.getComponent("durability") ? item_.getComponent("durability").damage : 0) : 0
+            items.push({ typeId: type_, durability: durability_, slot })
+        }
+    }
+    return items
 }

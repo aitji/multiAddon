@@ -12,35 +12,31 @@ if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disa
 /** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {
     try {
-        if (isPlayer) {
-            en.dimension.getEntities({
-                maxDistance: ENTITY_RENDER_DISTANT_BLOCK || 64,
-                location: en.location,
-                type: 'minecraft:item'
-            }).forEach(enr => processEntity(enr))
+        if (isPlayer) en.dimension.getEntities({ maxDistance: ENTITY_RENDER_DISTANT_BLOCK || 64, location: en.location, type: 'minecraft:item' }).forEach(enr => processEntity(enr))
+
+        let item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand) : en.getComponent("item").itemStack
+        if (!item) item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Offhand) : en.getComponent("item").itemStack
+        let typeId = item?.typeId?.split('minecraft:')[1]?.toLowerCase() || undefined
+        let type = light[typeId] || undefined
+        if (!type || typeof type.light !== 'number') {
+            let item = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Offhand) : en.getComponent("item").itemStack
+            typeId = item.typeId.split('minecraft:')[1].toLowerCase()
+            type = light[typeId]
         }
-
-        let mItem = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand) : en.getComponent("item")?.itemStack
-        let oItem = isPlayer ? en.getComponent("equippable")?.getEquipment(EquipmentSlot.Offhand) : undefined
-
-        let mTypeId = mItem?.typeId?.split(':')[1]?.toLowerCase()
-        let mType = mTypeId ? light[mTypeId] : undefined
-        let mLight = mType?.light || 0;
-
-        let oTypeId = oItem?.typeId?.split(':')[1]?.toLowerCase()
-        let oType = oTypeId ? light[oTypeId] : undefined
-        let oLight = oType?.light || 0
-
-        let LL = Math.min(15, Math.ceil((mLight + oLight) * REDUCE_LIGHT))
+        if (!type || typeof type.light !== 'number') return
+        if (!item) return
+        let lightLevel = Math.min(15, Math.ceil(type.light * REDUCE_LIGHT))
         let block = en.dimension.getBlock(en.location)
-        let direct = ['east', 'west', 'north', 'south', '']
-
-        direct.forEach(dir => {
+        let directions = ['east', 'west', 'north', 'south', '']
+        directions.forEach(dir => {
             let blo = dir ? block[dir](-1) : block
-            let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, LL, en) }
-            for (let i = 0; i < 3; i++) checkAndPut(blo); blo = blo.offset({ x: 0, y: 1, z: 0 })
+            let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, lightLevel, en) }
+            for (let i = 0; i < 3; i++) {
+                checkAndPut(blo)
+                blo = blo.offset({ x: 0, y: 1, z: 0 })
+            }
         })
-    } catch (error) { if (DEBUG) world.sendMessage(`${error}`) }
+    } catch (error) { }
 }
 
 system.runInterval(() => {
