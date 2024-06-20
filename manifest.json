@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "§fcreator§a: @aitji\n§7this addon support @stable(1.10.0)",
+    "description": "§fcreator§a: @aitji\n§7this addon support @stable(1.11.0)",
     "name": "§7Multi§f§lAddon!",
     "uuid": "c370b0a3-5b5d-46b7-9863-d0b326aaf4f8",
     "version": [
       1,
       1,
-      4
+      7
     ],
     "min_engine_version": [
       1,
