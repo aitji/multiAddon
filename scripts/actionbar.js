@@ -1,4 +1,6 @@
 import { world, system } from "@minecraft/server"
+import { TPS_DISPLAY, tpsIt } from "./_function"
+
 system.runInterval(() => system.run(() => {
     const players = world.getAllPlayers()
     for (const plr of players) {
@@ -13,6 +15,7 @@ system.runInterval(() => system.run(() => {
                 plr.setDynamicProperty(dy, tir - 1)
             }
         }
+        if(TPS_DISPLAY) display.push(`§f: ${tpsIt(3)}/20`)
         plr.onScreenDisplay.setActionBar(display.join("\n§r"))
     }
 }), 1)

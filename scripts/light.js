@@ -4,12 +4,10 @@ import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0 /** delay for everything (0 is good) */
-const DECAY_LIGHT_TICK = 8 /** before light when off time (delay*decay) | (3) */
+const DECAY_LIGHT_TICK = 10 /** before light when off time (delay*decay) | (3) */
 const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
 const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
 const ID = 'light'
-
-if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
 
 /** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {
@@ -34,13 +32,18 @@ const processEntity = (en, isPlayer = false) => {
         let oLight = oType?.light || 0
 
         let LL = Math.min(15, Math.ceil((mLight + oLight) * REDUCE_LIGHT))
+        if (LL <= 0) return
+        /** @type {Block} */
         let block = en.dimension.getBlock(en.location)
         let direct = ['east', 'west', 'north', 'south', '']
 
         direct.forEach(dir => {
-            let blo = dir ? block[dir](-1) : block
+            let blo = dir ? block[dir](-1)?.above(1) : block?.above(1)
             let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, LL, en) }
-            for (let i = 0; i < 3; i++) checkAndPut(blo); blo = blo.offset({ x: 0, y: 1, z: 0 })
+            for (let i = 0; i < 3; i++) {
+                checkAndPut(blo)
+                blo = blo.offset({ x: 0, y: 1, z: 0 })
+            }
         })
     } catch (error) { if (DEBUG) world.sendMessage(`${error}`) }
 }

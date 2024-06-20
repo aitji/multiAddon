@@ -63,7 +63,9 @@ system.runInterval(() => {
                 minDistance: 0
             })
 
-            if (overlap.length > 1) overlap.forEach(ol => ol.nameTag = `§r`)
+            if (overlap.length > 1) overlap.forEach(ol => {
+                if (isMatches(ol, itemStack)) ol.nameTag = `§r`
+            })
 
             const ta = count.get(typeId)
             if (distance <= 18) ie.nameTag = `§r§f${displayName} §r§cx${ta}§r`

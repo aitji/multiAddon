@@ -1,6 +1,27 @@
 import { system, Block, ItemStack, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, ItemComponentTypes, ItemEnchantableComponent, world } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
 export const DEBUG = false
+export const TPS_DISPLAY = false
+
+const tps = {
+    lastTick: 0,
+    tickCount: 0,
+    totalTicks: 0,
+}
+
+export const tpsIt = (fix = 3) => {
+    const cT = system.currentTick
+    if (tps.lastTick > 0) {
+        const ticks = cT - tps.lastTick
+        tps.totalTicks += ticks
+        tps.tickCount += 1
+        const tpsT = ticks / (Date.now() - tps.lastTime) * 1000
+        return tpsT.toFixed(fix)
+    }
+    tps.lastTick = cT
+    tps.lastTime = Date.now()
+    return 20
+}
 
 /** @param {ItemStack} item1  @param {ItemStack} item2 @returns {Boolean} */
 export function isMatches(item1, item2, hardCheck = true) {
@@ -26,7 +47,7 @@ export function isMatches(item1, item2, hardCheck = true) {
 }
 
 /** @returns {String} */
-export function getBlock(block, isPermutation = false) { return isPermutation ? block.getItemStack(1).typeId : block.permutation.getItemStack(1).typeId }
+export function getBlock(block, isPermutation = false) { return isPermutation ? block?.getItemStack(1)?.typeId : block?.permutation?.getItemStack(1)?.typeId }
 /** @returns {String} */
 export function reName(item) { return item.split(":")[1].split('_').map(v => v[0].toUpperCase() + v.slice(1).toLowerCase()).join(" ") }
 /** @returns {Promise} */

@@ -10,7 +10,7 @@ world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
 
     const { block } = data
     const typeId = getBlock(block)
-    if (typeId.includes('campfire')) {
+    if (typeId?.includes('campfire')) {
         const cardinalDirection = block.permutation.getState('minecraft:cardinal_direction')
         block.setPermutation(BlockPermutation.resolve(typeId)
             .withState('extinguished', true)
@@ -24,7 +24,7 @@ world.afterEvents.playerBreakBlock.subscribe(data => {
     if (!get(ID)) return
 
     const { brokenBlockPermutation: blockP, block } = data
-    if (getBlock(blockP, true).includes('campfire')) {
+    if (getBlock(blockP, true)?.includes('campfire')) {
         const cardinalDirection = blockP.getState('minecraft:cardinal_direction')
         world.setDynamicProperty(`campfire|${block.x}|${block.y}|${block.z}|${block.dimension.id}|${cardinalDirection}`, undefined)
     }

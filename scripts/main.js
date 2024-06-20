@@ -1,6 +1,9 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
 import { ModalFormData } from "@minecraft/server-ui"
-import { DEBUG, wait } from "./_function.js"
+import { DEBUG, TPS_DISPLAY, wait } from "./_function.js"
+if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
+if (TPS_DISPLAY) world.sendMessage(`§c* WARNING, you're enable TPS DISPLAY mode please disable before publish!`)
+
 const setting = new ItemStack('multi:addon', 1)
 setting.keepOnDeath = true
 const data = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand']
