@@ -4,10 +4,15 @@ import { wait } from "./_function"
 let lastHealth = 20
 const overworld = world.getDimension("overworld")
 world.gameRules.showDeathMessages = true
+const ID = 'hp'
 
-world.afterEvents.playerSpawn.subscribe((data) => system.run(() => data.player.getComponent("health").setCurrentValue(lastHealth)))
+world.afterEvents.playerSpawn.subscribe((data) => system.run(() => {
+    if (!get(ID)) return
+    data.player.getComponent("health").setCurrentValue(lastHealth)
+}))
 
 world.afterEvents.entityHealthChanged.subscribe((data) => {
+    if (!get(ID)) return
     system.run(async () => {
         if (data.entity.getComponent("health").currentValue === lastHealth) return
         const players = world.getAllPlayers().filter(plr => plr.name !== data.entity.name)
@@ -26,6 +31,7 @@ world.afterEvents.entityHealthChanged.subscribe((data) => {
 }, { entityTypes: ["minecraft:player"] })
 
 world.afterEvents.entityDie.subscribe((data) => {
+    if (!get(ID)) return
     system.run(() => {
         lastHealth = 20
         data.deadEntity.getComponent("health").setCurrentValue(20)

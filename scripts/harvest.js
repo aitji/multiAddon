@@ -1,8 +1,11 @@
 import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent, EntityInventoryComponent, Container, BlockPermutation, Block } from "@minecraft/server"
 import { AFTER_BREAK } from "./_function"
+import { get } from "./main"
 const list = ['wheat', 'carrots', 'potatoes', 'nether_wart', 'beetroot']
+const ID = 'harvest'
 
 world.beforeEvents.playerBreakBlock.subscribe(data => {
+    if (!get(ID)) return
     const { player, itemStack, block } = data
     let id = list.find(it => block.permutation.matches(`minecraft:${it}`))
     if (!itemStack) return

@@ -1,5 +1,7 @@
 import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent } from "@minecraft/server"
 import { reName } from "./_function"
+import { get } from "./main"
+const ID = 'durability'
 
 const equipmentSlots = [
     EquipmentSlot.Head,
@@ -12,6 +14,7 @@ const equipmentSlots = [
 const len = equipmentSlots.length - 1
 
 system.runInterval(() => {
+    if (!get(ID)) return
     const players = world.getAllPlayers()
     players.forEach(player => {
         /** @type {EntityEquippableComponent} */

@@ -3,19 +3,19 @@ import { ModalFormData } from "@minecraft/server-ui"
 import { DEBUG, wait } from "./_function.js"
 const setting = new ItemStack('multi:addon', 1)
 setting.keepOnDeath = true
+const data = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand']
 
 async function importer() {
     /** @type {String} */
     const cache = world.getDynamicProperty('setting') || '000000000'
-    const set = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand']
     const cacheSp = cache.split('')
 
     for (let i = 0; i < cacheSp.length; i++) {
-        const name = set[i]
-        if (cacheSp[i] === '1') {
-            if (DEBUG) world.sendMessage(`§7${name} has been imported!`)
-            await import(`./${name}.js`)
-        }
+        const name = data[i]
+        // if (cacheSp[i] === '1') {
+        // if (DEBUG) world.sendMessage(`§7${name} has been imported!`)
+        await import(`./${name}.js`)
+        // }
     }
 }
 
@@ -73,8 +73,22 @@ function menu(player) {
             if (list === cache) return
             else {
                 world.setDynamicProperty('setting', list)
-                world.sendMessage(`§c* request to §l/reload`)
+                // world.sendMessage(`§c* request to §l/reload`)
             }
         })
     })
+}
+
+/**
+ * @param {String} id 'campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand'
+ * @returns {Boolean}
+ */
+export const get = (id) => {
+    const idLower = id.toLocaleLowerCase()
+    const index = data.indexOf(idLower)
+    if (index > -1) {
+        const cache = world.getDynamicProperty('setting') || '000000000'
+        return cache[index] === '1'
+    }
+    return false
 }

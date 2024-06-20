@@ -1,7 +1,9 @@
 import { EquipmentSlot, world } from "@minecraft/server";
 import { light } from "./_function";
-
+import { get } from "./main";
+const ID = 'snOffhand'
 world.beforeEvents.itemUse.subscribe(data => {
+    if (!get(ID)) return
     const { source, itemStack: item } = data
     let itemStack = item
     if (item) {

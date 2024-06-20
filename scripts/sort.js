@@ -1,12 +1,16 @@
 import { Block, Container, ItemStack, Player, system, world } from '@minecraft/server'
 import { blockRayCast } from './_function'
+import { get } from './main'
+const ID = 'sort'
 
 world.beforeEvents.itemUse.subscribe(data => {
+    if (!get(ID)) return
     const { source, itemStack } = data
     handleItem(source, itemStack)
 })
 
 system.runInterval(() => {
+    if (!get(ID)) return
     world.getAllPlayers().forEach(pl => {
         pl.getDynamicPropertyIds().filter(id => id.startsWith('chest:')).forEach(id => {
             let time = pl.getDynamicProperty(id) || 0

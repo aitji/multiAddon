@@ -1,7 +1,9 @@
 import { world, system, ItemStack, Player } from "@minecraft/server"
 import { calDis, isMatches, reName } from "./_function"
-
+import { get } from "./main"
+const ID = 'float'
 system.runInterval(() => system.run(() => {
+    if (!get(ID)) return
     const obj = world.getAllPlayers()
     const len = obj.length
     for (let i = 0; i < len; i++) {
@@ -29,12 +31,14 @@ system.runInterval(() => system.run(() => {
 }), 3)
 
 world.afterEvents.entityDie.subscribe(data => {
+    if (!get(ID)) return
     const { deadEntity: player } = data
     const entity = player.dimension.getEntities({ maxDistance: 32, location: player.location, type: 'minecraft:item' })
     entity.forEach(en => en.nameTag = `§r`)
 }, { entityTypes: ["minecraft:player"] })
 
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+    if (!get(ID)) return
     try {
         if (entity.typeId !== "minecraft:item") return
         const item = entity.getComponent("item").itemStack

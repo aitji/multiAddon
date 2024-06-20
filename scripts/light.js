@@ -1,11 +1,13 @@
 import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes, GameMode } from "@minecraft/server"
 import { DEBUG, isFrame, light } from "./_function"
+import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0 /** delay for everything (0 is good) */
 const DECAY_LIGHT_TICK = 3 /** before light when off time (delay*decay) | (3) */
 const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
 const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
+const ID = 'light'
 
 if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
 
@@ -44,7 +46,7 @@ const processEntity = (en, isPlayer = false) => {
 }
 
 system.runInterval(() => {
-    world.getAllPlayers().forEach(pl => processEntity(pl, true))
+    if (get(ID)) world.getAllPlayers().forEach(pl => processEntity(pl, true))
     world.getDynamicPropertyIds().forEach(dy => {
         if (dy.startsWith("chuck_unload:")) {
             let time = world.getDynamicProperty(dy)
@@ -147,6 +149,7 @@ function put_light(block, level, pl, force = false) {
 }
 
 world.afterEvents.entityRemove.subscribe(data => {
+    if (!get(ID)) return
     const { removedEntityId } = data
     world.getDynamicPropertyIds().forEach(dy => {
         if (dy.startsWith("light:") && dy.split(":")[7].toString() === removedEntityId.toString()) {
@@ -158,6 +161,7 @@ world.afterEvents.entityRemove.subscribe(data => {
 })
 
 world.afterEvents.playerPlaceBlock.subscribe(data => {
+    if (!get(ID)) return
     const { block } = data
     if (isFrame(block)) {
         let bl = `frame:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}`
@@ -167,12 +171,14 @@ world.afterEvents.playerPlaceBlock.subscribe(data => {
 })
 
 world.beforeEvents.playerBreakBlock.subscribe(data => {
+    if (!get(ID)) return
     const { block, player } = data
     if (player.matches({ gameMode: GameMode.creative })) return
     if (block.permutation.matches('minecraft:light_block')) data.cancel = true
 })
 
 world.beforeEvents.playerBreakBlock.subscribe(data => {
+    if (!get(ID)) return
     const { block } = data
     if (isFrame(block)) {
         let bl = `frame:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}`
@@ -183,6 +189,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
 
 if (DEBUG) {
     world.afterEvents.itemUse.subscribe(data => {
+        if (!get(ID)) return
         const { itemStack } = data
         if (itemStack.typeId === 'minecraft:barrier') {
             world.getDynamicPropertyIds().map(dy => world.sendMessage(`§7${dy}`))

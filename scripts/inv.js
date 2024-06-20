@@ -1,9 +1,11 @@
 import { world, system, EquipmentSlot } from "@minecraft/server"
+import { get } from "./main"
 
 const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
 let inventories = []
-
+const ID = 'inv'
 world.afterEvents.playerSpawn.subscribe(data => {
+    if (!get(ID)) return
     const { player: pl, initialSpawn } = data
     if (!initialSpawn) return
     const allPlayer = world.getAllPlayers()
@@ -39,6 +41,7 @@ world.afterEvents.playerSpawn.subscribe(data => {
 })
 
 system.runInterval(() => system.run(() => {
+    if (!get(ID)) return
     if (world.getAllPlayers().length > 1) update()
 }))
 
@@ -94,7 +97,7 @@ function update() {
 
 function check(a, b) {
     if (a.length !== b.length) return false
-    return a.every(item => b.some((otherItem) => JSON.stringify(item) === JSON.stringify(otherItem)))
+    return a.every(i => b.some((t) => JSON.stringify(i) === JSON.stringify(t)))
 }
 
 function newInv(con, equ_ = false) {
