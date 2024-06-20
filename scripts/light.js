@@ -1,10 +1,10 @@
-import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes, GameMode } from "@minecraft/server"
+import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, BlockPermutation, BlockStates, Block, Player, MinecraftDimensionTypes, GameMode, EntityComponentTypes } from "@minecraft/server"
 import { DEBUG, isFrame, light } from "./_function"
 import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0 /** delay for everything (0 is good) */
-const DECAY_LIGHT_TICK = 3 /** before light when off time (delay*decay) | (3) */
+const DECAY_LIGHT_TICK = 8 /** before light when off time (delay*decay) | (3) */
 const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
 const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
 const ID = 'light'
@@ -46,7 +46,37 @@ const processEntity = (en, isPlayer = false) => {
 }
 
 system.runInterval(() => {
-    if (get(ID)) world.getAllPlayers().forEach(pl => processEntity(pl, true))
+    if (get(ID)) world.getAllPlayers().forEach(pl => {
+        processEntity(pl, true)
+        const entity = pl.dimension.getEntities(
+            {
+                location: pl.location,
+                maxDistance: ENTITY_RENDER_DISTANT_BLOCK,
+                excludeTypes: [
+                    'minecraft:xp_orb', 'minecraft:xp_bottle', 'minecraft:player',
+                    'minecraft:item', 'minecraft:arrow', 'minecraft:minecart',
+                    'minecraft:chest_minecart', 'minecraft:command_block_minecart', 'minecraft:hopper_minecart',
+                    'minecraft:boat', 'minecraft:chest_boat', 'minecraft:splash_potion',
+                    'minecraft:tnt'
+                ]
+            }
+        )
+        if (entity) {
+            entity.forEach(en => {
+                let direct = ['east', 'west', 'north', 'south', '']
+                let block = en.dimension.getBlock(en.location)
+                const LL = 10
+                if (en.getComponent(EntityComponentTypes.OnFire)) {
+
+                    direct.forEach(dir => {
+                        let blo = dir ? block[dir](-1) : block
+                        let checkAndPut = blo => { if (blo.isLiquid || blo.isAir || blo.permutation.matches("minecraft:light_block")) put_light(blo, LL, en) }
+                        for (let i = 0; i < 3; i++) checkAndPut(blo); blo = blo.offset({ x: 0, y: 1, z: 0 })
+                    })
+                }
+            })
+        }
+    })
     world.getDynamicPropertyIds().forEach(dy => {
         if (dy.startsWith("chuck_unload:")) {
             let time = world.getDynamicProperty(dy)

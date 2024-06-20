@@ -2,33 +2,76 @@ import { world, system, ItemStack, Player } from "@minecraft/server"
 import { calDis, isMatches, reName } from "./_function"
 import { get } from "./main"
 const ID = 'float'
-system.runInterval(() => system.run(() => {
-    if (!get(ID)) return
-    const obj = world.getAllPlayers()
-    const len = obj.length
-    for (let i = 0; i < len; i++) {
-        const plr = obj[i]
-        if (Math.ceil(plr.getComponent("health").currentValue || 0) < 0) continue
-        const entity = plr.dimension.getEntities({ maxDistance: 64, location: plr.location, type: 'minecraft:item' })
-        for (const en of entity) {
-            /** @type {ItemStack} */
-            const item = en.getComponent("item").itemStack
-            const t = en.dimension.getEntities({ type: 'minecraft:item', maxDistance: 5, location: en.location, minDistance: 1, closest: 1 })[0]
-            if (t) {
-                const tI = t.getComponent("item").itemStack
-                if (isMatches(item, tI, false)) {
-                    if (item.amount > tI.amount) { t.teleport(en.location); continue }
-                    else { en.teleport(t.location); continue }
+
+system.runInterval(() => {
+    const IDCheck = get(ID)
+    if (!IDCheck) return
+
+    const players = world.getAllPlayers()
+    const count = new Map()
+
+    players.forEach(player => {
+        const health = player.getComponent("health").currentValue || 0
+        if (Math.ceil(health) < 0) return
+
+        const items = player.dimension.getEntities({
+            maxDistance: 64,
+            location: player.location,
+            type: 'minecraft:item'
+        })
+
+        items.forEach(ie => {
+            const ic = ie.getComponent("item")
+            if (!ic) return
+
+            const itemStack = ic.itemStack
+            const nearbyItems = ie.dimension.getEntities({
+                type: 'minecraft:item',
+                maxDistance: 5,
+                location: ie.location,
+                minDistance: 1,
+                closest: 1
+            })
+
+            const targetItem = nearbyItems[0]
+            if (targetItem) {
+                const targetItemStack = targetItem.getComponent("item").itemStack
+                if (isMatches(itemStack, targetItemStack, false)) {
+                    if (itemStack.amount > targetItemStack.amount) {
+                        targetItem.teleport(ie.location)
+                        targetItem.nameTag = '§r'
+                        return
+                    } else {
+                        ie.teleport(targetItem.location)
+                        return
+                    }
                 }
             }
-            const dis = item.nameTag || reName(item.typeId) || item.typeId
-            const distance = calDis(en, plr) || 0
-            if (distance <= 18) en.nameTag = `§r§f${dis} §r§cx${item.amount}§r`
-            else if (distance <= 28) en.nameTag = `§r§f§k${dis}§r §r§cx§k${item.amount}§r`
-            else en.nameTag = `§r`
-        }
-    }
-}), 3)
+
+            const typeId = itemStack.typeId
+            if (!count.has(typeId)) count.set(typeId, 0)
+
+            count.set(typeId, count.get(typeId) + itemStack.amount)
+
+            const displayName = itemStack.nameTag || reName(typeId) || typeId
+            const distance = calDis(ie, player) || 0
+
+            const overlap = ie.dimension.getEntities({
+                type: 'minecraft:item',
+                maxDistance: 1,
+                location: ie.location,
+                minDistance: 0
+            })
+
+            if (overlap.length > 1) overlap.forEach(ol => ol.nameTag = `§r`)
+
+            const ta = count.get(typeId)
+            if (distance <= 18) ie.nameTag = `§r§f${displayName} §r§cx${ta}§r`
+            else if (distance <= 28) ie.nameTag = `§r§f§k${displayName}§r §r§cx§k${ta}§r`
+            else ie.nameTag = `§r`
+        })
+    })
+}, 3)
 
 world.afterEvents.entityDie.subscribe(data => {
     if (!get(ID)) return
