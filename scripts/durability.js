@@ -31,7 +31,7 @@ system.runInterval(() => {
             if (!durability) return
 
             const remainingDurability = durability.maxDurability - durability.damage
-            if (i === len) player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
+            if (slot === EquipmentSlot.Mainhand) player.setDynamicProperty(`actionbar§:${item.nameTag || reName(item.typeId)} §7(${remainingDurability}/${durability.maxDurability})`, 1)
         }
     })
 }, 20)
