@@ -6,11 +6,11 @@ if (TPS_DISPLAY) world.sendMessage(`§c* WARNING, you're enable TPS DISPLAY mode
 
 const setting = new ItemStack('multi:addon', 1)
 setting.keepOnDeath = true
-const data = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand']
+const data = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand', 'stackMob']
 
 async function importer() {
     /** @type {String} */
-    const cache = world.getDynamicProperty('setting') || '000000000'
+    const cache = world.getDynamicProperty('setting') || '0000000000'
     const cacheSp = cache.split('')
 
     for (let i = 0; i < cacheSp.length; i++) {
@@ -56,8 +56,8 @@ const toNum = (bool) => { return bool ? 1 : 0 }
 /** @type {Player} */
 function menu(player) {
     system.run(() => {
-        const cache = world.getDynamicProperty('setting') || '000000000'
-        const [camp, durability, float, harvest, hp, inv, light, sort, snOffhand] = cache.split('') // 000000000
+        const cache = world.getDynamicProperty('setting') || '0000000000'
+        const [camp, durability, float, harvest, hp, inv, light, sort, snOffhand, stackMob] = cache.split('') // 0000000000
         const form = new ModalFormData()
         form.title(`Host: Addon List`)
         form.toggle(`Lit Campfire`, isBool(camp))
@@ -69,10 +69,11 @@ function menu(player) {
         form.toggle(`Dynamic Light`, isBool(light))
         form.toggle(`Stick Sort`, isBool(sort))
         form.toggle(`sneak to offhand`, isBool(snOffhand))
+        form.toggle(`stackMob`, isBool(stackMob))
         form.show(player).then((res) => {
             if (res.canceled) return
             const resu = res.formValues
-            const list = resu.slice(0, 9).map(toNum).join('')
+            const list = resu.slice(0, 10).map(toNum).join('')
             if (list === cache) return
             else {
                 world.setDynamicProperty('setting', list)
@@ -87,10 +88,9 @@ function menu(player) {
  * @returns {Boolean}
  */
 export const get = (id) => {
-    const idLower = id.toLocaleLowerCase()
-    const index = data.indexOf(idLower)
+    const index = data.indexOf(id)
     if (index > -1) {
-        const cache = world.getDynamicProperty('setting') || '000000000'
+        const cache = world.getDynamicProperty('setting') || '0000000000'
         return cache[index] === '1'
     }
     return false
