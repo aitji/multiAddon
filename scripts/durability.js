@@ -1,10 +1,7 @@
 import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, EntityEquippableComponent } from "@minecraft/server"
-import { reName } from "./_function"
+import { reName, rep } from "./_function"
 import { get } from "./main"
 const ID = 'durability'
-// /\{name\}/g
-/** @returns {String} */
-const rep = (input, re, replace) => input.replace(new RegExp(`\\{${re}\\}`, 'g'), replace)
 
 const equipmentSlots = [
     EquipmentSlot.Head,     // #0 //

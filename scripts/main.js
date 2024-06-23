@@ -37,8 +37,8 @@ const dataSet = {
 }
 const data = Object.keys(dataSet)
 const dataV = Object.values(dataSet)
-const isBool = (int) => { return parseInt(int) == 1 }
-const toNum = (bool) => { return bool ? 1 : 0 }
+const isBool = (int) => parseInt(int) == 1
+const toNum = (bool) => bool ? 1 : 0
 async function importer() { for (const name of data.slice(0, getSetting().length)) await import(`./${name}.js`) }
 import "./actionbar.js"
 importer() // import other file

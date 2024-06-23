@@ -147,3 +147,6 @@ export function isNum(str, limit = Infinity, autoConvert = false) {
 
 /** @returns {String} */
 export const clean = (i) => { return i?.replace(/§./g, '') || i }
+
+/** @returns {String} */
+export const rep = (input, re, replace) => input.replace(new RegExp(`\\{${re}\\}`, 'g'), replace)
