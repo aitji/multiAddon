@@ -109,41 +109,39 @@ ${des.join("\n")}
 }
 /** @param {Player} player  */
 const settingHandel = (player, index) => {
-    const ID = data[parseInt(index)];
-    const ADDON = String(world.getDynamicProperty(ID) || '');
-    const form = new ModalFormData().title(`Host: §l${ID}'s Setting§r`);
+    const ID = data[parseInt(index)]
+    const ADDON = String(world.getDynamicProperty(ID) || '')
+    const form = new ModalFormData().title(`Host: §l${ID}'s Setting§r`)
 
     switch (parseInt(index)) {
         case 0:
-            const parts = ADDON.split("§:");
-            const expireTime = parts[0] || "300";
+            const parts = ADDON.split("§:")
+            const expireTime = parts[0] || "300"
             const instantUnlit = parts[1] === '1'
 
             form.textField(`§6§l» §rThis is all §6campfire§r setting\n\n§l1. §rEXPIRE_SECOND: (:300) §c*\n§r§7This limit at 1,000,000`, `Enter the expire time of campfire`, expireTime)
-            form.toggle(`§l2. §rPlace campfire will instantly unlit: (:false)`, instantUnlit);
+            form.toggle(`§l2. §rPlace campfire will instantly unlit: (:false)`, instantUnlit)
 
             form.show(player).then(({ formValues, canceled }) => {
-                if (canceled) return;
+                if (canceled) return
 
-                const expireNum = isNum(formValues[0], 1000000, true);
-                const instantUnlitValue = toNum(formValues[1]);
+                const expireNum = isNum(formValues[0], 1000000, true)
+                const instantUnlitValue = toNum(formValues[1])
 
                 if (expireNum !== false) {
-                    const newAddon = `${expireNum}§:${instantUnlitValue}`;
-                    world.setDynamicProperty(ID, newAddon);
-                    world.sendMessage(`${world.getDynamicProperty(ID)}`);
-                } else {
-                    errorSend(player);
-                }
-            }).catch((e) => errorSend(player, e));
-            break;
+                    const newAddon = `${expireNum}§:${instantUnlitValue}`
+                    world.setDynamicProperty(ID, newAddon)
+                    world.sendMessage(`${world.getDynamicProperty(ID)}`)
+                } else errorSend(player)
+            }).catch((e) => errorSend(player, e))
+            break
 
         default:
-            player.sendMessage(`§c§l» §r§fUnhandled SettingHandel §cIndex ID: ${index}:${ID}`);
-            player.playSound('random.break');
-            break;
+            player.sendMessage(`§c§l» §r§fUnhandled SettingHandel §cIndex ID: ${index}:${ID}`)
+            player.playSound('random.break')
+            break
     }
-};
+}
 
 
 const errorSend = (player, e) => {
