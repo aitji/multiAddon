@@ -15,7 +15,7 @@ system.runInterval(() => {
 
 world.beforeEvents.itemUseOn.subscribe(data => {
     const setting = world.getDynamicProperty('setting')
-    if (setting.charAt(7) === '0') return
+    if (setting?.charAt(7) === '0') return
     handleItem(data.source, data.itemStack, data.block)
 })
 

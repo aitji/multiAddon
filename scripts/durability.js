@@ -2,7 +2,6 @@ import { world, system, EquipmentSlot, ItemDurabilityComponent, ItemStack, Entit
 import { reName } from "./_function"
 import { get } from "./main"
 const ID = 'durability'
-const style = world.getDynamicProperty(ID) || '§f{name} §7({remain}/{max})'
 // /\{name\}/g
 /** @returns {String} */
 const rep = (input, re, replace) => input.replace(new RegExp(`\\{${re}\\}`, 'g'), replace)
@@ -18,6 +17,7 @@ const equipmentSlots = [
 
 system.runInterval(() => {
     if (!get(ID)) return
+    const DATA = (world.getDynamicProperty(ID) || '§f{name} §7({remain}/{max})§:0§:0§:0§:0§:0§:1')?.split('§:')
     const players = world.getAllPlayers()
     for (const player of players) {
         const equippable = player.getComponent("equippable")
@@ -30,10 +30,10 @@ system.runInterval(() => {
             if (!item || !durability) continue
 
             const remain = durability?.maxDurability - durability?.damage
-            let actionbar = rep(style, `name`, item?.nameTag || reName(item?.typeId))
+            let actionbar = rep(DATA[0], `name`, item?.nameTag || reName(item?.typeId))
             actionbar = rep(actionbar, `remain`, remain)
             actionbar = rep(actionbar, `max`, durability?.maxDurability)
-            if (slot === EquipmentSlot.Mainhand) player.setDynamicProperty(`actionbar§:${actionbar}`, 20)
+            for (let i = 0; i < equipmentSlots.length - 1; i++) if (DATA[i + 1] === '1' && slot === equipmentSlots[i + 1]) player.setDynamicProperty(`actionbar§:${actionbar}`, 20)
         }
     }
 }, 20)

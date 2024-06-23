@@ -128,11 +128,16 @@ const settingHandel = (player, index) => {
             }).catch((e) => errorSend(player, e))
             break
         case 1:
-            form.textField(`§e§l» §rThis is setting for §eDURABILITY\n\n§r§l1. §rActionBar Format §c*§r\nEXAMPLE: §f{name} §7({remain}/{max})§r\n\n{name} - item name\n{remain} - remain durability\n{max} - max durability\n§r`, `Type you own format here`)
+            form.textField(`§e§l» §rThis is setting for §eDURABILITY\n\n§r§l1. §rActionBar Format §c*§r\nEXAMPLE: §f{name} §7({remain}/{max})§r\n\n{name} - item name\n{remain} - remain durability\n{max} - max durability\n§r`, `Type you own format here`, parts[0] || '§f{name} §7({remain}/{max})')
+            form.toggle(`§l2. §rEquipmentSlot §l(Head) §r§c*`, isBool(parts[1]))
+            form.toggle(`§l3. §rEquipmentSlot §l(Chest) §r§c*`, isBool(parts[2]))
+            form.toggle(`§l4. §rEquipmentSlot §l(Legs) §r§c*`, isBool(parts[3]))
+            form.toggle(`§l5. §rEquipmentSlot §l(Off) §r§c*`, isBool(parts[4]))
+            form.toggle(`§l6. §rEquipmentSlot §l(Main) §r§c*`, isBool(parts[5]))
             form.show(player).then(({ formValues, canceled }) => {
                 if (canceled) return
-                const [durability] = formValues
-                done(player, ID, `${durability}`)
+                const [durability, head, chest, leg, offhand, main] = formValues
+                done(player, ID, `${durability}§:${toNum(head)}§:${toNum(chest)}§:${toNum(leg)}§:${toNum(offhand)}§:${toNum(main)}`)
             }).catch((e) => errorSend(player, e))
             break
 

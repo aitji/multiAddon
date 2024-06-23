@@ -9,17 +9,19 @@ world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
     const DY = world.getDynamicProperty(ID) || '300§:1'
     const parts = DY.split('§:')
     const PLACE = parts[1] === '1'
+    const EXPIRE_SECOND = parseInt(parts[0]) || 300
 
     const { block } = data
     const typeId = getBlock(block)
-    if (typeId?.includes('campfire')) {
+    let time = PLACE && typeId?.includes('campfire') ? EXPIRE_SECOND : 0
+
+    if (time > 0) {
         const caD = block.permutation.getState('minecraft:cardinal_direction')
-        world.setDynamicProperty(`campfire|${block.x}|${block.y}|${block.z}|${block.dimension.id}|${caD}`, 0)
-        if (!PLACE) return
         block.setPermutation(BlockPermutation.resolve(typeId)
             .withState('extinguished', true)
             .withState('minecraft:cardinal_direction', caD)
         )
+        world.setDynamicProperty(`campfire|${block.x}|${block.y}|${block.z}|${block.dimension.id}|${caD}`, time)
     }
 }))
 
