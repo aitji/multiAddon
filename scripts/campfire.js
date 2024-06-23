@@ -1,28 +1,30 @@
-import { world, system, BlockPermutation } from "@minecraft/server";
-import { DEBUG, getBlock } from "./_function";
-import { get } from "./main";
+import { world, system, BlockPermutation } from "@minecraft/server"
+import { DEBUG, getBlock } from "./_function"
+import { get } from "./main"
 
-const EXPIRE_SECOND = 300; // 300 seconds
-const ID = 'campfire';
+const ID = 'campfire'
+const DY = world.getDynamicProperty(ID) || '300§:1'
+const parts = DY.split('§:')
+const EXPIRE_SECOND = parseInt(parts[0]) || 300
+const PLACE = parts[1] === '1'
 
 world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
     if (!get(ID)) return
-
     const { block } = data
     const typeId = getBlock(block)
     if (typeId?.includes('campfire')) {
-        const cardinalDirection = block.permutation.getState('minecraft:cardinal_direction')
+        const caD = block.permutation.getState('minecraft:cardinal_direction')
+        world.setDynamicProperty(`campfire|${block.x}|${block.y}|${block.z}|${block.dimension.id}|${caD}`, 0)
+        if (!PLACE) return
         block.setPermutation(BlockPermutation.resolve(typeId)
             .withState('extinguished', true)
-            .withState('minecraft:cardinal_direction', cardinalDirection)
+            .withState('minecraft:cardinal_direction', caD)
         )
-        world.setDynamicProperty(`campfire|${block.x}|${block.y}|${block.z}|${block.dimension.id}|${cardinalDirection}`, 0)
     }
 }))
 
 world.afterEvents.playerBreakBlock.subscribe(data => {
     if (!get(ID)) return
-
     const { brokenBlockPermutation: blockP, block } = data
     if (getBlock(blockP, true)?.includes('campfire')) {
         const cardinalDirection = blockP.getState('minecraft:cardinal_direction')
@@ -31,7 +33,7 @@ world.afterEvents.playerBreakBlock.subscribe(data => {
 })
 
 system.runInterval(() => {
-    if (!get(ID)) return;
+    if (!get(ID)) return
     const campfireProperties = world.getDynamicPropertyIds().filter(id => id.startsWith("campfire|"))
 
     campfireProperties.forEach(dy => {

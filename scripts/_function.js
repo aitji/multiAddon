@@ -1,7 +1,7 @@
 import { system, Block, ItemStack, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, ItemComponentTypes, ItemEnchantableComponent, world } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
-export const DEBUG = false
-export const TPS_DISPLAY = false
+export const DEBUG = true
+export const TPS_DISPLAY = true
 
 const tps = {
     lastTick: 0,
@@ -130,4 +130,17 @@ export const light = {
     "end_portal_frame": { light: 1 },
     "sculk_sensor": { light: 1 },
     "small_amethyst_bud": { light: 1 }
+}
+
+export function isNum(str, limit = Infinity, autoConvert = false) {
+    const sanitizedStr = str.replace(/[,_]/g, '')
+    const isNumber = !isNaN(sanitizedStr) && isFinite(Number(sanitizedStr))
+    if (autoConvert) {
+        if (isNumber) {
+            const num = Number(sanitizedStr)
+            return num <= limit ? num : limit
+        } else return undefined
+    }
+
+    return isNumber
 }

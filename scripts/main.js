@@ -1,31 +1,49 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
-import { ModalFormData } from "@minecraft/server-ui"
-import { DEBUG, TPS_DISPLAY, wait } from "./_function.js"
+import { ActionFormData, ModalFormData } from "@minecraft/server-ui"
+import { DEBUG, isNum, TPS_DISPLAY, wait } from "./_function.js"
 const setting = new ItemStack('multi:addon', 1)
+const getSetting = () => { return world.getDynamicProperty('setting') || '0000000000' }
 setting.keepOnDeath = true
 if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
 if (TPS_DISPLAY) world.sendMessage(`§c* WARNING, you're enable TPS DISPLAY mode please disable before publish!`)
 
 /** @param {String} id 'campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand' @returns {Boolean} */
-export const get = id => (world.getDynamicProperty('setting') || '0000000000')[data.indexOf(id)] === '1'
-const data_ = {
-    'campfire': 'Lit Campfire',
-    'durability': 'Tool Durability',
-    'float': 'Floating ItemName',
-    'harvest': 'Hoe to Harvest',
-    'hp': 'Sync Health',
-    'inv': 'Sync Inv',
-    'light': 'Dynamic Light',
-    'sort': 'Stick Sort',
-    'snOffhand': 'sneak to offhand',
-    'stackMob': 'stackMob'
+export const get = id => getSetting()[data.indexOf(id)] === '1'
+const dataSet = {
+    /** ID
+     * Addon:
+     *  Label
+    */
+    'campfire':
+        'Lit Campfire',
+    'durability':
+        'Tool Durability',
+    'float':
+        'Floating ItemName',
+    'harvest':
+        'Hoe to Harvest',
+    'hp':
+        'Sync Health',
+    'inv':
+        'Sync Inv',
+    'light':
+        'Dynamic Light',
+    'sort':
+        'Stick Sort',
+    'snOffhand':
+        'sneak to offhand',
+    'stackMob':
+        'stackMob'
 }
-const data = Object.keys(data_)
-async function importer() { for (const name of data.slice(0, (world.getDynamicProperty('setting') || '0000000000').length)) await import(`./${name}.js`) }
+const data = Object.keys(dataSet)
+const dataV = Object.values(dataSet)
+const isBool = (int) => { return parseInt(int) == 1 }
+const toNum = (bool) => { return bool ? 1 : 0 }
+async function importer() { for (const name of data.slice(0, getSetting().length)) await import(`./${name}.js`) }
 import "./actionbar.js"
 importer() // import other file
 
-world.beforeEvents.itemUse.subscribe(({ source, itemStack }) => itemStack.typeId === 'multi:addon' && system.run(() => source.hasTag('trusted') ? menu(source) : source.sendMessage("§cThis requires the 'trusted' tag to use!")))
+world.beforeEvents.itemUse.subscribe(({ source, itemStack }) => itemStack.typeId === 'multi:addon' && system.run(() => source.hasTag('trusted') ? overview(source) : source.sendMessage("§cThis requires the 'trusted' tag to use!")))
 const spawnTick = world.afterEvents.playerSpawn.subscribe(({ initialSpawn, player }) => {
     if (player.id === '-4294967295' || !initialSpawn || player?.getDynamicProperty('join')) return -1
     wait(80).then(() => {
@@ -36,23 +54,124 @@ const spawnTick = world.afterEvents.playerSpawn.subscribe(({ initialSpawn, playe
     })
 })
 
-
-const isBool = (int) => { return parseInt(int) == 1 }
-const toNum = (bool) => { return bool ? 1 : 0 }
-
-/** @type {Player} */
-function menu(player) {
-    system.run(() => {
-        const cache = world.getDynamicProperty('setting') || '0000000000'
-        const form = new ModalFormData().title(`Host: Addon List`)
-        Object.values(data_).forEach((label, i) => form.toggle(label, isBool(cache[i])))
-        form.show(player).then((res) => {
-            if (res.canceled) return
-            const list = res.formValues.map(toNum).join('')
-            if (list === cache) return
-
-            world.setDynamicProperty('setting', list)
-            world.getDimension('overworld').getEntities({ type: 'minecraft:item' }).forEach(it => it.nameTag = '§r')
+/** @param {Player} player */
+const end = (player) => {
+    const cache = getSetting()
+    const form = new ModalFormData().title(`Host: §lAddon List`)
+    dataV.forEach((label, i) => form.toggle(label, isBool(cache[i])))
+    form.show(player).then(({ canceled, formValues }) => {
+        if (canceled) return
+        const list = formValues.map(toNum).join('')
+        if (list === cache) return
+        const des = []
+        data.forEach((name, i) => {
+            if (list[i] === '1') des.push(`§l§a| §r§f${name} §aEnable`)
+            else des.push(`§l§c| §r§f${name} §cDisabled`)
         })
+        world.setDynamicProperty('setting', list)
+        world.getDimension('overworld').getEntities({ type: 'minecraft:item' }).forEach(it => it.nameTag = '§r')
+        player.sendMessage(`§l§a» §r§fYou data was §asaved!\n§r${des.join("\n")}`)
+        player.playSound(`random.orb`)
     })
+}
+
+/** @param {Player} player  */
+const overview = (player) => {
+    const cache = getSetting()
+    const des = []
+    data.forEach((name, i) => {
+        if (cache[i] === '1') des.push(`§l§a| §r§f${name} §aEnable`)
+        else des.push(`§l§c| §r§f${name} §cDisabled`)
+    })
+    const form = new ActionFormData().title(`Host: §lAddon Overview`)
+    form.body(
+        `Hey There §c@${player.name.toLowerCase().split(' ')[0]}§r,
+These pages offer an extensive §lAddon Setting§r for you.
+You can modify every aspect to personalize the addon and enhance your gaming experience!
+
+§l§6» §r§fAddon §lStatus§r
+${des.join("\n")}
+`)
+    form.button(`Enable/Disable §l(Addon)§r`, `textures/ui/sidebar_icons/addon`)
+    form.button(`§lCAMPFIRE§r\n(Addon's Setting)`)
+    // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
+    form.show(player).then((res) => {
+        if (res.canceled) return
+        switch (res?.selection) {
+            case 0:
+                end(player)
+                break
+            default:
+                settingHandel(player, res.selection - 1)
+                break
+        }
+    })
+}
+/** @param {Player} player  */
+const settingHandel = (player, index) => {
+    const ID = data[parseInt(index)];
+    const ADDON = String(world.getDynamicProperty(ID) || '');
+    const form = new ModalFormData().title(`Host: §l${ID}'s Setting§r`);
+
+    switch (parseInt(index)) {
+        case 0:
+            const parts = ADDON.split("§:");
+            const expireTime = parts[0] || "300";
+            const instantUnlit = parts[1] === '1'
+
+            form.textField(`§6§l» §rThis is all §6campfire§r setting\n\n§l1. §rEXPIRE_SECOND: (:300) §c*\n§r§7This limit at 1,000,000`, `Enter the expire time of campfire`, expireTime)
+            form.toggle(`§l2. §rPlace campfire will instantly unlit: (:false)`, instantUnlit);
+
+            form.show(player).then(({ formValues, canceled }) => {
+                if (canceled) return;
+
+                const expireNum = isNum(formValues[0], 1000000, true);
+                const instantUnlitValue = toNum(formValues[1]);
+
+                if (expireNum !== false) {
+                    const newAddon = `${expireNum}§:${instantUnlitValue}`;
+                    world.setDynamicProperty(ID, newAddon);
+                    world.sendMessage(`${world.getDynamicProperty(ID)}`);
+                } else {
+                    errorSend(player);
+                }
+            }).catch((e) => errorSend(player, e));
+            break;
+
+        default:
+            player.sendMessage(`§c§l» §r§fUnhandled SettingHandel §cIndex ID: ${index}:${ID}`);
+            player.playSound('random.break');
+            break;
+    }
+};
+
+
+const errorSend = (player, e) => {
+    if (!e) player.sendMessage(`§c§l» §r§fError while processing your input: §c${e.message}`)
+    else player.sendMessage(`§c§l» §r§fYou input not likely to be a number or exceeds the limit!`)
+
+    player.playSound('random.break')
+}
+
+const a = {
+    'campfire':
+        'Lit Campfire',
+    'durability':
+        'Tool Durability',
+    'float':
+        'Floating ItemName',
+    'harvest':
+        'Hoe to Harvest',
+    'hp':
+        'Sync Health',
+    'inv':
+        'Sync Inv',
+    'light':
+        'Dynamic Light',
+    'sort':
+        'Stick Sort',
+    'snOffhand':
+        'sneak to offhand',
+    'stackMob':
+        'stackMob'
 }
