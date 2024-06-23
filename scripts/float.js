@@ -4,6 +4,7 @@ import { get } from "./main"
 const ID = 'float'
 
 system.runInterval(() => {
+    if (!get(ID)) return
     const items = world.getDimension('overworld').getEntities({ type: 'minecraft:item' })
     for (const ie of items) {
         if (ie.isFalling) continue
