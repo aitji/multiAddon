@@ -31,8 +31,10 @@ system.runInterval(() => {
         for (const en of entities) {
             if (en === enMax) en.nameTag = `§r§f${item?.nameTag || reName(item.typeId)} §r§cx${ta || item.amount}§r`
             else {
-                en.teleport(ie.location)
-                en.nameTag = '§r'
+                if (en.typeId === item.typeId) {
+                    en.teleport(ie.location)
+                    en.nameTag = '§r'
+                }
             }
         }
     }

@@ -77,6 +77,7 @@ function menu(player) {
             if (list === cache) return
             else {
                 world.setDynamicProperty('setting', list)
+                world.getDimension('overworld').getEntities({ type: 'minecraft:item' }).map(it => it.nameTag = '§r')
                 // world.sendMessage(`§c* request to §l/reload`)
             }
         })
