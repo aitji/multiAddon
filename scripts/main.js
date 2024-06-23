@@ -1,54 +1,41 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
 import { ModalFormData } from "@minecraft/server-ui"
 import { DEBUG, TPS_DISPLAY, wait } from "./_function.js"
+const setting = new ItemStack('multi:addon', 1)
+setting.keepOnDeath = true
 if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disable before publish!`)
 if (TPS_DISPLAY) world.sendMessage(`§c* WARNING, you're enable TPS DISPLAY mode please disable before publish!`)
 
-const setting = new ItemStack('multi:addon', 1)
-setting.keepOnDeath = true
-const data = ['campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand', 'stackMob']
-
-async function importer() {
-    /** @type {String} */
-    const cache = world.getDynamicProperty('setting') || '0000000000'
-    const cacheSp = cache.split('')
-
-    for (let i = 0; i < cacheSp.length; i++) {
-        const name = data[i]
-        // if (cacheSp[i] === '1') {
-        // if (DEBUG) world.sendMessage(`§7${name} has been imported!`)
-        await import(`./${name}.js`)
-        // }
-    }
+/** @param {String} id 'campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand' @returns {Boolean} */
+export const get = id => (world.getDynamicProperty('setting') || '0000000000')[data.indexOf(id)] === '1'
+const data_ = {
+    'campfire': 'Lit Campfire',
+    'durability': 'Tool Durability',
+    'float': 'Floating ItemName',
+    'harvest': 'Hoe to Harvest',
+    'hp': 'Sync Health',
+    'inv': 'Sync Inv',
+    'light': 'Dynamic Light',
+    'sort': 'Stick Sort',
+    'snOffhand': 'sneak to offhand',
+    'stackMob': 'stackMob'
 }
-
-importer()
+const data = Object.keys(data_)
+async function importer() { for (const name of data.slice(0, (world.getDynamicProperty('setting') || '0000000000').length)) await import(`./${name}.js`) }
 import "./actionbar.js"
+importer() // import other file
 
-world.afterEvents.playerSpawn.subscribe(data => {
-    const { initialSpawn, player } = data
-    if (!initialSpawn) return
-    const dy = player.getDynamicProperty('join') || false
-    if (dy) return
-    else {
+world.beforeEvents.itemUse.subscribe(({ source, itemStack }) => itemStack.typeId === 'multi:addon' && system.run(() => source.hasTag('trusted') ? menu(source) : source.sendMessage("§cThis requires the 'trusted' tag to use!")))
+const spawnTick = world.afterEvents.playerSpawn.subscribe(({ initialSpawn, player }) => {
+    if (player.id === '-4294967295' || !initialSpawn || player?.getDynamicProperty('join')) return -1
+    wait(80).then(() => {
+        player.getComponent('inventory').container.addItem(setting)
+        player.addTag('trusted')
         player.setDynamicProperty('join', true)
-        wait(80).then(() => {
-            /** @type {Container} */
-            const inv = player.getComponent('inventory').container
-            inv.addItem(setting)
-            player.addTag('trusted')
-        })
-    }
+        world.afterEvents.playerSpawn.unsubscribe(spawnTick)
+    })
 })
 
-world.beforeEvents.itemUse.subscribe(data => {
-    const { source, itemStack } = data
-
-    if (itemStack.typeId === 'multi:addon') {
-        if (source.hasTag('trusted')) menu(source)
-        else source.sendMessage(`§cThis requirement tag 'trusted' to use!`)
-    }
-})
 
 const isBool = (int) => { return parseInt(int) == 1 }
 const toNum = (bool) => { return bool ? 1 : 0 }
@@ -57,42 +44,15 @@ const toNum = (bool) => { return bool ? 1 : 0 }
 function menu(player) {
     system.run(() => {
         const cache = world.getDynamicProperty('setting') || '0000000000'
-        const [camp, durability, float, harvest, hp, inv, light, sort, snOffhand, stackMob] = cache.split('') // 0000000000
-        const form = new ModalFormData()
-        form.title(`Host: Addon List`)
-        form.toggle(`Lit Campfire`, isBool(camp))
-        form.toggle(`Tool Durability`, isBool(durability))
-        form.toggle(`Floating ItemName`, isBool(float))
-        form.toggle(`Hoe to Harvest`, isBool(harvest))
-        form.toggle(`Sync Health`, isBool(hp))
-        form.toggle(`Sync Inv`, isBool(inv))
-        form.toggle(`Dynamic Light`, isBool(light))
-        form.toggle(`Stick Sort`, isBool(sort))
-        form.toggle(`sneak to offhand`, isBool(snOffhand))
-        form.toggle(`stackMob`, isBool(stackMob))
+        const form = new ModalFormData().title(`Host: Addon List`)
+        Object.values(data_).forEach((label, i) => form.toggle(label, isBool(cache[i])))
         form.show(player).then((res) => {
             if (res.canceled) return
-            const resu = res.formValues
-            const list = resu.slice(0, 10).map(toNum).join('')
+            const list = res.formValues.map(toNum).join('')
             if (list === cache) return
-            else {
-                world.setDynamicProperty('setting', list)
-                world.getDimension('overworld').getEntities({ type: 'minecraft:item' }).map(it => it.nameTag = '§r')
-                // world.sendMessage(`§c* request to §l/reload`)
-            }
+
+            world.setDynamicProperty('setting', list)
+            world.getDimension('overworld').getEntities({ type: 'minecraft:item' }).forEach(it => it.nameTag = '§r')
         })
     })
-}
-
-/**
- * @param {String} id 'campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand'
- * @returns {Boolean}
- */
-export const get = (id) => {
-    const index = data.indexOf(id)
-    if (index > -1) {
-        const cache = world.getDynamicProperty('setting') || '0000000000'
-        return cache[index] === '1'
-    }
-    return false
 }
