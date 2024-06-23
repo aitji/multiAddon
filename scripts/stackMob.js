@@ -66,7 +66,7 @@ system.runInterval(() => {
         const item = equ?.getEquipment(EquipmentSlot?.Mainhand)
         if (item) {
             if (item.typeId === 'minecraft:name_tag' && item?.nameTag) {
-                pl.setDynamicProperty(`actionbar§:§l§7STACK MOB:§r§7 Returning Level to you!`, 3)
+                pl.setDynamicProperty(`actionbar§:§l§7STACK MOB:§r§7 Returning Level to you!`, 20)
                 pl.addLevels(1)
                 equ?.setEquipment(EquipmentSlot?.Mainhand, new ItemStack(item.typeId, item.amount))
             }
@@ -99,7 +99,7 @@ const handleItemUse = (event) => {
     const { itemStack, source: player } = event
     if (itemStack.typeId === 'minecraft:name_tag' && itemStack?.nameTag) {
         event.cancel = true
-        player.setDynamicProperty(`actionbar§:§l§7STACK MOB:§r§7 block it so can't use it`, 3)
+        player.setDynamicProperty(`actionbar§:§l§7STACK MOB:§r§7 block it so can't use it`, 20)
     }
 }
 

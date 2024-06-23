@@ -3,13 +3,13 @@ import { DEBUG, getBlock } from "./_function"
 import { get } from "./main"
 
 const ID = 'campfire'
-const DY = world.getDynamicProperty(ID) || '300§:1'
-const parts = DY.split('§:')
-const EXPIRE_SECOND = parseInt(parts[0]) || 300
-const PLACE = parts[1] === '1'
 
 world.afterEvents.playerPlaceBlock.subscribe(data => system.run(() => {
     if (!get(ID)) return
+    const DY = world.getDynamicProperty(ID) || '300§:1'
+    const parts = DY.split('§:')
+    const PLACE = parts[1] === '1'
+
     const { block } = data
     const typeId = getBlock(block)
     if (typeId?.includes('campfire')) {
@@ -34,6 +34,9 @@ world.afterEvents.playerBreakBlock.subscribe(data => {
 
 system.runInterval(() => {
     if (!get(ID)) return
+    const DY = world.getDynamicProperty(ID) || '300§:1'
+    const parts = DY.split('§:')
+    const EXPIRE_SECOND = parseInt(parts[0]) || 300
     const campfireProperties = world.getDynamicPropertyIds().filter(id => id.startsWith("campfire|"))
 
     campfireProperties.forEach(dy => {

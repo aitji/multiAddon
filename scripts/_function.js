@@ -144,3 +144,6 @@ export function isNum(str, limit = Infinity, autoConvert = false) {
 
     return isNumber
 }
+
+/** @returns {String} */
+export const clean = (i) => { return i?.replace(/§./g, '') || i }

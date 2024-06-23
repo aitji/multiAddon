@@ -1,13 +1,7 @@
 import { Block, Container, ItemStack, Player, system, world } from '@minecraft/server'
-import { blockRayCast } from './_function'
+import { blockRayCast, getBlock } from './_function'
 import { get } from './main'
 const ID = 'sort'
-
-world.beforeEvents.itemUse.subscribe(data => {
-    if (!get(ID)) return
-    const { source, itemStack } = data
-    handleItem(source, itemStack)
-})
 
 system.runInterval(() => {
     if (!get(ID)) return
@@ -19,23 +13,26 @@ system.runInterval(() => {
     })
 }, 20)
 
+world.beforeEvents.itemUseOn.subscribe(data => {
+    const setting = world.getDynamicProperty('setting')
+    if (setting.charAt(7) === '0') return
+    handleItem(data.source, data.itemStack, data.block)
+})
+
 /** @param {Player} pl @param {ItemStack} item */
-function handleItem(pl, item) {
+function handleItem(pl, item, block) {
     if (item?.typeId === "minecraft:stick" && pl.isSneaking) {
-        let headLoc = pl.getHeadLocation()
-        let { block } = pl.getBlockFromViewDirection(blockRayCast)
         system.run(() => {
             if (!isContainer(block.permutation)) {
-                pl.setDynamicProperty(`actionbar§:§7Can only be used on a chest`, 3)
+                pl.setDynamicProperty(`actionbar§:§7Can only be used on a chest`, 25)
                 return
             }
 
             const dynamicId = pl.getDynamicPropertyIds().find(id => id === `chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`)
             if (dynamicId) {
                 if (dynamicId === 5) return
-                pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 3)
-            }
-            else {
+                pl.setDynamicProperty(`actionbar§:       §7CHEST WAS SORTED\n§8now it on cooldown: ${pl.getDynamicProperty(dynamicId) || 0} second`, 35)
+            } else {
                 pl.setDynamicProperty(`chest:${block.location.x.toFixed(0)},${block.location.y.toFixed(0)},${block.location.z.toFixed(0)}`, 5)
                 sort(pl, block)
             }
@@ -49,7 +46,7 @@ function sort(pl, block) {
     let inv
     try { inv = block.getComponent("inventory").container }
     catch (e) {
-        pl.setDynamicProperty(`actionbar§:§cFailed to get block inventory!`, 3)
+        pl.setDynamicProperty(`actionbar§:§cFailed to get block inventory!`, 20)
         return
     }
 
@@ -63,7 +60,7 @@ function sort(pl, block) {
     }
 
     try {
-        pl.setDynamicProperty(`actionbar§:§6Chest Sorted`, 3)
+        pl.setDynamicProperty(`actionbar§:§6Chest Sorted`, 20)
         const countArray = count(itemsObj)
         itemsObj.sort((a, b) => {
             const aValue = getCount(a.nameTag || a.typeId.split(":")[1], countArray)

@@ -1,6 +1,6 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui"
-import { DEBUG, isNum, TPS_DISPLAY, wait } from "./_function.js"
+import { clean, DEBUG, isNum, TPS_DISPLAY, wait } from "./_function.js"
 const setting = new ItemStack('multi:addon', 1)
 const getSetting = () => { return world.getDynamicProperty('setting') || '0000000000' }
 setting.keepOnDeath = true
@@ -14,7 +14,7 @@ const dataSet = {
      * Addon:
      *  Label
     */
-    'campfire':
+    'campfire': //0
         'Lit Campfire',
     'durability':
         'Tool Durability',
@@ -32,7 +32,7 @@ const dataSet = {
         'Stick Sort',
     'snOffhand':
         'sneak to offhand',
-    'stackMob':
+    'stackMob': // 9
         'stackMob'
 }
 const data = Object.keys(dataSet)
@@ -93,7 +93,9 @@ You can modify every aspect to personalize the addon and enhance your gaming exp
 ${des.join("\n")}
 `)
     form.button(`Enable/Disable §l(Addon)§r`, `textures/ui/sidebar_icons/addon`)
-    form.button(`§lCAMPFIRE§r\n(Addon's Setting)`)
+    form.button(`§lCAMPFIRE§r\n(Addon's Setting)`, `textures/items/campfire`)
+    form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
+
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
         if (res.canceled) return
@@ -111,28 +113,26 @@ ${des.join("\n")}
 const settingHandel = (player, index) => {
     const ID = data[parseInt(index)]
     const ADDON = String(world.getDynamicProperty(ID) || '')
+    const parts = ADDON?.split("§:")
     const form = new ModalFormData().title(`Host: §l${ID}'s Setting§r`)
 
     switch (parseInt(index)) {
         case 0:
-            const parts = ADDON.split("§:")
-            const expireTime = parts[0] || "300"
-            const instantUnlit = parts[1] === '1'
-
-            form.textField(`§6§l» §rThis is all §6campfire§r setting\n\n§l1. §rEXPIRE_SECOND: (:300) §c*\n§r§7This limit at 1,000,000`, `Enter the expire time of campfire`, expireTime)
-            form.toggle(`§l2. §rPlace campfire will instantly unlit: (:false)`, instantUnlit)
-
+            form.textField(`§6§l» §rThis is all §6campfire§r setting\n\n§l1. §rEXPIRE_SECOND: (:300) §c*\n§r§7This limit at 1,000,000`, `Enter the expire time of campfire`, parts[0] || "300")
+            form.toggle(`§l2. §rPlace campfire will instantly unlit: (:false)`, parts[1] === '1')
             form.show(player).then(({ formValues, canceled }) => {
                 if (canceled) return
-
-                const expireNum = isNum(formValues[0], 1000000, true)
-                const instantUnlitValue = toNum(formValues[1])
-
-                if (expireNum !== false) {
-                    const newAddon = `${expireNum}§:${instantUnlitValue}`
-                    world.setDynamicProperty(ID, newAddon)
-                    world.sendMessage(`${world.getDynamicProperty(ID)}`)
-                } else errorSend(player)
+                const num = isNum(formValues[0], 1000000, true)
+                if (num !== false) done(player, ID, `${num}§:${toNum(formValues[1])}`)
+                else errorSend(player)
+            }).catch((e) => errorSend(player, e))
+            break
+        case 1:
+            form.textField(`§e§l» §rThis is setting for §eDURABILITY\n\n§r§l1. §rActionBar Format §c*§r\nEXAMPLE: §f{name} §7({remain}/{max})§r\n\n{name} - item name\n{remain} - remain durability\n{max} - max durability\n§r`, `Type you own format here`)
+            form.show(player).then(({ formValues, canceled }) => {
+                if (canceled) return
+                const [durability] = formValues
+                done(player, ID, `${durability}`)
             }).catch((e) => errorSend(player, e))
             break
 
@@ -143,6 +143,11 @@ const settingHandel = (player, index) => {
     }
 }
 
+const done = (player, ID = '', val = undefined) => {
+    world.setDynamicProperty(ID, val)
+    player.sendMessage(`§l§a» §r§f${ID} was successfully saved! §7(${clean(val?.split("§:").join(", "))})`)
+    player.playSound('random.orb')
+}
 
 const errorSend = (player, e) => {
     if (!e) player.sendMessage(`§c§l» §r§fError while processing your input: §c${e.message}`)

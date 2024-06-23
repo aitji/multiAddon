@@ -20,7 +20,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
             let growth = block.permutation.getState("growth") || block.permutation.getState("age")
             if (!growth) {
                 if (!player.isSneaking) {
-                    system.run(() => player.setDynamicProperty(`§o§ฟ§7sneak & break to fully destroy!`, 3))
+                    system.run(() => player.setDynamicProperty(`§o§ฟ§7sneak & break to fully destroy!`, 20))
                     data.cancel = true
                 }
                 return
@@ -40,7 +40,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
                 })
             } else {
                 if (!player.isSneaking) {
-                    system.run(() => player.setDynamicProperty(`actionbar§:§o§ฟ§7sneak & break to fully destroy! §r§7| it not growth yet!`, 3))
+                    system.run(() => player.setDynamicProperty(`actionbar§:§o§ฟ§7sneak & break to fully destroy! §r§7| it not growth yet!`, 20))
                     data.cancel = true
                 }
             }
