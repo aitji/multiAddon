@@ -1,7 +1,7 @@
 import { system, Block, ItemStack, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, ItemComponentTypes, ItemEnchantableComponent, world } from "@minecraft/server"
 export const blockRayCast = { includeLiquidBlocks: true, includePassableBlocks: false, maxDistance: 9 }
-export const DEBUG = true
-export const TPS_DISPLAY = true
+export const DEBUG = false
+export const TPS_DISPLAY = false
 
 const tps = {
     lastTick: 0,
