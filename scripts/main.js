@@ -96,6 +96,7 @@ ${des.join("\n")}
     form.button(`Reset §lALL§r\nAddon Setting`, `textures/ui/sidebar_icons/redheart`)
     form.button(`§lCAMPFIRE§r\n(Addon's Setting)`, `textures/items/campfire`)
     form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
+    form.button(`§lFLOATING ITEM§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/bookmark`)
 
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
@@ -105,7 +106,7 @@ ${des.join("\n")}
                 end(player)
                 break
             case 1:
-                resetChange(player)
+                resetChange(player, des)
                 break
             default:
                 settingHandel(player, res.selection - 2)
@@ -115,12 +116,15 @@ ${des.join("\n")}
 }
 
 /** @param {Player} player */
-const resetChange = (player) => {
+const resetChange = (player, des) => {
     const form = new MessageFormData().title(`Host: §lReSet§r`)
     form.body(`
 Hey §c@${player.name.toLowerCase().split(' ')[0]}§r,
 This will reset everything to default
-like you download addon first time!`)
+like you download addon first time!
+
+§l§6» §r§fAddon §lStatus§r
+${des}`)
     form.button1(`§4Cancel`)
     form.button2(`Confirm!`)
     form.show(player).then((res) => {
@@ -163,6 +167,16 @@ const settingHandel = (player, index) => {
                 const data = `${durability}§:${equipment.map(toNum).join('§:')}`
                 done(player, ID, data)
             }).catch((e) => errorSend(player, e))
+            break
+        case 2:
+            form.textField(`§c§l» §rThis is all §cFloating ItemNameTag§r\n\n§r§l1. §rItemNameTag Format §c*§r\nEXAMPLE: §f{name} §r§cx{count}§r\n\n{name} - item name\n{count} - item total amount`, `Type you own format here`, parts[0] || '§f{name} §cx{count}')
+            form.toggle(`§r§l2. §rTeleport Item (that have same thing) §c*`, (parts[1] || '1') === '1')
+            form.textField(`§r§l3. §rMax TeleportDistance :(8)`, `max item teleport distance (option)`, parts[2] || '8')
+            form.show(player).then(({ canceled, formValues }) => {
+                if (canceled) return
+                if (formValues[1] && !isNum(formValues[2], 1000000, true)) return errorSend(player)
+                done(player, ID, `${formValues[0]}§:${toNum(formValues[1])}§:${formValues[2] || '0'}`)
+            })
             break
         default:
             player.sendMessage(`§c§l» §r§fUnhandled SettingHandel §cIndex ID: ${index}:${ID}`)
