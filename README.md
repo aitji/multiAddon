@@ -55,9 +55,15 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 >
 > │(✅) remove dynamic property after boom! ( but check block air instant lol )
 > ✅ In Game Setting 
+>
 > | (✅) Enabled & Disable Module InGame
+>
 > | (✅) Custom Item for settingb& can be craft without any resources need
+>
 > | (🔥) Each Module Setting
+>
 > \ (✅) Campfire
+>
 > \ (✅) Durability
+>
 > \ ...
