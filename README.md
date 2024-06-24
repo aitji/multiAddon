@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>✨ MultiAddon ✨</h1>
+  <h2>✨ MultiAddon ✨</h2>
   <img src="https://img.shields.io/github/downloads/aitji/multiAddon/total?style=for-the-badge" alt="Downloads"/>
   <img src="https://img.shields.io/github/issues/aitji/multiAddon?lable=ISSUES%20OPEN&style=for-the-badge" alt="Issues Open"/>
   <img src="https://img.shields.io/github/commit-activity/m/aitji/multiAddon?style=for-the-badge" alt="Commits Per Week"/>
@@ -11,77 +11,181 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 <h2> 🌟 Features 🌟</h2>
 <p>All features can be enabled or disabled as needed. Here's a rundown of what the addon offers:</p>
 
-<ul>
-  <li><b>🔄 Inventory Sharing</b>: Real-time player inventory sync! 🎒</li>
-  <li><b>❤️ Health Sharing</b>: Sync player health across the server. 🩹</li>
-  <li><b>🌾 Fast Harvest</b>: Quickly harvest crops and replant seeds with a hoe. 🚜</li>
-  <li><b>📦 Sorting</b>: Comprehensive chest sorting system. 📚</li>
-  <li><b>🔧 Durability Display</b>: Show item durability on the actionbar. ⚒️</li>
-  <li><b>💡 Dynamic Light</b>: Dynamic lighting with light blocks in hand or item frames. 🌟</li>
-  <li><b>🔥 Realistic Campfire</b>: Realistic campfire experience! 🔥</li>
-  <li><b>🧟 StackMob</b>: Monster stacker. 🧟</li>
-  <li><b>🤲 snOffhand</b>: Sneak to switch to offhand. (NOW ONLY SUPPORT DYNAMIC LIGHT ITEM) 🤲</li>
-  <li><b>🌐 Float</b>: Display item nametags on the floor and teleport items for faster retrieval. ✨</li>
-</ul>
+<table>
+  <tr>
+    <td>🔄</td><td><b>Inventory Sharing</b>: Real-time player inventory sync! 🎒</td>
+  </tr>
+  <tr>
+    <td>❤️</td><td><b>Health Sharing</b>: Sync player health across the server. 🩹</td>
+  </tr>
+  <tr>
+    <td>🌾</td><td><b>Fast Harvest</b>: Quickly harvest crops and replant seeds with a hoe. 🚜</td>
+  </tr>
+  <tr>
+    <td>📦</td><td><b>Sorting</b>: Comprehensive chest sorting system. 📚</td>
+  </tr>
+  <tr>
+    <td>🔧</td><td><b>Durability Display</b>: Show item durability on the actionbar. ⚒️</td>
+  </tr>
+  <tr>
+    <td>💡</td><td><b>Dynamic Light</b>: Dynamic lighting with light blocks in hand or item frames. 🌟</td>
+  </tr>
+  <tr>
+    <td>🔥</td><td><b>Realistic Campfire</b>: Realistic campfire experience! 🔥</td>
+  </tr>
+  <tr>
+    <td>🧟</td><td><b>StackMob</b>: Monster stacker. 🧟</td>
+  </tr>
+  <tr>
+    <td>🤲</td><td><b>snOffhand</b>: Sneak to switch to offhand. (NOW ONLY SUPPORT DYNAMIC LIGHT ITEM) 🤲</td>
+  </tr>
+  <tr>
+    <td>🌐</td><td><b>Float</b>: Display item nametags on the floor and teleport items for faster retrieval. ✨</td>
+  </tr>
+</table>
 </div>
 
-<div align="center"><h2>🔧 Addon Settings</h2></div>
+<div align="left">
+  <h2>🔧 Addon Settings</h2>
+  <p>The addon settings can be customized via the in-game, as showcased in the screenshot below:</p>
+</div>
 
-The addon settings can be customized via the in-game menu, as showcased in the screenshot below:
+[![mainMenu](https://github.com/aitji/multiAddon/assets/100911929/da9f3787-9306-4b1d-b178-2122c961fc52)](#)
+<div align="center"><p>(Main Menu)</p></div>
+<hr>
+
+[![setting](https://github.com/aitji/multiAddon/assets/100911929/d1175f24-7a32-465c-a2ff-a08898d5ffc6)](#)
+<div align="center"><p>(Main Menu: Settings)</p></div>
+<hr>
+
+[![edm](https://github.com/aitji/multiAddon/assets/100911929/dfc96986-fb84-45d0-bb8a-95208f7d0d1d)](#)
+<div align="center"><p>(Enable & Disable a Modules)</p></div>
+<hr>
+
+[![sedm](https://github.com/aitji/multiAddon/assets/100911929/040a9adf-22fd-4cf0-9360-0dce60def872)](#)
+<div align="center"><p>(save enable&disable modules)</p></div>
+<hr>
+
+[![example](https://github.com/aitji/multiAddon/assets/100911929/df47761f-64a3-43b6-844d-0e4278c4af30)](#)
+<div align="center"><p>(example config a addon Setting)</p></div>
+<hr>
+
+<div align="right"><h2>✅ TODO check-list</h2>
+✅ - Done
+
+🔥 - Will Done Soon! (and focusing on)
+
+⏳ - Working on progress
+
+❌ - Won't Do
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Code Combiner: combine hp.js and inv.js into hp_inv.js</td>
+      <td>⏳</td>
+    </tr>
+    <tr>
+      <td>Actionbar: multi actionbar support</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Lighting: handle chunk loading issues</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Save/unload chunk in database</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Manage light database</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Improvement: update sort.js</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Add Dynamic campfire</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Cleanup after explosion</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>In Game Setting</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Enable/disable modules</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Reset addon settings</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Custom crafting item for settings</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Module-specific settings</td>
+      <td>(🔥)</td>
+    </tr>
+    <tr>
+      <td>Campfire settings</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Durability settings</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>Float settings</td>
+      <td>(✅)</td>
+    </tr>
+    <tr>
+      <td>- Harvest settings</td>
+      <td>(⌛)</td>
+    </tr>
+    <tr>
+      <td>- Share Health settings</td>
+      <td>(⌛)</td>
+    </tr>
+    <tr>
+      <td>- Share Inventory settings</td>
+      <td>(⌛)</td>
+    </tr>
+    <tr>
+      <td>- Dynamic Light settings</td>
+      <td>(⌛)</td>
+    </tr>
+    <tr>
+      <td>- Sneak to offhand settings</td>
+      <td>(⌛)</td>
+    </tr>
+    <tr>
+      <td>- StackMob settings</td>
+      <td>(⌛)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 <hr>
+
 
 > [!CAUTION]
-> <div align="center"><h2>📜 License</h2></div>
+> <div align="left"><h2>📜 License</h2></div>
 > Please read the <a href="LICENSE">LICENSE</a> for information about usage rights and restrictions. 📄
+>
 > <div align="left"><img src=image/feature-imadethis.png></div>
-
-<hr>
-
-> [!IMPORTANT]
-> <div align="center"><h2>✅ TODO check-list</h2></div>
-> 
-> ⏳: Code Combiner: there are yoo many loop insdie code, i'll combind example hp.js and inv.js >> hp_inv.js
-> 
-> LAZY TO DO
-> 
-> ✅: Actionbar: multi actionbar support
->
-> ✅: Lighting: when chuck didn't load ``tried to kick it out?``
->
-> │(✅) save unload chuck in ``unload chuck db`` & remove from ``light db``
->
-> │(✅) when that chuck load set air, and put ``light db`` & remove from ``unload chuck db``
->
-> ✅ Improvement sort.js
->
-> ✅ Add Dynamic campfire
->
-> │(✅) remove dynamic property after boom! ( but check block air instant lol )
-> ✅ In Game Setting 
->
-> | (✅) Enabled & Disable Module InGame
->
-> | (✅) Reset Addon Setting!
->
-> | (✅) Custom Item for settingb& can be craft without any resources need
->
-> | (🔥) Each Module Setting
->
-> \ (✅) Campfire
->
-> \ (✅) Durability
->
-> \ (✅) Float
->
-> \ (⌛) Harvest
->
-> \ (⌛) Share Health
->
-> \ (⌛) Share Inventory
->
-> \ (⌛) Dynamic Light
->
-> \ (⌛) sneak to offhand
->
-> \ (⌛) stackMob
