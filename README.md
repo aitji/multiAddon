@@ -9,6 +9,8 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 
 <div align="center"><h2> 🌟 Features 🌟</h2></div>
 
+NOTE: THIS ISN'T UP TO DATE
+
 All features can be enabled or disabled as needed. Here's a rundown of what the addon offers:
 
 - **🔄 Inventory Sharing**: Sync player inventories in real-time. 🎒
@@ -22,10 +24,6 @@ All features can be enabled or disabled as needed. Here's a rundown of what the 
 <div align="center"><h2>🔧 Addon Settings</h2></div>
 
 The addon settings can be customized via the in-game menu, as showcased in the screenshot below:
-
-<div align="center">
-  <img src=image/Screenshot_20240524-074128.png>
-</div>
 
 <hr>
 
@@ -51,8 +49,15 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 >
 > │(✅) when that chuck load set air, and put ``light db`` & remove from ``unload chuck db``
 >
-> ✅: Improvement sort.js
+> ✅ Improvement sort.js
 >
-> ⌛: Add Dynamic campfire (not on option)
+> ✅ Add Dynamic campfire
 >
-> │(✅) remove dynamic property after boom! << but check block air instant lol
+> │(✅) remove dynamic property after boom! ( but check block air instant lol )
+> ✅ In Game Setting 
+> | (✅) Enabled & Disable Module InGame
+> | (✅) Custom Item for settingb& can be craft without any resources need
+> | (🔥) Each Module Setting
+> \ (✅) Campfire
+> \ (✅) Durability
+> \ ...
