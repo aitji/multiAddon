@@ -58,6 +58,8 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 >
 > | (✅) Enabled & Disable Module InGame
 >
+> | (✅) Reset Addon Setting!
+>
 > | (✅) Custom Item for settingb& can be craft without any resources need
 >
 > | (🔥) Each Module Setting

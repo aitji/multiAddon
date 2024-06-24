@@ -1,5 +1,5 @@
 import { Container, ItemStack, Player, system, world } from "@minecraft/server"
-import { ActionFormData, ModalFormData } from "@minecraft/server-ui"
+import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui"
 import { clean, DEBUG, isNum, TPS_DISPLAY, wait } from "./_function.js"
 const setting = new ItemStack('multi:addon', 1)
 const getSetting = () => { return world.getDynamicProperty('setting') || '0000000000' }
@@ -84,8 +84,8 @@ const overview = (player) => {
         else des.push(`§l§c| §r§f${name} §cDisabled`)
     })
     const form = new ActionFormData().title(`Host: §lAddon Overview`)
-    form.body(
-        `Hey There §c@${player.name.toLowerCase().split(' ')[0]}§r,
+    form.body(`
+Hey There §c@${player.name.toLowerCase().split(' ')[0]}§r,
 These pages offer an extensive §lAddon Setting§r for you.
 You can modify every aspect to personalize the addon and enhance your gaming experience!
 
@@ -93,6 +93,7 @@ You can modify every aspect to personalize the addon and enhance your gaming exp
 ${des.join("\n")}
 `)
     form.button(`Enable/Disable §l(Addon)§r`, `textures/ui/sidebar_icons/addon`)
+    form.button(`Reset §lALL§r\nAddon Setting`, `textures/ui/sidebar_icons/redheart`)
     form.button(`§lCAMPFIRE§r\n(Addon's Setting)`, `textures/items/campfire`)
     form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
 
@@ -103,13 +104,36 @@ ${des.join("\n")}
             case 0:
                 end(player)
                 break
+            case 1:
+                resetChange(player)
+                break
             default:
-                settingHandel(player, res.selection - 1)
+                settingHandel(player, res.selection - 2)
                 break
         }
     })
 }
-/** @param {Player} player  */
+
+/** @param {Player} player */
+const resetChange = (player) => {
+    const form = new MessageFormData().title(`Host: §lReSet§r`)
+    form.body(`
+Hey §c@${player.name.toLowerCase().split(' ')[0]}§r,
+This will reset everything to default
+like you download addon first time!`)
+    form.button1(`§4Cancel`)
+    form.button2(`Confirm!`)
+    form.show(player).then((res) => {
+        if (res.selection === 1) {
+            player.sendMessage(`§l§a» §r§fevery setting has been §areset`)
+            player.playSound('random.orb')
+            world.setDynamicProperty('setting', undefined)
+            dataV.map(d => world.setDynamicProperty(d, undefined))
+        }
+    })
+}
+
+/** @param {Player} player */
 const settingHandel = (player, index) => {
     const ID = data[parseInt(index)]
     const ADDON = String(world.getDynamicProperty(ID) || '')
