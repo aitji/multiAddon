@@ -7,19 +7,23 @@
 
 Welcome to the MultiAddon repository! This repo is dedicated to logging files, maintaining file history, and providing changelogs for the MultiAddon, a versatile addon for Minecraft Bedrock Edition. 🏰
 
-<div align="center"><h2> 🌟 Features 🌟</h2></div>
+<div align="right">
+<h2> 🌟 Features 🌟</h2>
+<p>All features can be enabled or disabled as needed. Here's a rundown of what the addon offers:</p>
 
-NOTE: THIS ISN'T UP TO DATE
-
-All features can be enabled or disabled as needed. Here's a rundown of what the addon offers:
-
-- **🔄 Inventory Sharing**: Sync player inventories in real-time. 🎒
-- **❤️ Health Sharing**: Sync player health across the server. 🩹
-- **🌾 Fast Harvest**: Use a hoe to quickly harvest crops and automatically replant seeds. 🚜
-- **📦 Sorting**: A comprehensive chest sorting system. 📚
-- **🔧 Durability Display**: Show item durability. This feature displays the durability on the item's nametag, item lore, and, if held long enough, on the actionbar. ⛏️
-- **🛌 Smooth Sleep**: Allow one player to sleep and smoothly fast-forward the server to daytime. 🌞
-- **💡 Dynamic Light**: Holding a light block creates dynamic lighting. This works with items(entity) in the server and item frames(block entity), ensuring that server light blocks remain intact. 🌟
+<ul>
+  <li><b>🔄 Inventory Sharing</b>: Real-time player inventory sync! 🎒</li>
+  <li><b>❤️ Health Sharing</b>: Sync player health across the server. 🩹</li>
+  <li><b>🌾 Fast Harvest</b>: Quickly harvest crops and replant seeds with a hoe. 🚜</li>
+  <li><b>📦 Sorting</b>: Comprehensive chest sorting system. 📚</li>
+  <li><b>🔧 Durability Display</b>: Show item durability on the actionbar. ⚒️</li>
+  <li><b>💡 Dynamic Light</b>: Dynamic lighting with light blocks in hand or item frames. 🌟</li>
+  <li><b>🔥 Realistic Campfire</b>: Realistic campfire experience! 🔥</li>
+  <li><b>🧟 StackMob</b>: Monster stacker. 🧟</li>
+  <li><b>🤲 snOffhand</b>: Sneak to switch to offhand. (NOW ONLY SUPPORT DYNAMIC LIGHT ITEM) 🤲</li>
+  <li><b>🌐 Float</b>: Display item nametags on the floor and teleport items for faster retrieval. ✨</li>
+</ul>
+</div>
 
 <div align="center"><h2>🔧 Addon Settings</h2></div>
 
@@ -68,4 +72,16 @@ The addon settings can be customized via the in-game menu, as showcased in the s
 >
 > \ (✅) Durability
 >
-> \ ...
+> \ (✅) Float
+>
+> \ (⌛) Harvest
+>
+> \ (⌛) Share Health
+>
+> \ (⌛) Share Inventory
+>
+> \ (⌛) Dynamic Light
+>
+> \ (⌛) sneak to offhand
+>
+> \ (⌛) stackMob
