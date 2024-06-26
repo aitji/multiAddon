@@ -6,6 +6,9 @@ const ID = 'harvest'
 
 world.beforeEvents.playerBreakBlock.subscribe(data => {
     if (!get(ID)) return
+    const DY = world.getDynamicProperty(ID) || `1§:`
+    const [cost] = DY.split('§:') || 1
+
     const { player, itemStack, block } = data
     let id = list.find(it => block.permutation.matches(`minecraft:${it}`))
     if (!itemStack) return
@@ -34,7 +37,7 @@ world.beforeEvents.playerBreakBlock.subscribe(data => {
                         item = AFTER_BREAK
                         player.runCommandAsync(`playsound random.break @a ~~~`)
                         return
-                    } else dur.damage += 1
+                    } else dur.damage += parseFloat(cost)
                     player.dimension.getBlock(block.location).setPermutation(BlockPermutation.resolve(`minecraft:${id}`))
                     equippable?.setEquipment(EquipmentSlot.Mainhand, item)
                 })

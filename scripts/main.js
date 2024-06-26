@@ -97,6 +97,7 @@ ${des.join("\n")}
     form.button(`§lCAMPFIRE§r\n(Addon's Setting)`, `textures/items/campfire`)
     form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
     form.button(`§lFLOATING ITEM§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/bookmark`)
+    form.button(`§lHARVESTING§r\n(Addon's Setting)`) // TODO: ICON
 
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
@@ -176,6 +177,15 @@ const settingHandel = (player, index) => {
                 if (canceled) return
                 if (formValues[1] && !isNum(formValues[2], 1000000, true)) return errorSend(player)
                 done(player, ID, `${formValues[0]}§:${toNum(formValues[1])}§:${formValues[2] || '0'}`)
+            })
+            break
+        case 3:
+            form.textField(`§c§l» §rThis is all §6Harvest§r Setting List\n\n§l1. Enter Durability cost per crop (:1) §c*\n§fvalue could be §anegative§r\n§c[!] MORE THAN 1 MAY THROW-ERROR!`, `Type you perfer durability here`, parts[0] || '1')
+            form.show(player).then(({ canceled, formValues }) => {
+                if (canceled) return
+                const cost = isNum(formValues[0], 1000000, true)
+                if (cost !== false) done(player, ID, `${cost}§:`)
+                else errorSend(player)
             })
             break
         default:
