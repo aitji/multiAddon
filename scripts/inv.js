@@ -1,5 +1,6 @@
 import { world, system, EquipmentSlot } from "@minecraft/server"
 import { get } from "./main"
+import { check } from "./_function"
 
 const equipmentSlots = [EquipmentSlot.Head, EquipmentSlot.Chest, EquipmentSlot.Legs, EquipmentSlot.Feet, EquipmentSlot.Offhand]
 let inventories = []
@@ -93,11 +94,6 @@ function update() {
             }
         }
     }
-}
-
-function check(a, b) {
-    if (a.length !== b.length) return false
-    return a.every(i => b.some((t) => JSON.stringify(i) === JSON.stringify(t)))
 }
 
 function newInv(con, equ_ = false) {

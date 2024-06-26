@@ -4,7 +4,7 @@ import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
 
 const DELAY = 0 /** delay for everything (0 is good) */
-const DECAY_LIGHT_TICK = 10 /** before light when off time (delay*decay) | (3) */
+const DECAY_LIGHT_TICK = 5 /** before light when off time (delay*decay) | (3) */
 const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
 const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
 const ID = 'light'

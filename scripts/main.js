@@ -99,6 +99,7 @@ ${des.join("\n")}
     form.button(`§lFLOATING ITEM§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/bookmark`)
     form.button(`§lHARVESTING§r\n(Addon's Setting)`) // TODO: ICON
     form.button(`§lHELATH SHARE\n(Addon's Setting)`)
+    form.button(`§lDYNAMIC-LIGHT\n(Addon's Setting)`)
 
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
@@ -181,7 +182,7 @@ const settingHandel = (player, index) => {
             })
             break
         case 3:
-            form.textField(`§c§l» §rThis is all §6Harvest§r Setting List\n\n§l1. Enter Durability cost per crop (:1) §c*\n§fvalue could be §anegative§r\n§c[!] MORE THAN 1 MAY THROW-ERROR!`, `Type you perfer durability here`, parts[0] || '1')
+            form.textField(`§c§l» §rThis is all §6Harvest§r Setting List\n\n§l1. §rEnter Durability cost per crop (:1) §c*\n§fvalue could be §anegative§r\n§c[!] MORE THAN 1 MAY THROW-ERROR!`, `Type you perfer durability here`, parts[0] || '1')
             form.show(player).then(({ canceled, formValues }) => {
                 if (canceled) return
                 const cost = isNum(formValues[0], 1000000, true)
@@ -190,12 +191,22 @@ const settingHandel = (player, index) => {
             })
             break
         case 4:
-            form.textField(`§c§l» §rThis is all §4HEALTH SHARE§r Setting List\n\n§l1. Enter ded message Format\nEXAMPLE: §7{ded} just did a oop§r\n{ded} player that die\n{name} player that saw message name\n{cause} - cause that make they die`, `Type you perfer die format here`, parts[0] || '§7{name} just did a oop')
+            form.textField(`§c§l» §rThis is all §4HEALTH SHARE§r Setting List\n\n§l1. §rEnter ded message Format \nEXAMPLE: §7{ded} just did a oop§r\n{ded} player that die\n{name} player that saw message name\n{cause} - cause that make they die`, `Type you perfer die format here`, parts[0] || '§7{name} just did a oop')
             form.toggle(`one player §cdie§r, and §call player die §c*`, (parts[1] === '1') || true)
             form.toggle(`playsound when someone hurt §c*`, (parts[2] === '1') || true)
             form.show(player).then(({ canceled, formValues }) => {
                 if (canceled) return
                 done(player, ID, `${formValues[0]}§:${toNum(formValues[1])}§:${toNum(formValues[2])}`)
+            })
+            break
+        case 5:
+            // DELAY
+            form.textField("§e§l» §rThis page provide a §eDynamic Light§r setting (:0)\n§l1. §rDELAY §c*\n§7this will gonna delay loop §ltick§r", parts[0] || '0')
+            form.textField("§l2. §rDECAY_LIGHT_TICK (:5) §c*\n§7the delay before light dispeared (DELAY will affect to this setting too)", parts[1] || '5')
+            form.textField("§l2. §rREDUCE_LIGHT (:0.8) §c*\n§7it is (normal_light * reduce_light) so 1 is will be normal light recommed is 0.8", parts[1] || '0.8')
+            form.show(player).then(({ canceled, formValues }) => {
+                if (canceled) return
+                player.sendMessage('not done yet')
             })
             break
         default:
