@@ -197,6 +197,6 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 
 <br>
 
-<h3>Q: Inventory Share remove/duplicate item, anyway plan to fix<h3>
+<h3>Q: Inventory Share remove/duplicate item, anyway plan to fix</h3>
 <p>A: Sadly no, i didn't figure how do i fix it, while i playing with my friends it little dupe/remove item too, it up to all player internet speed, and their devices performance</p>
 </div>
