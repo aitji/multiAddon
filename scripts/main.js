@@ -98,6 +98,7 @@ ${des.join("\n")}
     form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
     form.button(`§lFLOATING ITEM§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/bookmark`)
     form.button(`§lHARVESTING§r\n(Addon's Setting)`) // TODO: ICON
+    form.button(`§lHELATH SHARE\n(Addon's Setting)`)
 
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
@@ -176,7 +177,7 @@ const settingHandel = (player, index) => {
             form.show(player).then(({ canceled, formValues }) => {
                 if (canceled) return
                 if (formValues[1] && !isNum(formValues[2], 1000000, true)) return errorSend(player)
-                done(player, ID, `${formValues[0]}§:${toNum(formValues[1])}§:${formValues[2] || '0'}`)
+                done(player, ID, `${formValues[0] || ''}§:${toNum(formValues[1])}§:${formValues[2] || '0'}`)
             })
             break
         case 3:
@@ -186,6 +187,15 @@ const settingHandel = (player, index) => {
                 const cost = isNum(formValues[0], 1000000, true)
                 if (cost !== false) done(player, ID, `${cost}§:`)
                 else errorSend(player)
+            })
+            break
+        case 4:
+            form.textField(`§c§l» §rThis is all §4HEALTH SHARE§r Setting List\n\n§l1. Enter ded message Format\nEXAMPLE: §7{ded} just did a oop§r\n{ded} player that die\n{name} player that saw message name\n{cause} - cause that make they die`, `Type you perfer die format here`, parts[0] || '§7{name} just did a oop')
+            form.toggle(`one player §cdie§r, and §call player die §c*`, (parts[1] === '1') || true)
+            form.toggle(`playsound when someone hurt §c*`, (parts[2] === '1') || true)
+            form.show(player).then(({ canceled, formValues }) => {
+                if (canceled) return
+                done(player, ID, `${formValues[0]}§:${toNum(formValues[1])}§:${toNum(formValues[2])}`)
             })
             break
         default:
