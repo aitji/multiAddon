@@ -139,7 +139,7 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
     </tr>
     <tr>
       <td>Module-specific settings</td>
-      <td>(🔥)</td>
+      <td>(⌛)</td>
     </tr>
     <tr>
       <td>Campfire settings</td>
@@ -155,27 +155,27 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
     </tr>
     <tr>
       <td>- Harvest settings</td>
-      <td>(⌛)</td>
+      <td>(✅)</td>
     </tr>
     <tr>
       <td>- Share Health settings</td>
-      <td>(⌛)</td>
+      <td>(✅)</td>
     </tr>
     <tr>
       <td>- Share Inventory settings</td>
-      <td>(⌛)</td>
+      <td>(🔥)</td>
     </tr>
     <tr>
       <td>- Dynamic Light settings</td>
-      <td>(⌛)</td>
+      <td>(🔥)</td>
     </tr>
     <tr>
       <td>- Sneak to offhand settings</td>
-      <td>(⌛)</td>
+      <td>(🔥)</td>
     </tr>
     <tr>
       <td>- StackMob settings</td>
-      <td>(⌛)</td>
+      <td>(🔥)</td>
     </tr>
   </tbody>
 </table>
