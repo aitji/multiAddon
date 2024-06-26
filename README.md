@@ -189,3 +189,9 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 > Please read the <a href="LICENSE">LICENSE</a> for information about usage rights and restrictions. 📄
 >
 > <div align="left"><img src=image/feature-imadethis.png></div>
+
+<div align="right">
+<h2>❔ FAQs</h2>
+<p>Q: I lost addon setting, How do I do?<p>
+<p>A: You can crafted it with paper and redstone</p>
+</div>
