@@ -192,6 +192,9 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 
 <div align="right">
 <h2>❔ FAQs</h2>
-<p>Q: I lost addon setting, How do I do?<p>
+<p>Q: I lost addon setting, How do I do?<br>
 <p>A: You can crafted it with paper and redstone</p>
+<br>
+<p>Q: Inventory Share remove/duplicate item, anyway plan to fix<p>
+<p>A: Sadly no, i didn't figure how do i fix it, while i playing with my friends it little dupe/remove item too, it up to all player internet speed, and their devices performance</p>
 </div>
