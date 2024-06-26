@@ -197,6 +197,20 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 
 <br>
 
-<h3>Q: Inventory Share remove/duplicate item, anyway plan to fix</h3>
+<h3>Q: Inventory Share remove/duplicate item, anyway plan to fix?</h3>
 <p>A: Sadly no, i didn't figure how do i fix it, while i playing with my friends it little dupe/remove item too, it up to all player internet speed, and their devices performance</p>
+
+<br>
+
+<h3>Q: Can I setting thing inside module?</h3>
+<p>A: Well it currently depends what thing you want to change, this addon i make to play with friends so something you didn't like you could change it, you may look in game change first before change it in addon, but if inside that didn't fit on you wish you could do this way here is how</p>
+<p>First: open you addon folder and go to path and open YOU MODULE that you want to change thing</p>
+```
+Multi Addon:
+ | manifest.json
+ | scripts
+   | YOU_MODULE_NAME.js
+```
+
+and change it on you style
 </div>
