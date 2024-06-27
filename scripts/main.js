@@ -200,13 +200,18 @@ const settingHandel = (player, index) => {
             })
             break
         case 5:
-            // DELAY
-            form.textField("§e§l» §rThis page provide a §eDynamic Light§r setting (:0)\n§l1. §rDELAY §c*\n§7this will gonna delay loop §ltick§r", parts[0] || '0')
+            form.textField("§e§l» §rThis page provide a §eDynamic Light§r setting (:0)\n§l1. §rDELAY §c*\n§7this will gonna delay loop §ltick§r\n§cthis request to reload for make it working!", parts[0] || '0')
             form.textField("§l2. §rDECAY_LIGHT_TICK (:5) §c*\n§7the delay before light dispeared (DELAY will affect to this setting too)", parts[1] || '5')
-            form.textField("§l2. §rREDUCE_LIGHT (:0.8) §c*\n§7it is (normal_light * reduce_light) so 1 is will be normal light recommed is 0.8", parts[1] || '0.8')
+            form.textField("§l3. §rREDUCE_LIGHT (:0.8) §c*\n§7it is (normal_light * reduce_light) so 1 is will be normal light recommed is 0.8", parts[2] || '0.8')
+            form.textField("§l4. §rENTITY_RENDER_DISTANT_BLOCK (:32) §c*\n§7how far the entity light(item/item frame) will load the light", parts[3] || '32')
             form.show(player).then(({ canceled, formValues }) => {
                 if (canceled) return
-                player.sendMessage('not done yet')
+                const DELAY = isNum(formValues[0], 1000000, true)
+                const DECAY_LIGHT_TICK = isNum(formValues[1], 1000000, true)
+                const REDUCE_LIGHT = isNum(formValues[2], 1000000, true)
+                const ENTITY_RENDER_DISTANT_BLOCK = isNum(formValues[3], 1000000, true)
+                if (DELAY === false || DECAY_LIGHT_TICK === false || REDUCE_LIGHT === false || ENTITY_RENDER_DISTANT_BLOCK === false) errorSend(player)
+                else done(player, ID, `${DELAY}§:${DECAY_LIGHT_TICK}§:${REDUCE_LIGHT}§:${ENTITY_RENDER_DISTANT_BLOCK}`)
             })
             break
         default:
@@ -218,6 +223,7 @@ const settingHandel = (player, index) => {
 
 const done = (player, ID = '', val = undefined) => {
     world.setDynamicProperty(ID, val)
+
     player.sendMessage(`§l§a» §r§f${ID} was successfully saved! §7(${clean(val?.split("§:").join(", "))})`)
     player.playSound('random.orb')
 }

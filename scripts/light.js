@@ -2,15 +2,18 @@ import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, Blo
 import { DEBUG, isFrame, light } from "./_function"
 import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
+const DY = world.getDynamicProperty(ID) || `{ded} just did a oop!§:1§:1`
+const [v, _, _2, _3] = DY.split('§:')
 
-const DELAY = 0 /** delay for everything (0 is good) */
-const DECAY_LIGHT_TICK = 5 /** before light when off time (delay*decay) | (3) */
-const REDUCE_LIGHT = 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
-const ENTITY_RENDER_DISTANT_BLOCK = 32 /** block that entity load from player (32) */
+const DELAY = parseFloat(v || '0') || 0 /** delay for everything (0 is good) */
 const ID = 'light'
 
 /** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {
+    const DY = world.getDynamicProperty(ID) || `{ded} just did a oop!§:1§:1`
+    const [v, v2, v3, v4] = DY.split('§:')
+    const REDUCE_LIGHT = parseFloat(v3 || '0.8') || 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
+    const ENTITY_RENDER_DISTANT_BLOCK = parseFloat(v4 || '32') || 32 /** block that entity load from player (32) */
     try {
         if (isPlayer) {
             en.dimension.getEntities({
@@ -49,6 +52,11 @@ const processEntity = (en, isPlayer = false) => {
 }
 
 system.runInterval(() => {
+    const DY = world.getDynamicProperty(ID) || `{ded} just did a oop!§:1§:1`
+    const [_, _2, v3, v4] = DY.split('§:')
+
+    const REDUCE_LIGHT = parseFloat(v3 || '0.8') || 0.8 /** lightLevel * REDUCE_LIGHT | (0.8) */
+    const ENTITY_RENDER_DISTANT_BLOCK = parseFloat(v4 || '32') || 32 /** block that entity load from player (32) */
     if (get(ID)) world.getAllPlayers().forEach(pl => {
         processEntity(pl, true)
         const entity = pl.dimension.getEntities(
@@ -171,6 +179,10 @@ system.runInterval(() => {
 
 /** @param {Block} block @param {Number} level @param {Player} pl @param {boolean} force   */
 function put_light(block, level, pl, force = false) {
+    const DY = world.getDynamicProperty(ID) || `{ded} just did a oop!§:1§:1`
+    const [v, v2, v3, v4] = DY.split('§:')
+
+    const DECAY_LIGHT_TICK = parseFloat(v2 || '5') || 5 /** before light when off time (delay*decay) | (3) */
     try {
         let set = `light:${block.dimension.id.split(":")[1]}:${block.location.x}:${block.location.y}:${block.location.z}:${level}:${block.permutation.matches("minecraft:water")}:${force ? pl : (pl.id || pl.name || pl.nameTag || pl.typeId)}`
         if (!world.getDynamicProperty(set) && block.permutation.matches("minecraft:light_block")) return
