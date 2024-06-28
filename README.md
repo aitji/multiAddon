@@ -206,7 +206,8 @@ Welcome to the MultiAddon repository! This repo is dedicated to logging files, m
 <p>A: Well it currently depends what thing you want to change, this addon i make to play with friends so something you didn't like you could change it, you may look in game change first before change it in addon, but if inside that didn't fit on you wish you could do this way here is how</p>
 <p>First: open you addon folder and go to path and open YOU MODULE that you want to change thing</p>
 </div>
-```
+
+```txt
 Multi Addon:
  | manifest.json
  | scripts
