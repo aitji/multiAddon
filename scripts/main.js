@@ -14,26 +14,16 @@ const dataSet = {
      * Addon:
      *  Label
     */
-    'campfire': //0
-        'Lit Campfire',
-    'durability':
-        'Tool Durability',
-    'float':
-        'Floating ItemName',
-    'harvest':
-        'Hoe to Harvest',
-    'hp':
-        'Sync Health',
-    'inv':
-        'Sync Inv',
-    'light':
-        'Dynamic Light',
-    'sort':
-        'Stick Sort',
-    'snOffhand':
-        'sneak to offhand',
-    'stackMob': // 9
-        'stackMob'
+    'campfire': 'Lit Campfire',
+    'durability': 'Tool Durability',
+    'float': 'Floating ItemName',
+    'harvest': 'Hoe to Harvest',
+    'hp': 'Sync Health',
+    'inv': 'Sync Inv',
+    'light': 'Dynamic Light',
+    'sort': 'Stick Sort',
+    'snOffhand': 'sneak to offhand',
+    'stackMob': 'stackMob'
 }
 const data = Object.keys(dataSet)
 const dataV = Object.values(dataSet)
@@ -97,9 +87,9 @@ ${des.join("\n")}
     form.button(`§lCAMPFIRE§r\n(Addon's Setting)`, `textures/items/campfire`)
     form.button(`§lDURABILITY§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/csb_sidebar_icon`)
     form.button(`§lFLOATING ITEM§r\n(Addon's Setting)`, `textures/ui/sidebar_icons/bookmark`)
-    form.button(`§lHARVESTING§r\n(Addon's Setting)`) // TODO: ICON
-    form.button(`§lHELATH SHARE\n(Addon's Setting)`)
-    form.button(`§lDYNAMIC-LIGHT\n(Addon's Setting)`)
+    form.button(`§lHARVESTING§r\n(Addon's Setting)`)
+    form.button(`§lHELATH SHARE§r\n(Addon's Setting)`)
+    form.button(`§lDYNAMIC-LIGHT§r\n(Addon's Setting)`)
 
     // dataV.forEach((label, i) => form.button(`§l${label}§r\n(Addon's Setting)`))
     form.show(player).then((res) => {
