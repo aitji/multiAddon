@@ -2,11 +2,10 @@ import { ItemStack, world, system, EntityEquippableComponent, EquipmentSlot, Blo
 import { DEBUG, isFrame, light } from "./_function"
 import { get } from "./main"
 // https://minecraft.wiki/w/Light#Light-emitting_blocks
+const ID = 'light'
 const DY = world.getDynamicProperty(ID) || `{ded} just did a oop!§:1§:1`
 const [v, _, _2, _3] = DY.split('§:')
-
 const DELAY = parseFloat(v || '0') || 0 /** delay for everything (0 is good) */
-const ID = 'light'
 
 /** @param {Player} en */
 const processEntity = (en, isPlayer = false) => {

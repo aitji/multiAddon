@@ -8,7 +8,7 @@ if (DEBUG) world.sendMessage(`§c* WARNING, you're enable debug mode please disa
 if (TPS_DISPLAY) world.sendMessage(`§c* WARNING, you're enable TPS DISPLAY mode please disable before publish!`)
 
 /** @param {String} id 'campfire', 'durability', 'float', 'harvest', 'hp', 'inv', 'light', 'sort', 'snOffhand' @returns {Boolean} */
-export const get = id => getSetting()[data.indexOf(id)] === '1'
+export const get = (id) => getSetting()[data.indexOf(id)] === '1'
 const dataSet = {
     /** ID
      * Addon:
@@ -29,7 +29,12 @@ const data = Object.keys(dataSet)
 const dataV = Object.values(dataSet)
 const isBool = (int) => parseInt(int) == 1
 const toNum = (bool) => bool ? 1 : 0
-async function importer() { for (const name of data.slice(0, getSetting().length)) await import(`./${name}.js`) }
+async function importer() {
+    for (const name of data.slice(0, getSetting().length)) {
+        try { await import(`./${name}.js`) }
+        catch (e) { console.warn(`from: ${name}.js: ${e}`) }
+    }
+}
 import "./actionbar.js"
 importer() // import other file
 
