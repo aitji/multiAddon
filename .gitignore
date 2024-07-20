@@ -3,4 +3,4 @@ package*
 
 *.mcpack
 *.zip
-test.*
+test*.*
